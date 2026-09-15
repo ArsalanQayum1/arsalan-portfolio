@@ -12,8 +12,6 @@ import Terminal from '../components/Terminal';
 import Contact from '../components/Contact';
 import ResumeModal from '../components/ResumeModal';
 
-export const dynamic = 'force-dynamic';
-
 export default function HomePage() {
   return (
     <main className="min-h-screen">
@@ -58,7 +56,7 @@ export default function HomePage() {
             <div style={{ color: 'var(--text-secondary)', fontSize: '0.9rem' }}>DevOps &amp; Cloud Architect — Arsalan Qayum</div>
           </div>
           <div style={{ fontSize: '0.85rem', color: 'var(--text-muted)' }}>
-            © 2026 Arsalan Qayum. Native Next.js 14 App Router Architecture.
+            © 2026 Arsalan Qayum. Native Next.js App Router Architecture.
           </div>
         </div>
       </footer>
