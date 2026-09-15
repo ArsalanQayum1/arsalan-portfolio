@@ -1,0 +1,399 @@
+/* ==========================================================================
+   RESPONSIVE.CSS - Media Queries, Mobile Optimization & Print Styles
+   Arsalan Qayum | DevOps & Cloud Engineer Portfolio
+   ========================================================================== */
+
+/* ==========================================================================
+   1. Large Displays (1200px and down)
+   ========================================================================== */
+@media (max-width: 1200px) {
+  .nav-status-indicator {
+    display: none;
+  }
+  .nav-link {
+    padding: 5px 10px;
+    font-size: 0.82rem;
+  }
+  .pipeline-stepper-nav {
+    grid-template-columns: repeat(5, 1fr);
+  }
+
+  .cicd-pipeline-track {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* ==========================================================================
+   2. Tablets & Medium Screens (1024px and down)
+   ========================================================================== */
+@media (max-width: 1024px) {
+  :root {
+    --navbar-height: 66px;
+  }
+
+  .nav-toggle {
+    display: flex;
+  }
+
+  .nav-menu {
+    position: fixed;
+    top: var(--navbar-height);
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: calc(100vh - var(--navbar-height));
+    background: rgba(7, 11, 20, 0.96);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    flex-direction: column;
+    padding: 24px 20px;
+    gap: 8px;
+    border-radius: 0;
+    border: none;
+    border-top: 1px solid rgba(56, 189, 248, 0.15);
+    transform: translateX(100%);
+    transition: transform var(--transition-smooth);
+    z-index: 999;
+    box-shadow: none;
+    overflow-y: auto;
+  }
+
+  .nav-menu.open {
+    transform: translateX(0);
+  }
+
+  .nav-link {
+    font-size: 1.05rem;
+    padding: 12px 18px;
+    width: 100%;
+    text-align: left;
+    border-radius: var(--radius-md);
+    background: rgba(15, 23, 42, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .nav-link::after {
+    content: '→';
+    font-family: var(--font-mono);
+    opacity: 0.4;
+    transition: opacity var(--transition-fast), transform var(--transition-fast);
+  }
+
+  .nav-link:hover::after,
+  .nav-link.active::after {
+    opacity: 1;
+    transform: translateX(4px);
+    color: var(--accent-cyan-light);
+  }
+
+  .nav-link.active {
+    background: rgba(56, 189, 248, 0.12);
+    border-color: rgba(56, 189, 248, 0.35);
+    color: var(--accent-cyan-light);
+  }
+
+  .mobile-nav-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(148, 163, 184, 0.12);
+    width: 100%;
+  }
+
+  .mobile-nav-actions .w-100 {
+    width: 100%;
+    justify-content: center;
+    padding: 12px;
+  }
+
+  .mobile-nav-socials {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 8px;
+    font-family: var(--font-mono);
+    font-size: 0.88rem;
+    color: var(--text-muted);
+  }
+
+  .mobile-social-link {
+    color: var(--accent-cyan-light);
+    text-decoration: none;
+    transition: color var(--transition-fast);
+  }
+
+  .mobile-social-link:hover {
+    color: #ffffff;
+    text-decoration: underline;
+  }
+
+  .sep {
+    color: rgba(148, 163, 184, 0.3);
+  }
+
+  .nav-cta {
+    display: none;
+  }
+}
+
+/* ==========================================================================
+   3. Tablets (992px and down)
+   ========================================================================== */
+@media (max-width: 992px) {
+  .hero-content {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .hero-text-col {
+    align-items: center;
+    text-align: center;
+  }
+
+  .hero-pills-cluster {
+    justify-content: center;
+  }
+
+  .hero-pitch {
+    margin-left: auto;
+    margin-right: auto;
+    border-left: none;
+    border-top: 2px solid rgba(56, 189, 248, 0.35);
+    padding-left: 0;
+    padding-top: 14px;
+  }
+
+  .hero-actions {
+    justify-content: center;
+  }
+
+  .hero-socials {
+    justify-content: center;
+  }
+
+  .about-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .principles-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .cloud-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .learning-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-card-box {
+    grid-template-columns: 1fr;
+    gap: 36px;
+    padding: 32px;
+  }
+
+  .pipeline-detail-box {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ==========================================================================
+   4. Mobile Screens (768px and down)
+   ========================================================================== */
+@media (max-width: 768px) {
+  .section {
+    padding: 70px 0;
+  }
+  }
+
+  .nav-cta {
+    display: none;
+  }
+
+  .stats-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .principles-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .pipeline-stepper-nav {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .cicd-pipeline-track {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .exploring-tags-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .about-focus-list {
+    grid-template-columns: 1fr;
+  }
+
+  .exp-banner-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .skills-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .toolbox-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .footer-top {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+/* ==========================================================================
+   4. Extra Small Devices (480px and down)
+   ========================================================================== */
+@media (max-width: 480px) {
+  .hero-name {
+    font-size: 2.3rem;
+  }
+
+  .hero-role {
+    font-size: 1.2rem;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .hero-actions {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .hero-actions .btn {
+    width: 100%;
+  }
+
+  .pipeline-stepper-nav {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .cicd-pipeline-track {
+    grid-template-columns: 1fr;
+  }
+
+  .toolbox-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .contact-card-box {
+    padding: 24px 18px;
+  }
+}
+
+/* ==========================================================================
+   5. Accessibility: Prefers-Reduced-Motion Support
+   ========================================================================== */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  #network-canvas {
+    display: none !important;
+  }
+
+  .status-dot::after {
+    animation: none !important;
+  }
+
+  .cicd-stage-card.status-running {
+    animation: none !important;
+  }
+
+  .radar-dot {
+    animation: none !important;
+  }
+}
+
+/* ==========================================================================
+   6. Print Stylesheet (Clean ATS-ready CV printout)
+   ========================================================================== */
+@media print {
+  body {
+    background: #ffffff !important;
+    color: #111827 !important;
+  }
+
+  #network-canvas,
+  .bg-grid-pattern,
+  .navbar,
+  .hero-actions,
+  .skills-controls,
+  .cicd-simulator-box,
+  .terminal-wrapper,
+  .contact-form,
+  .toast-box,
+  .footer,
+  .modal-header-actions {
+    display: none !important;
+  }
+
+  .app-wrapper {
+    display: block !important;
+  }
+
+  .glass-card, .exp-company-banner, .skill-card, .project-card, .resume-sheet {
+    background: transparent !important;
+    border: 1px solid #d1d5db !important;
+    color: #111827 !important;
+    box-shadow: none !important;
+  }
+
+  h1, h2, h3, h4, .resume-name, .exp-title-group h3, .project-title {
+    color: #111827 !important;
+    -webkit-text-fill-color: initial !important;
+  }
+
+  p, span, .text-secondary, .exp-task-item {
+    color: #374151 !important;
+  }
+
+  a {
+    color: #0284c7 !important;
+    text-decoration: underline !important;
+  }
+
+  .badge, .status-badge, .tool-tag, .flow-step-badge {
+    border: 1px solid #9ca3af !important;
+    background: #f3f4f6 !important;
+    color: #111827 !important;
+  }
+}

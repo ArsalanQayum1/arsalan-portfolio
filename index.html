@@ -1,0 +1,2278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Arsalan Qayum | DevOps & Cloud Engineer</title>
+  <meta name="description" content="Portfolio of Arsalan Qayum, a DevOps and Cloud Engineer specializing in cloud infrastructure, CI/CD automation, Docker, Linux, monitoring and reliable deployments.">
+  <meta name="keywords" content="Arsalan Qayum, DevOps Engineer, Cloud Engineer, AWS, Azure, CI/CD, Jenkins, Docker, Linux, Prometheus, Grafana, Loki, Proxmox, Automation">
+  <meta name="author" content="Arsalan Qayum">
+  
+  <!-- Open Graph / Meta -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://arsalanqayum.dev/">
+  <meta property="og:title" content="Arsalan Qayum | DevOps & Cloud Engineer">
+  <meta property="og:description" content="Automating Infrastructure. Accelerating Deployments. Building Reliable Systems.">
+  <meta property="og:image" content="assets/images/og-preview.png">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%230b1120'/><path d='M30 65 L48 35 L66 65 Z' fill='none' stroke='%2306b6d4' stroke-width='8'/><circle cx='48' cy='48' r='7' fill='%2338bdf8'/></svg>">
+
+  <!-- Google Fonts Preconnect & Market Standard Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+  <!-- Canvas Background for Cloud Nodes & Data Packets -->
+  <canvas id="network-canvas" aria-hidden="true"></canvas>
+  <div class="bg-grid-pattern" aria-hidden="true"></div>
+
+  <!-- Primary Application Wrapper -->
+  <div class="app-wrapper">
+
+    <!-- ==========================================================================
+         Sticky Glass Navigation Bar
+         ========================================================================== -->
+    <header class="navbar" id="navbar">
+      <div class="navbar-top-line" aria-hidden="true"></div>
+      <div class="container navbar-container">
+        
+        <!-- Brand Logo & Live Pulse -->
+        <a href="#home" class="brand-logo" id="nav-brand-link">
+          <span class="brand-badge">AQ</span>
+          <div class="brand-info">
+            <span class="brand-text">ARSALAN<span>.DEVOPS</span></span>
+            <span class="brand-subtext">DevOps &amp; Cloud</span>
+          </div>
+          <span class="nav-status-indicator" title="Infrastructure Status: 100% Operational">
+            <span class="status-pulse-dot"></span>
+            <span class="status-pulse-text">Operational</span>
+          </span>
+        </a>
+
+        <!-- Mobile Navigation Animated Hamburger Toggle -->
+        <button class="nav-toggle" id="nav-toggle" aria-label="Toggle Navigation Menu" aria-expanded="false">
+          <span class="hamburger-box">
+            <span class="hamburger-bar bar-1"></span>
+            <span class="hamburger-bar bar-2"></span>
+            <span class="hamburger-bar bar-3"></span>
+          </span>
+        </button>
+
+        <!-- Centered Floating Pill Navigation Dock -->
+        <nav class="nav-menu" id="nav-menu" role="navigation">
+          <a href="#home" class="nav-link active">Home</a>
+          <a href="#about" class="nav-link">About</a>
+          <a href="#experience" class="nav-link">Experience</a>
+          <a href="#skills" class="nav-link">Skills</a>
+          <a href="#architecture" class="nav-link">Architecture</a>
+          <a href="#projects" class="nav-link">Projects</a>
+          <a href="#cloud" class="nav-link">Cloud &amp; CI/CD</a>
+          <a href="#terminal" class="nav-link">Terminal</a>
+          <a href="#contact" class="nav-link">Contact</a>
+
+          <!-- Mobile Drawer Exclusive Quick Actions -->
+          <div class="mobile-nav-actions">
+            <button class="btn btn-secondary btn-sm btn-open-resume w-100" id="mobile-nav-resume-btn">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>
+              View Full CV / Resume
+            </button>
+            <a href="#contact" class="btn btn-primary btn-sm w-100" id="mobile-nav-contact-btn">
+              Get In Touch
+            </a>
+            <div class="mobile-nav-socials">
+              <a href="https://linkedin.com/in/arsalan-qayum-19a429225" target="_blank" rel="noopener" class="mobile-social-link">LinkedIn</a>
+              <span class="sep">•</span>
+              <a href="https://github.com" target="_blank" rel="noopener" class="mobile-social-link">GitHub</a>
+              <span class="sep">•</span>
+              <a href="mailto:arsalanqayum09@gmail.com" class="mobile-social-link">Email</a>
+            </div>
+          </div>
+        </nav>
+
+        <!-- Desktop Right Action Cluster -->
+        <div class="nav-cta">
+          <a href="https://github.com" target="_blank" rel="noopener" class="nav-icon-link" aria-label="GitHub Profile" title="GitHub Profile">
+            <svg viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.1-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2z"/></svg>
+          </a>
+          <a href="https://linkedin.com/in/arsalan-qayum-19a429225" target="_blank" rel="noopener" class="nav-icon-link" aria-label="LinkedIn Profile" title="LinkedIn Profile">
+            <svg viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.2V10.9H6.46M7.83 6.45c-.89 0-1.61.72-1.61 1.61 0 .89.72 1.61 1.61 1.61.89 0 1.61-.72 1.61-1.61 0-.89-.72-1.61-1.61-1.61z"/></svg>
+          </a>
+          
+          <div class="nav-cta-divider" aria-hidden="true"></div>
+
+          <button class="btn btn-secondary btn-sm btn-open-resume" id="nav-resume-btn" title="View Printable ATS Resume">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>
+            <span>Resume</span>
+          </button>
+          
+          <a href="#contact" class="btn btn-primary btn-sm nav-btn-contact" id="nav-contact-btn">
+            <span>Get In Touch</span>
+          </a>
+        </div>
+
+      </div>
+    </header>
+
+    <main id="main-content">
+      <!-- ==========================================================================
+           Hero Section
+           ========================================================================== -->
+      <section class="section hero-section" id="home">
+        <div class="container">
+          <div class="hero-content">
+            <div class="hero-text-col">
+              
+              <!-- Clean Aligned Status Pill -->
+              <div class="status-badge" id="hero-status-badge">
+                <span class="status-dot"></span>
+                <span>Available for DevOps / Cloud Opportunities</span>
+                <span class="badge-separator">|</span>
+                <span class="status-loc">Pakistan</span>
+              </div>
+
+              <h1 class="hero-name">ARSALAN QAYUM</h1>
+              
+              <div class="hero-role-wrapper">
+                <span class="hero-role-title">DevOps / Cloud Architect & Engineer</span>
+                <div class="hero-pills-cluster">
+                  <span class="hero-role-pill">AWS</span>
+                  <span class="hero-role-pill">Azure</span>
+                  <span class="hero-role-pill">Proxmox</span>
+                  <span class="hero-role-pill">Linux</span>
+                  <span class="hero-role-pill">CI/CD</span>
+                </div>
+              </div>
+
+              <div class="hero-tagline mono-text">
+                "Automating Infrastructure. Accelerating Deployments. Building Reliable Systems."
+              </div>
+
+              <p class="hero-pitch">
+                Building scalable infrastructure, automating deployments, and delivering reliable cloud-native systems. Hands-on experience across AWS, Azure, Linux servers, Docker environments, and high-availability monitoring.
+              </p>
+
+              <div class="hero-actions">
+                <a href="#projects" class="btn btn-primary" id="hero-view-work-btn">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M4 6H2v14c0 1.1.9 2 2 2h14v-2H4V6zm16-4H8c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H8V4h12v12z"/></svg>
+                  View My Work
+                </a>
+                <button class="btn btn-secondary btn-open-resume" id="hero-download-resume-btn">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>
+                  Download Resume
+                </button>
+                <a href="#contact" class="btn btn-secondary" id="hero-contact-btn">
+                  Contact Me
+                </a>
+              </div>
+
+              <div class="hero-socials">
+                <span class="hero-social-label mono-text">Direct Connect //</span>
+                <a href="https://linkedin.com/in/arsalan-qayum-19a429225" target="_blank" rel="noopener" class="btn-icon" aria-label="LinkedIn Profile" id="hero-social-linkedin" title="LinkedIn Profile">
+                  <svg viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.2V10.9H6.46M7.83 6.45c-.89 0-1.61.72-1.61 1.61 0 .89.72 1.61 1.61 1.61.89 0 1.61-.72 1.61-1.61 0-.89-.72-1.61-1.61-1.61z"/></svg>
+                </a>
+                <a href="tel:03015642176" class="btn-icon" aria-label="Phone / WhatsApp" id="hero-social-phone" title="Call / WhatsApp: 03015642176">
+                  <svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+                </a>
+                <a href="mailto:arsalanqayum09@gmail.com" class="btn-icon" aria-label="Email Address" id="hero-social-email" title="Email: arsalanqayum09@gmail.com">
+                  <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                </a>
+              </div>
+            </div>
+
+            <!-- Hero DevOps Animated Visual Column -->
+            <div class="hero-visual-col">
+              <div class="hero-visual-card">
+                <div class="hero-visual-header">
+                  <div class="window-dots">
+                    <span class="window-dot dot-red"></span>
+                    <span class="window-dot dot-yellow"></span>
+                    <span class="window-dot dot-green"></span>
+                  </div>
+                  <div class="visual-title">pipeline-topology-orchestrator.yaml</div>
+                  <div class="visual-pulse-tag">
+                    <span class="status-dot"></span> LIVE
+                  </div>
+                </div>
+
+                <div class="hero-pipeline-flow">
+                  <!-- Flow Node 1: Dev -->
+                  <div class="flow-node-item">
+                    <div class="node-left">
+                      <div class="node-icon-box">
+                        <svg viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
+                      </div>
+                      <div class="node-title-group">
+                        <h4>Developer Workspace</h4>
+                        <span>Feature Branch Commit</span>
+                      </div>
+                    </div>
+                    <span class="badge badge-production">Source</span>
+                  </div>
+
+                  <div class="node-connector-line"></div>
+
+                  <!-- Flow Node 2: Git & Jenkins -->
+                  <div class="flow-node-item">
+                    <div class="node-left">
+                      <div class="node-icon-box" style="color: #38bdf8;">
+                        <svg viewBox="0 0 24 24"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg>
+                      </div>
+                      <div class="node-title-group">
+                        <h4>Git Repo & Jenkins CI</h4>
+                        <span>Webhook & Automated Testing</span>
+                      </div>
+                    </div>
+                    <span class="badge badge-hands-on">Jenkins</span>
+                  </div>
+
+                  <div class="node-connector-line"></div>
+
+                  <!-- Flow Node 3: Docker -->
+                  <div class="flow-node-item">
+                    <div class="node-left">
+                      <div class="node-icon-box" style="color: #22d3ee;">
+                        <svg viewBox="0 0 24 24"><path d="M13 13v-2h2v2h-2zm-3 0v-2h2v2h-2zm-3 0v-2h2v2H7zm9-3V8h2v2h-2zm-3 0V8h2v2h-2zm-3 0V8h2v2h-2zm-3 0V8h2v2H7zm-3 0V8h2v2H4zm17.5 1.5c-.3-.2-1.3-.7-2.7-.2-.2-.6-.6-1.1-1.1-1.5-.3-.2-.7-.4-1.2-.4h-1.5v4.5H2c-.5 0-1 .4-1 1 0 3.3 2.7 6.1 6.1 6.1 4.5 0 8.3-2.9 9.6-7 .9.1 1.7-.1 2.3-.5.9-.6 1.4-1.3 1.5-1.5z"/></svg>
+                      </div>
+                      <div class="node-title-group">
+                        <h4>Docker Packaging</h4>
+                        <span>Multi-stage Container Builds</span>
+                      </div>
+                    </div>
+                    <span class="badge badge-production">Containers</span>
+                  </div>
+
+                  <div class="node-connector-line"></div>
+
+                  <!-- Flow Node 4: Cloud & Servers -->
+                  <div class="flow-node-item">
+                    <div class="node-left">
+                      <div class="node-icon-box" style="color: #f59e0b;">
+                        <svg viewBox="0 0 24 24"><path d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96z"/></svg>
+                      </div>
+                      <div class="node-title-group">
+                        <h4>Cloud Infrastructure</h4>
+                        <span>AWS, Azure & Linux Nodes</span>
+                      </div>
+                    </div>
+                    <span class="badge badge-experienced">Multi-Cloud</span>
+                  </div>
+
+                  <div class="node-connector-line"></div>
+
+                  <!-- Flow Node 5: Observability -->
+                  <div class="flow-node-item">
+                    <div class="node-left">
+                      <div class="node-icon-box" style="color: #34d399;">
+                        <svg viewBox="0 0 24 24"><path d="M3 13h2v-2H3v2zm0 4h2v-2H3v2zm0-8h2V7H3v2zm4 4h14v-2H7v2zm0 4h14v-2H7v2zM7 7v2h14V7H7z"/></svg>
+                      </div>
+                      <div class="node-title-group">
+                        <h4>Monitoring & Logs</h4>
+                        <span>Prometheus, Grafana & Loki</span>
+                      </div>
+                    </div>
+                    <span class="badge badge-production">Telemetry</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Live KPI Stats Grid -->
+          <div class="stats-grid" id="stats">
+            <div class="stat-card">
+              <div class="stat-icon">
+                <svg viewBox="0 0 24 24"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>
+              </div>
+              <div class="stat-info">
+                <div class="stat-number" data-target="2" data-suffix="+">2<span>+</span></div>
+                <div class="stat-label">Years of Experience</div>
+                <div class="stat-sub">DevOps & Cloud Engineering</div>
+              </div>
+            </div>
+
+            <div class="stat-card">
+              <div class="stat-icon" style="color: #38bdf8;">
+                <svg viewBox="0 0 24 24"><path d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96z"/></svg>
+              </div>
+              <div class="stat-info">
+                <div class="stat-number" style="font-size: 1.8rem; padding-top: 5px;">AWS + Azure</div>
+                <div class="stat-label">Multi-Cloud Platforms</div>
+                <div class="stat-sub">IaaS, PaaS & Hybrid Systems</div>
+              </div>
+            </div>
+
+            <div class="stat-card">
+              <div class="stat-icon" style="color: #22d3ee;">
+                <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14H9V8h2v8zm4 0h-2V8h2v8z"/></svg>
+              </div>
+              <div class="stat-info">
+                <div class="stat-number" style="font-size: 1.8rem; padding-top: 5px;">Automated</div>
+                <div class="stat-label">CI/CD Deployments</div>
+                <div class="stat-sub">Jenkins & Git Integration</div>
+              </div>
+            </div>
+
+            <div class="stat-card">
+              <div class="stat-icon" style="color: #34d399;">
+                <svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/></svg>
+              </div>
+              <div class="stat-info">
+                <div class="stat-number" style="font-size: 1.8rem; padding-top: 5px;">Production</div>
+                <div class="stat-label">Infrastructure Exp.</div>
+                <div class="stat-sub">Reliable & Observable Systems</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <hr class="section-separator" aria-hidden="true">
+
+      <!-- ==========================================================================
+           About Me Section & DevOps Principles
+           ========================================================================== -->
+      <section class="section" id="about">
+        <div class="container">
+          <div class="section-header">
+            <div class="section-tag">Engineering Mindset</div>
+            <h2 class="section-title">About <span class="gradient-text">Arsalan Qayum</span></h2>
+            <p class="section-description">
+              Committed to eliminating deployment bottlenecks, stabilizing system runtimes, and engineering cloud infrastructure that withstands production workloads.
+            </p>
+          </div>
+
+          <div class="about-grid">
+            <div class="glass-card about-text-card">
+              <h3 style="font-size: 1.5rem; color: #ffffff;">Professional Background</h3>
+              <p>
+                I am a DevOps and Cloud Engineer focused on building reliable infrastructure, automating software delivery, and improving deployment workflows.
+              </p>
+              <p>
+                My experience includes cloud deployments, CI/CD automation, Linux server administration, Docker-based applications, private infrastructure, networking, monitoring, database migrations, and production deployment management.
+              </p>
+              <p>
+                I work across both cloud and on-premises environments and have hands-on experience managing applications, servers, containers, databases, monitoring systems, and deployment pipelines.
+              </p>
+              <p>
+                I enjoy solving infrastructure problems, automating repetitive processes, improving reliability, and helping development teams deliver applications faster and more safely.
+              </p>
+            </div>
+
+            <div class="glass-card about-highlights-card">
+              <h3 style="font-size: 1.5rem; color: #ffffff; margin-bottom: 12px;">Core Operational Focus</h3>
+              <div class="about-focus-list">
+                <div class="focus-item">
+                  <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                  <span>DevOps Engineering</span>
+                </div>
+                <div class="focus-item">
+                  <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                  <span>Cloud Infrastructure</span>
+                </div>
+                <div class="focus-item">
+                  <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                  <span>CI/CD Automation</span>
+                </div>
+                <div class="focus-item">
+                  <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                  <span>Containerization</span>
+                </div>
+                <div class="focus-item">
+                  <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                  <span>Linux Administration</span>
+                </div>
+                <div class="focus-item">
+                  <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                  <span>Infrastructure Automation</span>
+                </div>
+                <div class="focus-item">
+                  <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                  <span>Monitoring & Observability</span>
+                </div>
+                <div class="focus-item">
+                  <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                  <span>Release Management</span>
+                </div>
+                <div class="focus-item">
+                  <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                  <span>Database Migrations</span>
+                </div>
+                <div class="focus-item">
+                  <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                  <span>Networking & Security</span>
+                </div>
+              </div>
+
+              <div style="background: rgba(11, 17, 32, 0.8); border: 1px solid var(--border-subtle); border-radius: var(--radius-md); padding: 18px; margin-top: 14px;">
+                <div style="font-family: var(--font-mono); font-size: 0.82rem; color: var(--accent-cyan-light); margin-bottom: 6px;">
+                  Current Employment Status:
+                </div>
+                <div style="font-weight: 600; color: #ffffff;">
+                  DevOps & Cloud Engineer at <span style="color: #38bdf8;">K2XTech</span> (Jan 2024 — Present)
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- DevOps Principles Grid -->
+          <div class="principles-header">
+            <div class="section-tag" style="margin-bottom: 8px;">Guiding Philosophy</div>
+            <h3>Core DevOps Principles</h3>
+          </div>
+
+          <div class="principles-grid">
+            <div class="principle-card">
+              <div class="principle-icon">
+                <svg viewBox="0 0 24 24"><path d="M12 4V1L8 5l4 4V6c3.31 0 6 2.69 6 6 0 1.01-.25 1.97-.7 2.8l1.46 1.46C19.54 15.03 20 13.57 20 12c0-4.42-3.58-8-8-8zm0 14c-3.31 0-6-2.69-6-6 0-1.01.25-1.97.7-2.8L5.24 7.74C4.46 8.97 4 10.43 4 12c0 4.42 3.58 8 8 8v3l4-4-4-4v3z"/></svg>
+              </div>
+              <h4>Automation</h4>
+              <p>Automate repetitive infrastructure and deployment tasks to eliminate human errors and accelerate time-to-market.</p>
+            </div>
+
+            <div class="principle-card">
+              <div class="principle-icon">
+                <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+              </div>
+              <h4>Reliability</h4>
+              <p>Build systems that are stable, observable and rapidly recoverable through proactive monitoring and automated failovers.</p>
+            </div>
+
+            <div class="principle-card">
+              <div class="principle-icon">
+                <svg viewBox="0 0 24 24"><path d="M4 6H2v14c0 1.1.9 2 2 2h14v-2H4V6zm16-4H8c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H8V4h12v12z"/></svg>
+              </div>
+              <h4>Scalability</h4>
+              <p>Design infrastructure capable of handling changing workloads with elastic resource provisioning and containerization.</p>
+            </div>
+
+            <div class="principle-card">
+              <div class="principle-icon">
+                <svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8z"/></svg>
+              </div>
+              <h4>Security</h4>
+              <p>Apply security principles across infrastructure and deployment pipelines with strict firewall rules, SSL/TLS, and least privilege.</p>
+            </div>
+
+            <div class="principle-card">
+              <div class="principle-icon">
+                <svg viewBox="0 0 24 24"><path d="M3 13h2v-2H3v2zm0 4h2v-2H3v2zm0-8h2V7H3v2zm4 4h14v-2H7v2zm0 4h14v-2H7v2zM7 7v2h14V7H7z"/></svg>
+              </div>
+              <h4>Observability</h4>
+              <p>Use metrics, logs and monitoring to understand system health in real time through Prometheus, Grafana, and Loki.</p>
+            </div>
+
+            <div class="principle-card">
+              <div class="principle-icon">
+                <svg viewBox="0 0 24 24"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 3s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg>
+              </div>
+              <h4>Collaboration</h4>
+              <p>Bridge development and infrastructure teams through automation, transparent telemetry, and reliable shared workflows.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <hr class="section-separator" aria-hidden="true">
+
+      <!-- ==========================================================================
+           Experience Section (K2XTech Timeline & Domains)
+           ========================================================================== -->
+      <section class="section" id="experience">
+        <div class="container">
+          <div class="section-header">
+            <div class="section-tag">Production Track Record</div>
+            <h2 class="section-title">Work <span class="gradient-text">Experience</span></h2>
+            <p class="section-description">
+              Hands-on engineering across cloud deployments, automated pipelines, Linux servers, containers, databases, and monitoring infrastructure.
+            </p>
+          </div>
+
+          <div class="experience-wrapper">
+            <!-- Experience Company Banner -->
+            <div class="exp-company-banner">
+              <div class="exp-banner-header">
+                <div class="exp-title-group">
+                  <h3>DevOps / Cloud Architect</h3>
+                  <div class="exp-company-name">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M12 7V3H2v18h20V7H12zM6 19H4v-2h2v2zm0-4H4v-2h2v2zm0-4H4V9h2v2zm0-4H4V5h2v2zm4 12H8v-2h2v2zm0-4H8v-2h2v2zm0-4H8V9h2v2zm0-4H8V5h2v2zm10 12h-8v-2h2v-2h-2v-2h2v-2h-2V9h8v10zm-2-8h-2v2h2v-2zm0 4h-2v2h2v-2z"/></svg>
+                    K2X TECH — Pakistan
+                  </div>
+                </div>
+                <div class="exp-date-badge">January 2024 — Present</div>
+              </div>
+              <div class="exp-intro-text">
+                Design, deploy, and maintain cloud and production infrastructure across AWS, Azure, Proxmox, and Linux environments. Managing CI/CD automation with Jenkins & AWS CodeCommit, Docker containers, multi-database administration, and monitoring with Prometheus, Grafana, Loki, and Promtail.
+              </div>
+            </div>
+
+            <!-- Domain Sub-Navigation Tabs -->
+            <div class="exp-tabs-nav" role="tablist">
+              <button class="exp-tab-btn active" data-tab="cloud" role="tab">Cloud Infra</button>
+              <button class="exp-tab-btn" data-tab="cicd" role="tab">CI/CD & Automation</button>
+              <button class="exp-tab-btn" data-tab="linux" role="tab">Linux & Servers</button>
+              <button class="exp-tab-btn" data-tab="containers" role="tab">Containers & Security</button>
+              <button class="exp-tab-btn" data-tab="pm2" role="tab">Process Mgmt</button>
+              <button class="exp-tab-btn" data-tab="monitoring" role="tab">Monitoring & Logs</button>
+              <button class="exp-tab-btn" data-tab="databases" role="tab">Databases</button>
+              <button class="exp-tab-btn" data-tab="virtualization" role="tab">Virtualization</button>
+              <button class="exp-tab-btn" data-tab="team" role="tab">Team & Mentorship</button>
+            </div>
+
+            <!-- Experience Tab Content Panels -->
+            
+            <!-- Panel 1: Cloud Infrastructure -->
+            <div class="exp-tab-panel active" id="exp-cloud" role="tabpanel">
+              <div class="exp-panel-title">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="var(--accent-cyan-light)"><path d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96z"/></svg>
+                Cloud Infrastructure (AWS, Azure & Proxmox)
+              </div>
+              <div class="exp-responsibilities-list">
+                <div class="exp-task-item">
+                  <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                  <span>Design, deploy, and maintain cloud and production infrastructure across AWS, Azure, Proxmox, and Linux environments.</span>
+                </div>
+                <div class="exp-task-item">
+                  <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                  <span>Deploy and manage Node.js, React, Vite, Next.js, and backend applications across staging and production environments.</span>
+                </div>
+                <div class="exp-task-item">
+                  <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                  <span>Configure infrastructure networking, security groups, subnets, and isolated application environments.</span>
+                </div>
+                <div class="exp-task-item">
+                  <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                  <span>Optimize deployment environments to improve application reliability, scalability, availability, and deployment efficiency.</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Panel 2: CI/CD & Automation -->
+            <div class="exp-tab-panel" id="exp-cicd" role="tabpanel">
+              <div class="exp-panel-title">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="var(--accent-cyan-light)"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg>
+                CI/CD & Deployment Automation
+              </div>
+              <div class="exp-responsibilities-list">
+                <div class="exp-task-item">
+                  <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                  <span>Build and maintain Jenkins CI/CD pipelines to automate application build, testing, and deployment workflows.</span>
+                </div>
+                <div class="exp-task-item">
+                  <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                  <span>Manage source-code and deployment workflows using Git and AWS CodeCommit.</span>
+                </div>
+                <div class="exp-task-item">
+                  <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                  <span>Develop Bash/Shell scripts for deployment, backups, maintenance, and operational automation.</span>
+                </div>
+                <div class="exp-task-item">
+                  <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                  <span>Improve deployment consistency, eliminate manual errors, and accelerate release cycles.</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Panel 3: Linux & Server Administration -->
+            <div class="exp-tab-panel" id="exp-linux" role="tabpanel">
+              <div class="exp-panel-title">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="var(--accent-cyan-light)"><path d="M20 18c1.1 0 1.99-.9 1.99-2L22 6c0-1.1-.9-2-2-2H4c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2H0v2h24v-2h-4zM4 6h16v10H4V6z"/></svg>
+                Linux Administration & Production Troubleshooting
+              </div>
+              <div class="exp-responsibilities-list">
+                <div class="exp-task-item">
+                  <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                  <span><strong>Production Incident Resolution:</strong> Troubleshoot critical production issues including 502 Bad Gateway, 405 Method Not Allowed, SSL/HTTPS mixed-content, port conflicts, upstream failures, permission errors, build failures, and resource utilization bottlenecks.</span>
+                </div>
+                <div class="exp-task-item">
+                  <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                  <span>Manage Linux servers (Ubuntu/Debian) and Windows Server, including services, packages, processes, filesystem permissions, logs, and system resources.</span>
+                </div>
+                <div class="exp-task-item">
+                  <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                  <span>Configure and maintain Nginx and Apache as web servers and reverse proxies with upstream routing pools.</span>
+                </div>
+                <div class="exp-task-item">
+                  <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                  <span>Configure SSL/TLS certificates using Certbot and troubleshoot HTTPS and certificate-related issues.</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Panel 4: Containers & Security -->
+            <div class="exp-tab-panel" id="exp-containers" role="tabpanel">
+              <div class="exp-panel-title">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="var(--accent-cyan-light)"><path d="M13 13v-2h2v2h-2zm-3 0v-2h2v2h-2zm-3 0v-2h2v2H7zm9-3V8h2v2h-2zm-3 0V8h2v2h-2zm-3 0V8h2v2h-2zm-3 0V8h2v2H7zm-3 0V8h2v2H4zm17.5 1.5c-.3-.2-1.3-.7-2.7-.2-.2-.6-.6-1.1-1.1-1.5-.3-.2-.7-.4-1.2-.4h-1.5v4.5H2c-.5 0-1 .4-1 1 0 3.3 2.7 6.1 6.1 6.1 4.5 0 8.3-2.9 9.6-7 .9.1 1.7-.1 2.3-.5.9-.6 1.4-1.3 1.5-1.5z"/></svg>
+                Containers & Security (Docker, Trivy & SonarQube)
+              </div>
+              <div class="exp-responsibilities-list">
+                <div class="exp-task-item">
+                  <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                  <span>Containerize and deploy applications using Docker and Docker Compose.</span>
+                </div>
+                <div class="exp-task-item">
+                  <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                  <span>Work with Trivy and SonarQube for container security scanning, CVE vulnerability assessment, and code-quality practices.</span>
+                </div>
+                <div class="exp-task-item">
+                  <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                  <span>Manage multi-container environments, volume persistence, bridge networks, and container health checks.</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Panel 5: Process Management -->
+            <div class="exp-tab-panel" id="exp-pm2" role="tabpanel">
+              <div class="exp-panel-title">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="var(--accent-cyan-light)"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
+                Process Management (PM2 & Uvicorn)
+              </div>
+              <div class="exp-responsibilities-list">
+                <div class="exp-task-item">
+                  <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                  <span>Manage production applications using PM2 and Uvicorn, including process monitoring, cluster mode, restarts, logs, and troubleshooting.</span>
+                </div>
+                <div class="exp-task-item">
+                  <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                  <span>Deploy and manage high-throughput Node.js and FastAPI applications across cluster and fork modes.</span>
+                </div>
+                <div class="exp-task-item">
+                  <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                  <span>Monitor application processes, memory leaks, event loop latency, and auto-restart policies.</span>
+                </div>
+                <div class="exp-task-item">
+                  <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                  <span>Execute zero-downtime application reload and restart routines during production deployments.</span>
+                </div>
+                <div class="exp-task-item">
+                  <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                  <span>Manage environment variables and port bindings across staging and production nodes.</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Panel 6: Monitoring & Observability -->
+            <div class="exp-tab-panel" id="exp-monitoring" role="tabpanel">
+              <div class="exp-panel-title">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="var(--accent-cyan-light)"><path d="M3 13h2v-2H3v2zm0 4h2v-2H3v2zm0-8h2V7H3v2zm4 4h14v-2H7v2zm0 4h14v-2H7v2zM7 7v2h14V7H7z"/></svg>
+                Monitoring & Observability Infrastructure
+              </div>
+              <div class="exp-responsibilities-list">
+                <div class="exp-task-item">
+                  <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                  <span>Hands-on experience configuring and operating Prometheus, Grafana, and Loki.</span>
+                </div>
+                <div class="exp-task-item">
+                  <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                  <span>Built and managed centralized monitoring infrastructure for application and server observability.</span>
+                </div>
+                <div class="exp-task-item">
+                  <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                  <span>Implemented log shippers and promtail to funnel daemon and container logs into Loki.</span>
+                </div>
+              </div>
+
+              <!-- Observability Visual Architecture -->
+              <div class="monitoring-arch-box">
+                <div style="font-family: var(--font-mono); font-size: 0.8rem; color: var(--accent-cyan-light); text-transform: uppercase; margin-bottom: 8px;">
+                  Visual Telemetry Architecture
+                </div>
+                <div class="arch-flow-row">
+                  <div class="arch-node-chip">Production Servers</div>
+                  <span class="arch-arrow">→</span>
+                  <div class="arch-node-chip highlight">Prometheus (Metrics)</div>
+                  <span class="arch-arrow">→</span>
+                  <div class="arch-node-chip highlight">Grafana Dashboards</div>
+                </div>
+                <div class="arch-flow-row" style="margin-top: 8px;">
+                  <div class="arch-node-chip">Containers & Apps</div>
+                  <span class="arch-arrow">→</span>
+                  <div class="arch-node-chip highlight">Loki (Log Ingest)</div>
+                  <span class="arch-arrow">→</span>
+                  <div class="arch-node-chip highlight">Log Queries & Alerts</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Panel 7: Databases -->
+            <div class="exp-tab-panel" id="exp-databases" role="tabpanel">
+              <div class="exp-panel-title">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="var(--accent-cyan-light)"><path d="M12 2C6.48 2 2 4.02 2 6.5v11C2 19.98 6.48 22 12 22s10-2.02 10-4.5v-11C22 4.02 17.52 2 12 2zm0 3c4.41 0 8 1.34 8 2s-3.59 2-8 2-8-1.34-8-2 3.59-2 8-2zm8 6c0 .66-3.59 2-8 2s-8-1.34-8-2V8.67c1.78 1.05 4.7 1.83 8 1.83s6.22-.78 8-1.83V11zm0 5c0 .66-3.59 2-8 2s-8-1.34-8-2v-2.33c1.78 1.05 4.7 1.83 8 1.83s6.22-.78 8-1.83V16z"/></svg>
+                Database Administration & Migration
+              </div>
+              <div class="exp-responsibilities-list">
+                <div class="exp-task-item">
+                  <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                  <span>Hands-on administration with MySQL, PostgreSQL, MongoDB, Redis, Elasticsearch, OpenSearch, and Qdrant vector store.</span>
+                </div>
+                <div class="exp-task-item">
+                  <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                  <span>Database migration planning, automated dump/restore pipelines, and schema synchronization.</span>
+                </div>
+                <div class="exp-task-item">
+                  <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                  <span>Perform automated scheduled backup, point-in-time recovery, and integrity validation.</span>
+                </div>
+                <div class="exp-task-item">
+                  <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                  <span>Troubleshoot database connectivity, connection pooling, slow query diagnostics, and server-to-server data migrations.</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Panel 8: Virtualization & Private Infra -->
+            <div class="exp-tab-panel" id="exp-virtualization" role="tabpanel">
+              <div class="exp-panel-title">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="var(--accent-cyan-light)"><path d="M4 6H2v14c0 1.1.9 2 2 2h14v-2H4V6zm16-4H8c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H8V4h12v12z"/></svg>
+                Virtualization & Private Infrastructure
+              </div>
+              <div class="exp-responsibilities-list">
+                <div class="exp-task-item">
+                  <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                  <span>Manage private server infrastructure and Virtual Machines on Proxmox VE hypervisors.</span>
+                </div>
+                <div class="exp-task-item">
+                  <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                  <span>Configure internal networking, VLANs, and server-to-server connectivity.</span>
+                </div>
+                <div class="exp-task-item">
+                  <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                  <span>Implement NAT (Network Address Translation), port forwarding, and SSH bastion hosts.</span>
+                </div>
+                <div class="exp-task-item">
+                  <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                  <span>Harden firewall security configurations to isolate critical production datastores from public internet.</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Panel 9: Team & Mentorship -->
+            <div class="exp-tab-panel" id="exp-team" role="tabpanel">
+              <div class="exp-panel-title">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="var(--accent-cyan-light)"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 3s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg>
+                Team Leadership & Cross-Functional Collaboration
+              </div>
+              <div class="exp-responsibilities-list">
+                <div class="exp-task-item">
+                  <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                  <span>Organized and supported company-wide DevOps activities and infrastructure initiatives.</span>
+                </div>
+                <div class="exp-task-item">
+                  <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                  <span>Led DevOps-related implementation tasks and deployment sprint reviews within the engineering team.</span>
+                </div>
+                <div class="exp-task-item">
+                  <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                  <span>Assigned, reviewed, and managed operational tasks for DevOps interns.</span>
+                </div>
+                <div class="exp-task-item">
+                  <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                  <span>Trained and onboarded team members on automated deployment patterns, Git conventions, and infrastructure workflows.</span>
+                </div>
+                <div class="exp-task-item">
+                  <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                  <span>Collaborated closely with software developers to diagnose and resolve production bottlenecks.</span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <hr class="section-separator" aria-hidden="true">
+
+      <!-- ==========================================================================
+           Technical Skills Matrix (Honest Competency Labels)
+           ========================================================================== -->
+      <section class="section" id="skills">
+        <div class="container">
+          <div class="section-header">
+            <div class="section-tag">Competency Matrix</div>
+            <h2 class="section-title">Technical <span class="gradient-text">Skills</span></h2>
+            <p class="section-description">
+              Categorized technical competencies evaluated by real production usage. Zero fake percentages—grounded entirely in practical engineering.
+            </p>
+          </div>
+
+          <!-- Filter Controls -->
+          <div class="skills-controls">
+            <button class="skill-filter-btn active" data-filter="all">All Skills</button>
+            <button class="skill-filter-btn" data-filter="cloud">Cloud</button>
+            <button class="skill-filter-btn" data-filter="devops">DevOps & CI/CD</button>
+            <button class="skill-filter-btn" data-filter="containers">Containers</button>
+            <button class="skill-filter-btn" data-filter="web">Web & Proxies</button>
+            <button class="skill-filter-btn" data-filter="linux">OS & Linux</button>
+            <button class="skill-filter-btn" data-filter="monitoring">Monitoring</button>
+            <button class="skill-filter-btn" data-filter="databases">Databases</button>
+            <button class="skill-filter-btn" data-filter="virtualization">Virtualization</button>
+            <button class="skill-filter-btn" data-filter="app">App Tech</button>
+            <button class="skill-filter-btn" data-filter="networking">Networking</button>
+          </div>
+
+          <!-- Skills Grid -->
+          <div class="skills-grid">
+            
+            <!-- Cloud: AWS -->
+            <div class="skill-card" data-category="cloud">
+              <div>
+                <div class="skill-card-top">
+                  <div class="skill-icon-wrapper">
+                    <svg viewBox="0 0 24 24"><path d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96z"/></svg>
+                  </div>
+                  <span class="badge badge-production">Production</span>
+                </div>
+                <div class="skill-name">AWS</div>
+                <div class="skill-category">Cloud Infrastructure</div>
+                <p class="skill-desc">EC2, VPC, Security Groups, S3, IAM, application deployments, auto-scaling, and cloud security architecture.</p>
+              </div>
+            </div>
+
+            <!-- Cloud: Azure -->
+            <div class="skill-card" data-category="cloud">
+              <div>
+                <div class="skill-card-top">
+                  <div class="skill-icon-wrapper">
+                    <svg viewBox="0 0 24 24"><path d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96z"/></svg>
+                  </div>
+                  <span class="badge badge-hands-on">Hands-on</span>
+                </div>
+                <div class="skill-name">Microsoft Azure</div>
+                <div class="skill-category">Cloud Infrastructure</div>
+                <p class="skill-desc">Azure IaaS, PaaS, Virtual Machines, App Services, VNets, Network Security Groups, and cloud deployment.</p>
+              </div>
+            </div>
+
+            <!-- DevOps: Jenkins -->
+            <div class="skill-card" data-category="devops">
+              <div>
+                <div class="skill-card-top">
+                  <div class="skill-icon-wrapper">
+                    <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
+                  </div>
+                  <span class="badge badge-production">Production</span>
+                </div>
+                <div class="skill-name">Jenkins CI/CD</div>
+                <div class="skill-category">DevOps & Automation</div>
+                <p class="skill-desc">Building declarative multi-stage pipelines, automated build & test routines, credential binding, and remote SSH deploys.</p>
+              </div>
+            </div>
+
+            <!-- DevOps: Git -->
+            <div class="skill-card" data-category="devops">
+              <div>
+                <div class="skill-card-top">
+                  <div class="skill-icon-wrapper">
+                    <svg viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.1-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2z"/></svg>
+                  </div>
+                  <span class="badge badge-production">Production</span>
+                </div>
+                <div class="skill-name">Git & SCM</div>
+                <div class="skill-category">DevOps & Automation</div>
+                <p class="skill-desc">Branching strategies, automated webhooks, pull request automation, semantic version tagging, and release management.</p>
+              </div>
+            </div>
+
+            <!-- Containers: Docker -->
+            <div class="skill-card" data-category="containers">
+              <div>
+                <div class="skill-card-top">
+                  <div class="skill-icon-wrapper">
+                    <svg viewBox="0 0 24 24"><path d="M13 13v-2h2v2h-2zm-3 0v-2h2v2h-2zm-3 0v-2h2v2H7zm9-3V8h2v2h-2zm-3 0V8h2v2h-2zm-3 0V8h2v2h-2zm-3 0V8h2v2H7zm-3 0V8h2v2H4zm17.5 1.5c-.3-.2-1.3-.7-2.7-.2-.2-.6-.6-1.1-1.1-1.5-.3-.2-.7-.4-1.2-.4h-1.5v4.5H2c-.5 0-1 .4-1 1 0 3.3 2.7 6.1 6.1 6.1 4.5 0 8.3-2.9 9.6-7 .9.1 1.7-.1 2.3-.5.9-.6 1.4-1.3 1.5-1.5z"/></svg>
+                  </div>
+                  <span class="badge badge-production">Production</span>
+                </div>
+                <div class="skill-name">Docker & Docker Compose</div>
+                <div class="skill-category">Containerization</div>
+                <p class="skill-desc">Multi-stage Dockerfile architecture, image size minimization, Compose orchestration, container bridge networking & volumes.</p>
+              </div>
+            </div>
+
+            <!-- Web: Nginx & Apache -->
+            <div class="skill-card" data-category="web">
+              <div>
+                <div class="skill-card-top">
+                  <div class="skill-icon-wrapper">
+                    <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+                  </div>
+                  <span class="badge badge-production">Production</span>
+                </div>
+                <div class="skill-name">Nginx & Apache Reverse Proxy</div>
+                <div class="skill-category">Web & Proxies</div>
+                <p class="skill-desc">Reverse proxy routing, SSL/TLS termination, HTTP/2, Certbot automated renewals, virtual hosts, and rate limiting.</p>
+              </div>
+            </div>
+
+            <!-- OS: Linux (Ubuntu/Debian) -->
+            <div class="skill-card" data-category="linux">
+              <div>
+                <div class="skill-card-top">
+                  <div class="skill-icon-wrapper">
+                    <svg viewBox="0 0 24 24"><path d="M20 18c1.1 0 1.99-.9 1.99-2L22 6c0-1.1-.9-2-2-2H4c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2H0v2h24v-2h-4zM4 6h16v10H4V6z"/></svg>
+                  </div>
+                  <span class="badge badge-production">Production</span>
+                </div>
+                <div class="skill-name">Linux (Ubuntu & Debian)</div>
+                <div class="skill-category">Operating Systems</div>
+                <p class="skill-desc">Server hardening, systemd unit management, CPU/memory performance troubleshooting, log rotation, and Bash automation.</p>
+              </div>
+            </div>
+
+            <!-- Monitoring: Prometheus & Grafana -->
+            <div class="skill-card" data-category="monitoring">
+              <div>
+                <div class="skill-card-top">
+                  <div class="skill-icon-wrapper">
+                    <svg viewBox="0 0 24 24"><path d="M3 13h2v-2H3v2zm0 4h2v-2H3v2zm0-8h2V7H3v2zm4 4h14v-2H7v2zm0 4h14v-2H7v2zM7 7v2h14V7H7z"/></svg>
+                  </div>
+                  <span class="badge badge-production">Production</span>
+                </div>
+                <div class="skill-name">Prometheus & Grafana</div>
+                <div class="skill-category">Monitoring & Observability</div>
+                <p class="skill-desc">System metric scrapers, Node Exporter, custom dashboards, alert rules, and infrastructure health telemetry.</p>
+              </div>
+            </div>
+
+            <!-- Monitoring: Loki -->
+            <div class="skill-card" data-category="monitoring">
+              <div>
+                <div class="skill-card-top">
+                  <div class="skill-icon-wrapper">
+                    <svg viewBox="0 0 24 24"><path d="M4 6h16v12H4z"/></svg>
+                  </div>
+                  <span class="badge badge-hands-on">Hands-on</span>
+                </div>
+                <div class="skill-name">Loki Log Aggregation</div>
+                <div class="skill-category">Monitoring & Observability</div>
+                <p class="skill-desc">Centralized log collection, Promtail pipelines, log querying via Grafana Explore, and rapid container diagnostics.</p>
+              </div>
+            </div>
+
+            <!-- Databases: Relational & NoSQL -->
+            <div class="skill-card" data-category="databases">
+              <div>
+                <div class="skill-card-top">
+                  <div class="skill-icon-wrapper">
+                    <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 4.02 2 6.5v11C2 19.98 6.48 22 12 22s10-2.02 10-4.5v-11C22 4.02 17.52 2 12 2z"/></svg>
+                  </div>
+                  <span class="badge badge-experienced">Experienced</span>
+                </div>
+                <div class="skill-name">MySQL, PostgreSQL & MongoDB</div>
+                <div class="skill-category">Databases</div>
+                <p class="skill-desc">Database migration between servers, backup/restore pipelines, connection pooling, and production administration.</p>
+              </div>
+            </div>
+
+            <!-- Databases: Redis & Search -->
+            <div class="skill-card" data-category="databases">
+              <div>
+                <div class="skill-card-top">
+                  <div class="skill-icon-wrapper">
+                    <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 4.02 2 6.5v11C2 19.98 6.48 22 12 22s10-2.02 10-4.5v-11C22 4.02 17.52 2 12 2z"/></svg>
+                  </div>
+                  <span class="badge badge-hands-on">Hands-on</span>
+                </div>
+                <div class="skill-name">Redis, Elasticsearch & Qdrant</div>
+                <div class="skill-category">Databases & Search</div>
+                <p class="skill-desc">In-memory caching with Redis, enterprise search clusters with Elasticsearch/OpenSearch, and Qdrant vector databases.</p>
+              </div>
+            </div>
+
+            <!-- Virtualization: Proxmox -->
+            <div class="skill-card" data-category="virtualization">
+              <div>
+                <div class="skill-card-top">
+                  <div class="skill-icon-wrapper">
+                    <svg viewBox="0 0 24 24"><path d="M4 6H2v14c0 1.1.9 2 2 2h14v-2H4V6zm16-4H8c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H8V4h12v12z"/></svg>
+                  </div>
+                  <span class="badge badge-hands-on">Hands-on</span>
+                </div>
+                <div class="skill-name">Proxmox VE & VMs</div>
+                <div class="skill-category">Virtualization</div>
+                <p class="skill-desc">Managing private hypervisors, VM provisioning, internal networking, NAT configuration, and private hosting.</p>
+              </div>
+            </div>
+
+            <!-- App Technologies: Node & Python Stacks -->
+            <div class="skill-card" data-category="app">
+              <div>
+                <div class="skill-card-top">
+                  <div class="skill-icon-wrapper">
+                    <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14H9V8h2v8zm4 0h-2V8h2v8z"/></svg>
+                  </div>
+                  <span class="badge badge-production">Production</span>
+                </div>
+                <div class="skill-name">Node.js, Vite & FastAPI</div>
+                <div class="skill-category">Application Technologies</div>
+                <p class="skill-desc">Deploying React, Vite, Next.js, FastAPI, Laravel, and orchestrating Node.js environments via PM2 process manager.</p>
+              </div>
+            </div>
+
+            <!-- Networking -->
+            <div class="skill-card" data-category="networking">
+              <div>
+                <div class="skill-card-top">
+                  <div class="skill-icon-wrapper">
+                    <svg viewBox="0 0 24 24"><path d="M12 11c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm6 2c0-3.31-2.69-6-6-6s-6 2.69-6 6c0 2.22 1.21 4.15 3 5.19l1-1.74c-1.19-.7-2-1.97-2-3.45 0-2.21 1.79-4 4-4s4 1.79 4 4c0 1.48-.81 2.75-2 3.45l1 1.74c1.79-1.04 3-2.97 3-5.19z"/></svg>
+                  </div>
+                  <span class="badge badge-production">Production</span>
+                </div>
+                <div class="skill-name">Enterprise Networking</div>
+                <div class="skill-category">Networking & Security</div>
+                <p class="skill-desc">TCP/IP, SSH bastions, NAT, DNS configuration, firewall rule management (UFW/iptables), ports, and private subnets.</p>
+              </div>
+            </div>
+
+            <!-- Security & Quality: Trivy & SonarQube -->
+            <div class="skill-card" data-category="devops containers">
+              <div>
+                <div class="skill-card-top">
+                  <div class="skill-icon-wrapper" style="color: #34d399;">
+                    <svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/></svg>
+                  </div>
+                  <span class="badge badge-production">Production</span>
+                </div>
+                <div class="skill-name">Trivy & SonarQube</div>
+                <div class="skill-category">Security & Quality</div>
+                <p class="skill-desc">Container image vulnerability scanning with Trivy and static code quality/security gates with SonarQube.</p>
+              </div>
+            </div>
+
+            <!-- Scripting & Automation: Bash & CodeCommit -->
+            <div class="skill-card" data-category="devops linux">
+              <div>
+                <div class="skill-card-top">
+                  <div class="skill-icon-wrapper" style="color: #38bdf8;">
+                    <svg viewBox="0 0 24 24"><path d="M9.4 16.6L4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0l4.6-4.6-4.6-4.6L16 6l6 6-6 6-1.4-1.4z"/></svg>
+                  </div>
+                  <span class="badge badge-production">Production</span>
+                </div>
+                <div class="skill-name">Bash & AWS CodeCommit</div>
+                <div class="skill-category">Scripting & Source Control</div>
+                <p class="skill-desc">Automated deployment and backup shell scripts, AWS CodeCommit repositories, and cron orchestration.</p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <hr class="section-separator" aria-hidden="true">
+
+      <!-- ==========================================================================
+           DevOps Architecture Section ("How I Work" Pipeline)
+           ========================================================================== -->
+      <section class="section" id="architecture">
+        <div class="container">
+          <div class="section-header">
+            <div class="section-tag">Continuous Delivery Workflow</div>
+            <h2 class="section-title">DevOps <span class="gradient-text">Architecture</span></h2>
+            <p class="section-description">
+              An end-to-end automated delivery pipeline ensuring zero-downtime deployments, reproducible containers, and proactive telemetry. Click any stage to inspect.
+            </p>
+          </div>
+
+          <div class="arch-pipeline-container">
+            <!-- 9-Step Stepper -->
+            <div class="pipeline-stepper-nav" role="tablist">
+              <div class="step-node" data-step="1">
+                <span class="step-number">01</span>
+                <div class="step-icon">
+                  <svg viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
+                </div>
+                <span class="step-name">Developer</span>
+              </div>
+
+              <div class="step-node" data-step="2">
+                <span class="step-number">02</span>
+                <div class="step-icon">
+                  <svg viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.1-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2z"/></svg>
+                </div>
+                <span class="step-name">Git Repo</span>
+              </div>
+
+              <div class="step-node active" data-step="3">
+                <span class="step-number">03</span>
+                <div class="step-icon">
+                  <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
+                </div>
+                <span class="step-name">Jenkins CI</span>
+              </div>
+
+              <div class="step-node" data-step="4">
+                <span class="step-number">04</span>
+                <div class="step-icon">
+                  <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                </div>
+                <span class="step-name">Build & Test</span>
+              </div>
+
+              <div class="step-node" data-step="5">
+                <span class="step-number">05</span>
+                <div class="step-icon">
+                  <svg viewBox="0 0 24 24"><path d="M13 13v-2h2v2h-2zm-3 0v-2h2v2h-2zm-3 0v-2h2v2H7zm9-3V8h2v2h-2zm-3 0V8h2v2h-2zm-3 0V8h2v2h-2zm-3 0V8h2v2H7zm-3 0V8h2v2H4zm17.5 1.5c-.3-.2-1.3-.7-2.7-.2-.2-.6-.6-1.1-1.1-1.5-.3-.2-.7-.4-1.2-.4h-1.5v4.5H2c-.5 0-1 .4-1 1 0 3.3 2.7 6.1 6.1 6.1 4.5 0 8.3-2.9 9.6-7 .9.1 1.7-.1 2.3-.5.9-.6 1.4-1.3 1.5-1.5z"/></svg>
+                </div>
+                <span class="step-name">Docker</span>
+              </div>
+
+              <div class="step-node" data-step="6">
+                <span class="step-number">06</span>
+                <div class="step-icon">
+                  <svg viewBox="0 0 24 24"><path d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96z"/></svg>
+                </div>
+                <span class="step-name">Deployment</span>
+              </div>
+
+              <div class="step-node" data-step="7">
+                <span class="step-number">07</span>
+                <div class="step-icon">
+                  <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+                </div>
+                <span class="step-name">Nginx / Proxy</span>
+              </div>
+
+              <div class="step-node" data-step="8">
+                <span class="step-number">08</span>
+                <div class="step-icon">
+                  <svg viewBox="0 0 24 24"><path d="M4 6H2v14c0 1.1.9 2 2 2h14v-2H4V6zm16-4H8c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H8V4h12v12z"/></svg>
+                </div>
+                <span class="step-name">Application</span>
+              </div>
+
+              <div class="step-node" data-step="9">
+                <span class="step-number">09</span>
+                <div class="step-icon">
+                  <svg viewBox="0 0 24 24"><path d="M3 13h2v-2H3v2zm0 4h2v-2H3v2zm0-8h2V7H3v2zm4 4h14v-2H7v2zm0 4h14v-2H7v2zM7 7v2h14V7H7z"/></svg>
+                </div>
+                <span class="step-name">Observability</span>
+              </div>
+            </div>
+
+            <!-- Detail Box populated by JS -->
+            <div class="pipeline-detail-box" id="arch-detail-content">
+              <!-- Dynamically populated by pipeline.js -->
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <hr class="section-separator" aria-hidden="true">
+
+      <!-- ==========================================================================
+           Featured Projects (Real Infrastructure Work)
+           ========================================================================== -->
+      <section class="section" id="projects">
+        <div class="container">
+          <div class="section-header">
+            <div class="section-tag">Production Case Studies</div>
+            <h2 class="section-title">Featured <span class="gradient-text">Infrastructure Projects</span></h2>
+            <p class="section-description">
+              Real-world systems, containerized microservices, and observability stacks deployed and managed in production.
+            </p>
+          </div>
+
+          <div class="projects-grid">
+            
+            <!-- Project 1: Assessment Autofiller -->
+            <div class="project-card">
+              <div>
+                <div class="project-top-meta">
+                  <span class="project-number">PROJECT // 01</span>
+                  <span class="badge badge-production">Production</span>
+                </div>
+                <h3 class="project-title">Assessment Autofiller</h3>
+                <p class="project-desc">
+                  Deployed a Vite frontend with a FastAPI backend and configured robust production infrastructure. Handled reverse proxy configuration, API troubleshooting, and process stabilization on Linux.
+                </p>
+
+                <!-- Project Architecture Flow -->
+                <div class="project-arch-flow">
+                  <div class="arch-flow-title">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14H9V8h2v8zm4 0h-2V8h2v8z"/></svg>
+                    System Architecture Flow
+                  </div>
+                  <div class="flow-step-badges">
+                    <span class="flow-step-badge">Vite Frontend</span>
+                    <span class="arch-arrow">→</span>
+                    <span class="flow-step-badge highlight">Nginx Reverse Proxy</span>
+                    <span class="arch-arrow">→</span>
+                    <span class="flow-step-badge highlight">FastAPI API (Python)</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="project-tech-tags">
+                <span class="project-tech-tag">Vite</span>
+                <span class="project-tech-tag">FastAPI</span>
+                <span class="project-tech-tag">Python</span>
+                <span class="project-tech-tag">Nginx</span>
+                <span class="project-tech-tag">Linux</span>
+                <span class="project-tech-tag">API Deployment</span>
+              </div>
+            </div>
+
+            <!-- Project 2: Knowledge Hub MSP -->
+            <div class="project-card">
+              <div>
+                <div class="project-top-meta">
+                  <span class="project-number">PROJECT // 02</span>
+                  <span class="badge badge-production">Production</span>
+                </div>
+                <h3 class="project-title">Knowledge Hub MSP</h3>
+                <p class="project-desc">
+                  Managed and deployed a multi-service application environment containing application services, integration APIs, MinIO S3-compatible object storage, and Elasticsearch clusters.
+                </p>
+
+                <div class="project-arch-flow">
+                  <div class="arch-flow-title">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14H9V8h2v8zm4 0h-2V8h2v8z"/></svg>
+                    Microservices Architecture
+                  </div>
+                  <div class="flow-step-badges">
+                    <span class="flow-step-badge">Nginx Ingress</span>
+                    <span class="arch-arrow">→</span>
+                    <span class="flow-step-badge highlight">Docker Compose Services</span>
+                    <span class="arch-arrow">→</span>
+                    <span class="flow-step-badge highlight">Elasticsearch & MinIO</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="project-tech-tags">
+                <span class="project-tech-tag">Docker</span>
+                <span class="project-tech-tag">Docker Compose</span>
+                <span class="project-tech-tag">Elasticsearch</span>
+                <span class="project-tech-tag">MinIO</span>
+                <span class="project-tech-tag">Linux</span>
+                <span class="project-tech-tag">Nginx</span>
+                <span class="project-tech-tag">Microservices</span>
+              </div>
+            </div>
+
+            <!-- Project 3: MSP Investment Platform -->
+            <div class="project-card">
+              <div>
+                <div class="project-top-meta">
+                  <span class="project-number">PROJECT // 03</span>
+                  <span class="badge badge-production">Production</span>
+                </div>
+                <h3 class="project-title">MSP Investment Platform</h3>
+                <p class="project-desc">
+                  Managed deployment infrastructure for a full-stack investment platform with React frontend and Node.js backend services clustered with PM2, persistent database services, and Nginx edge routing.
+                </p>
+
+                <div class="project-arch-flow">
+                  <div class="arch-flow-title">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14H9V8h2v8zm4 0h-2V8h2v8z"/></svg>
+                    Full-Stack Service Pipeline
+                  </div>
+                  <div class="flow-step-badges">
+                    <span class="flow-step-badge">React Frontend</span>
+                    <span class="arch-arrow">→</span>
+                    <span class="flow-step-badge highlight">Nginx</span>
+                    <span class="arch-arrow">→</span>
+                    <span class="flow-step-badge highlight">Node.js (PM2 Cluster)</span>
+                    <span class="arch-arrow">→</span>
+                    <span class="flow-step-badge">Database</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="project-tech-tags">
+                <span class="project-tech-tag">React</span>
+                <span class="project-tech-tag">Node.js</span>
+                <span class="project-tech-tag">PM2</span>
+                <span class="project-tech-tag">Nginx</span>
+                <span class="project-tech-tag">Linux</span>
+                <span class="project-tech-tag">Database Services</span>
+              </div>
+            </div>
+
+            <!-- Project 4: Monitoring & Observability Infrastructure -->
+            <div class="project-card">
+              <div>
+                <div class="project-top-meta">
+                  <span class="project-number">PROJECT // 04</span>
+                  <span class="badge badge-production">Production</span>
+                </div>
+                <h3 class="project-title">Monitoring & Observability Infrastructure</h3>
+                <p class="project-desc">
+                  Built and managed centralized monitoring infrastructure for applications and servers. Highlights include real-time metrics monitoring, host telemetry, log streaming, and rapid incident troubleshooting.
+                </p>
+
+                <div class="project-arch-flow">
+                  <div class="arch-flow-title">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14H9V8h2v8zm4 0h-2V8h2v8z"/></svg>
+                    Observability Flow
+                  </div>
+                  <div class="flow-step-badges">
+                    <span class="flow-step-badge">Apps & Servers</span>
+                    <span class="arch-arrow">→</span>
+                    <span class="flow-step-badge highlight">Prometheus & Loki</span>
+                    <span class="arch-arrow">→</span>
+                    <span class="flow-step-badge highlight">Grafana Visualizations</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="project-tech-tags">
+                <span class="project-tech-tag">Prometheus</span>
+                <span class="project-tech-tag">Grafana</span>
+                <span class="project-tech-tag">Loki</span>
+                <span class="project-tech-tag">Metrics Monitoring</span>
+                <span class="project-tech-tag">Log Management</span>
+                <span class="project-tech-tag">Troubleshooting</span>
+              </div>
+            </div>
+
+            <!-- Project 5: Private Cloud / Virtual Infrastructure -->
+            <div class="project-card" style="grid-column: 1 / -1;">
+              <div>
+                <div class="project-top-meta">
+                  <span class="project-number">PROJECT // 05</span>
+                  <span class="badge badge-production">Production</span>
+                </div>
+                <h3 class="project-title">Private Cloud / Virtual Infrastructure</h3>
+                <p class="project-desc">
+                  Managed private infrastructure using Proxmox virtual machines, VLAN segmentation, and internal networking. Configured NAT forwarding, SSH bastion security, and isolated firewalls for resilient on-premise application hosting.
+                </p>
+
+                <div class="project-arch-flow">
+                  <div class="arch-flow-title">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14H9V8h2v8zm4 0h-2V8h2v8z"/></svg>
+                    Private Virtual Infrastructure Topology
+                  </div>
+                  <div class="flow-step-badges">
+                    <span class="flow-step-badge">Proxmox VE Hypervisor</span>
+                    <span class="arch-arrow">→</span>
+                    <span class="flow-step-badge highlight">Virtual Machines (Ubuntu/Debian)</span>
+                    <span class="arch-arrow">→</span>
+                    <span class="flow-step-badge highlight">Private Subnets & NAT</span>
+                    <span class="arch-arrow">→</span>
+                    <span class="flow-step-badge">Firewall & SSH Bastion</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="project-tech-tags">
+                <span class="project-tech-tag">Proxmox</span>
+                <span class="project-tech-tag">Linux</span>
+                <span class="project-tech-tag">Virtual Machines</span>
+                <span class="project-tech-tag">SSH Bastions</span>
+                <span class="project-tech-tag">NAT</span>
+                <span class="project-tech-tag">Firewall Hardening</span>
+                <span class="project-tech-tag">VM Management</span>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <hr class="section-separator" aria-hidden="true">
+
+      <!-- ==========================================================================
+           Cloud Engineering Section (AWS & Azure Deep Dive)
+           ========================================================================== -->
+      <section class="section" id="cloud">
+        <div class="container">
+          <div class="section-header">
+            <div class="section-tag">Multi-Cloud Capabilities</div>
+            <h2 class="section-title">Cloud <span class="gradient-text">Engineering</span></h2>
+            <p class="section-description">
+              Hands-on engineering across AWS and Microsoft Azure with focus on reliable compute, isolated networking, cloud security, and automated deployment pipelines.
+            </p>
+          </div>
+
+          <div class="cloud-grid">
+            
+            <!-- AWS Card -->
+            <div class="cloud-provider-card aws">
+              <div class="cloud-header">
+                <div class="provider-info">
+                  <div class="provider-logo-box">
+                    <svg viewBox="0 0 24 24"><path d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96z"/></svg>
+                  </div>
+                  <div>
+                    <h3>Amazon Web Services</h3>
+                    <span class="mono-text" style="font-size: 0.82rem; color: #fb923c;">Production Deployments</span>
+                  </div>
+                </div>
+                <span class="badge badge-production">AWS</span>
+              </div>
+
+              <div class="cloud-services-list">
+                <div class="cloud-service-item">
+                  <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                  <span><strong>Application Deployment:</strong> Deploying and running containerized and node-based production workloads.</span>
+                </div>
+                <div class="cloud-service-item">
+                  <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                  <span><strong>Cloud Infrastructure:</strong> EC2 instances, S3 storage buckets, Elastic IPs, and EBS volume lifecycle.</span>
+                </div>
+                <div class="cloud-service-item">
+                  <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                  <span><strong>Networking & Security:</strong> VPC configurations, public/private subnets, Security Groups, and IAM roles.</span>
+                </div>
+                <div class="cloud-service-item">
+                  <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                  <span><strong>Scaling & Reliability:</strong> Horizontal scaling principles, target groups, and high-availability setups.</span>
+                </div>
+                <div class="cloud-service-item">
+                  <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                  <span><strong>CI/CD Integration:</strong> Automated remote deployment hooks from Jenkins and Git triggers.</span>
+                </div>
+              </div>
+
+              <div class="cloud-arch-mini">
+                <span style="color: #cbd5e1; font-weight: 600;">Key AWS Components:</span>
+                <div class="tag-cluster">
+                  <span class="tool-tag">EC2</span>
+                  <span class="tool-tag">VPC</span>
+                  <span class="tool-tag">Security Groups</span>
+                  <span class="tool-tag">S3</span>
+                  <span class="tool-tag">IAM</span>
+                  <span class="tool-tag">Auto Scaling</span>
+                  <span class="tool-tag">Route 53</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Azure Card -->
+            <div class="cloud-provider-card azure">
+              <div class="cloud-header">
+                <div class="provider-info">
+                  <div class="provider-logo-box">
+                    <svg viewBox="0 0 24 24"><path d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96z"/></svg>
+                  </div>
+                  <div>
+                    <h3>Microsoft Azure</h3>
+                    <span class="mono-text" style="font-size: 0.82rem; color: #38bdf8;">Enterprise Cloud</span>
+                  </div>
+                </div>
+                <span class="badge badge-hands-on">Azure</span>
+              </div>
+
+              <div class="cloud-services-list">
+                <div class="cloud-service-item">
+                  <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                  <span><strong>Azure IaaS & PaaS:</strong> Practical learning and operational deployment across Azure virtual infrastructure.</span>
+                </div>
+                <div class="cloud-service-item">
+                  <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                  <span><strong>Compute Services:</strong> Azure Virtual Machines, App Services, container runtimes, and environment sizing.</span>
+                </div>
+                <div class="cloud-service-item">
+                  <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                  <span><strong>Networking & Firewalls:</strong> Virtual Networks (VNets), Network Security Groups (NSGs), and firewall concepts.</span>
+                </div>
+                <div class="cloud-service-item">
+                  <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                  <span><strong>Security Concepts:</strong> Role-based access control (RBAC), secret management, and secure perimeter protection.</span>
+                </div>
+                <div class="cloud-service-item">
+                  <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                  <span><strong>Cloud Architecture:</strong> Modern multi-tier architectures designed for high availability and low latency.</span>
+                </div>
+              </div>
+
+              <div class="cloud-arch-mini">
+                <span style="color: #cbd5e1; font-weight: 600;">Key Azure Concepts:</span>
+                <div class="tag-cluster">
+                  <span class="tool-tag">Azure VMs</span>
+                  <span class="tool-tag">App Services</span>
+                  <span class="tool-tag">VNets</span>
+                  <span class="tool-tag">NSG</span>
+                  <span class="tool-tag">Azure IaaS/PaaS</span>
+                  <span class="tool-tag">Azure Security</span>
+                  <span class="tool-tag">Blob Storage</span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <hr class="section-separator" aria-hidden="true">
+
+      <!-- ==========================================================================
+           CI/CD Section (Interactive Animated Simulator)
+           ========================================================================== -->
+      <section class="section" id="cicd">
+        <div class="container">
+          <div class="section-header">
+            <div class="section-tag">Automated Software Delivery</div>
+            <h2 class="section-title">CI/CD <span class="gradient-text">Pipeline Simulator</span></h2>
+            <p class="section-description">
+              Continuous Integration and Continuous Deployment eliminates manual errors, validates code integrity, and guarantees reliable, repeatable software delivery.
+            </p>
+          </div>
+
+          <div class="cicd-container">
+            <div class="cicd-intro">
+              <p>
+                Every commit initiates an automated pipeline that checks out code, runs automated tests, builds container images, and deploys to production with zero downtime. Click below to execute a simulated deployment.
+              </p>
+            </div>
+
+            <!-- Pipeline Track (8 stages) -->
+            <div class="cicd-pipeline-track">
+              
+              <div class="cicd-stage-card" id="stage-git">
+                <div class="stage-step-num">STAGE 01</div>
+                <div class="stage-icon-box">
+                  <svg viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.1-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2z"/></svg>
+                </div>
+                <div class="stage-label">Git Push</div>
+              </div>
+
+              <div class="cicd-stage-card" id="stage-jenkins">
+                <div class="stage-step-num">STAGE 02</div>
+                <div class="stage-icon-box">
+                  <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
+                </div>
+                <div class="stage-label">Jenkins Trigger</div>
+              </div>
+
+              <div class="cicd-stage-card" id="stage-checkout">
+                <div class="stage-step-num">STAGE 03</div>
+                <div class="stage-icon-box">
+                  <svg viewBox="0 0 24 24"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>
+                </div>
+                <div class="stage-label">Checkout</div>
+              </div>
+
+              <div class="cicd-stage-card" id="stage-build">
+                <div class="stage-step-num">STAGE 04</div>
+                <div class="stage-icon-box">
+                  <svg viewBox="0 0 24 24"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg>
+                </div>
+                <div class="stage-label">Build Code</div>
+              </div>
+
+              <div class="cicd-stage-card" id="stage-test">
+                <div class="stage-step-num">STAGE 05</div>
+                <div class="stage-icon-box">
+                  <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                </div>
+                <div class="stage-label">Automated Tests</div>
+              </div>
+
+              <div class="cicd-stage-card" id="stage-docker">
+                <div class="stage-step-num">STAGE 06</div>
+                <div class="stage-icon-box">
+                  <svg viewBox="0 0 24 24"><path d="M13 13v-2h2v2h-2zm-3 0v-2h2v2h-2zm-3 0v-2h2v2H7zm9-3V8h2v2h-2zm-3 0V8h2v2h-2zm-3 0V8h2v2h-2zm-3 0V8h2v2H7zm-3 0V8h2v2H4zm17.5 1.5c-.3-.2-1.3-.7-2.7-.2-.2-.6-.6-1.1-1.1-1.5-.3-.2-.7-.4-1.2-.4h-1.5v4.5H2c-.5 0-1 .4-1 1 0 3.3 2.7 6.1 6.1 6.1 4.5 0 8.3-2.9 9.6-7 .9.1 1.7-.1 2.3-.5.9-.6 1.4-1.3 1.5-1.5z"/></svg>
+                </div>
+                <div class="stage-label">Docker Build</div>
+              </div>
+
+              <div class="cicd-stage-card" id="stage-deploy">
+                <div class="stage-step-num">STAGE 07</div>
+                <div class="stage-icon-box">
+                  <svg viewBox="0 0 24 24"><path d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96z"/></svg>
+                </div>
+                <div class="stage-label">Deployment</div>
+              </div>
+
+              <div class="cicd-stage-card" id="stage-health">
+                <div class="stage-step-num">STAGE 08</div>
+                <div class="stage-icon-box">
+                  <svg viewBox="0 0 24 24"><path d="M3 13h2v-2H3v2zm0 4h2v-2H3v2zm0-8h2V7H3v2zm4 4h14v-2H7v2zm0 4h14v-2H7v2zM7 7v2h14V7H7z"/></svg>
+                </div>
+                <div class="stage-label">Health & Monitor</div>
+              </div>
+
+            </div>
+
+            <!-- Simulator Console -->
+            <div class="cicd-simulator-box">
+              <div class="simulator-controls-bar">
+                <div class="simulator-status" id="cicd-status-text">
+                  <span class="status-dot"></span> Pipeline Standby
+                </div>
+                <button class="btn btn-primary btn-sm" id="btn-run-simulation">
+                  Execute Pipeline Run
+                </button>
+              </div>
+
+              <div class="simulator-logs" id="cicd-log-output">
+                <div class="log-line">
+                  <span class="log-timestamp">[STANDBY]</span>
+                  <span class="log-msg-info">Ready to execute automated deployment pipeline. Click 'Execute Pipeline Run' to start.</span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <hr class="section-separator" aria-hidden="true">
+
+      <!-- ==========================================================================
+           DevOps Toolbox (Visual Technology Wall)
+           ========================================================================== -->
+      <section class="section" id="toolbox">
+        <div class="container">
+          <div class="section-header">
+            <div class="section-tag">Production Stack</div>
+            <h2 class="section-title">DevOps <span class="gradient-text">Toolbox</span></h2>
+            <p class="section-description">
+              Enterprise platforms, operating systems, databases, and tooling deployed across daily operations.
+            </p>
+          </div>
+
+          <div class="toolbox-grid">
+            <div class="tool-item-card">
+              <svg viewBox="0 0 24 24"><path d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96z"/></svg>
+              <span class="tool-name">AWS</span>
+            </div>
+
+            <div class="tool-item-card">
+              <svg viewBox="0 0 24 24"><path d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96z"/></svg>
+              <span class="tool-name">Azure</span>
+            </div>
+
+            <div class="tool-item-card">
+              <svg viewBox="0 0 24 24"><path d="M13 13v-2h2v2h-2zm-3 0v-2h2v2h-2zm-3 0v-2h2v2H7zm9-3V8h2v2h-2zm-3 0V8h2v2h-2zm-3 0V8h2v2h-2zm-3 0V8h2v2H7zm-3 0V8h2v2H4zm17.5 1.5c-.3-.2-1.3-.7-2.7-.2-.2-.6-.6-1.1-1.1-1.5-.3-.2-.7-.4-1.2-.4h-1.5v4.5H2c-.5 0-1 .4-1 1 0 3.3 2.7 6.1 6.1 6.1 4.5 0 8.3-2.9 9.6-7 .9.1 1.7-.1 2.3-.5.9-.6 1.4-1.3 1.5-1.5z"/></svg>
+              <span class="tool-name">Docker</span>
+            </div>
+
+            <div class="tool-item-card">
+              <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
+              <span class="tool-name">Jenkins</span>
+            </div>
+
+            <div class="tool-item-card">
+              <svg viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.1-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2z"/></svg>
+              <span class="tool-name">Git</span>
+            </div>
+
+            <div class="tool-item-card">
+              <svg viewBox="0 0 24 24"><path d="M20 18c1.1 0 1.99-.9 1.99-2L22 6c0-1.1-.9-2-2-2H4c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2H0v2h24v-2h-4zM4 6h16v10H4V6z"/></svg>
+              <span class="tool-name">Linux</span>
+            </div>
+
+            <div class="tool-item-card">
+              <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm0 18a8 8 0 1 1 8-8 8 8 0 0 1-8 8z"/></svg>
+              <span class="tool-name">Ubuntu</span>
+            </div>
+
+            <div class="tool-item-card">
+              <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2z"/></svg>
+              <span class="tool-name">Debian</span>
+            </div>
+
+            <div class="tool-item-card">
+              <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+              <span class="tool-name">Nginx</span>
+            </div>
+
+            <div class="tool-item-card">
+              <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z"/></svg>
+              <span class="tool-name">Apache</span>
+            </div>
+
+            <div class="tool-item-card">
+              <svg viewBox="0 0 24 24"><path d="M3 13h2v-2H3v2zm0 4h2v-2H3v2zm0-8h2V7H3v2zm4 4h14v-2H7v2zm0 4h14v-2H7v2zM7 7v2h14V7H7z"/></svg>
+              <span class="tool-name">Prometheus</span>
+            </div>
+
+            <div class="tool-item-card">
+              <svg viewBox="0 0 24 24"><path d="M3 13h2v-2H3v2zm4 4h14v-2H7v2z"/></svg>
+              <span class="tool-name">Grafana</span>
+            </div>
+
+            <div class="tool-item-card">
+              <svg viewBox="0 0 24 24"><path d="M4 6h16v12H4z"/></svg>
+              <span class="tool-name">Loki</span>
+            </div>
+
+            <div class="tool-item-card">
+              <svg viewBox="0 0 24 24"><path d="M4 6H2v14c0 1.1.9 2 2 2h14v-2H4V6zm16-4H8c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H8V4h12v12z"/></svg>
+              <span class="tool-name">Proxmox</span>
+            </div>
+
+            <div class="tool-item-card">
+              <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 4.02 2 6.5v11C2 19.98 6.48 22 12 22s10-2.02 10-4.5v-11C22 4.02 17.52 2 12 2z"/></svg>
+              <span class="tool-name">MySQL</span>
+            </div>
+
+            <div class="tool-item-card">
+              <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 4.02 2 6.5v11C2 19.98 6.48 22 12 22s10-2.02 10-4.5v-11C22 4.02 17.52 2 12 2z"/></svg>
+              <span class="tool-name">PostgreSQL</span>
+            </div>
+
+            <div class="tool-item-card">
+              <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 4.02 2 6.5v11C2 19.98 6.48 22 12 22s10-2.02 10-4.5v-11C22 4.02 17.52 2 12 2z"/></svg>
+              <span class="tool-name">MongoDB</span>
+            </div>
+
+            <div class="tool-item-card">
+              <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 4.02 2 6.5v11C2 19.98 6.48 22 12 22s10-2.02 10-4.5v-11C22 4.02 17.52 2 12 2z"/></svg>
+              <span class="tool-name">Redis</span>
+            </div>
+
+            <div class="tool-item-card">
+              <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 4.02 2 6.5v11C2 19.98 6.48 22 12 22s10-2.02 10-4.5v-11C22 4.02 17.52 2 12 2z"/></svg>
+              <span class="tool-name">Elasticsearch</span>
+            </div>
+
+            <div class="tool-item-card">
+              <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 4.02 2 6.5v11C2 19.98 6.48 22 12 22s10-2.02 10-4.5v-11C22 4.02 17.52 2 12 2z"/></svg>
+              <span class="tool-name">OpenSearch</span>
+            </div>
+
+            <div class="tool-item-card">
+              <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 4.02 2 6.5v11C2 19.98 6.48 22 12 22s10-2.02 10-4.5v-11C22 4.02 17.52 2 12 2z"/></svg>
+              <span class="tool-name">Qdrant</span>
+            </div>
+
+            <div class="tool-item-card">
+              <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/></svg>
+              <span class="tool-name">Node.js</span>
+            </div>
+
+            <div class="tool-item-card">
+              <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/></svg>
+              <span class="tool-name">Next.js</span>
+            </div>
+
+            <div class="tool-item-card">
+              <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/></svg>
+              <span class="tool-name">React</span>
+            </div>
+
+            <div class="tool-item-card">
+              <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z"/></svg>
+              <span class="tool-name">Vite</span>
+            </div>
+
+            <div class="tool-item-card">
+              <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/></svg>
+              <span class="tool-name">FastAPI</span>
+            </div>
+
+            <div class="tool-item-card">
+              <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/></svg>
+              <span class="tool-name">Laravel</span>
+            </div>
+
+            <div class="tool-item-card">
+              <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/></svg>
+              <span class="tool-name">PM2</span>
+            </div>
+
+            <div class="tool-item-card">
+              <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/></svg>
+              <span class="tool-name">Uvicorn</span>
+            </div>
+
+            <div class="tool-item-card">
+              <svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/></svg>
+              <span class="tool-name">Trivy</span>
+            </div>
+
+            <div class="tool-item-card">
+              <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14H9V8h2v8zm4 0h-2V8h2v8z"/></svg>
+              <span class="tool-name">SonarQube</span>
+            </div>
+
+            <div class="tool-item-card">
+              <svg viewBox="0 0 24 24"><path d="M4 6h16v12H4z"/></svg>
+              <span class="tool-name">Promtail</span>
+            </div>
+
+            <div class="tool-item-card">
+              <svg viewBox="0 0 24 24"><path d="M9.4 16.6L4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0l4.6-4.6-4.6-4.6L16 6l6 6-6 6-1.4-1.4z"/></svg>
+              <span class="tool-name">Bash / Shell</span>
+            </div>
+
+            <div class="tool-item-card">
+              <svg viewBox="0 0 24 24"><path d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96z"/></svg>
+              <span class="tool-name">CodeCommit</span>
+            </div>
+
+            <div class="tool-item-card">
+              <svg viewBox="0 0 24 24"><path d="M20 18c1.1 0 1.99-.9 1.99-2L22 6c0-1.1-.9-2-2-2H4c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2H0v2h24v-2h-4zM4 6h16v10H4V6z"/></svg>
+              <span class="tool-name">Win Server</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <hr class="section-separator" aria-hidden="true">
+
+      <!-- ==========================================================================
+           Certifications & Continuous Learning
+           ========================================================================== -->
+      <section class="section" id="learning">
+        <div class="container">
+          <div class="section-header">
+            <div class="section-tag">Education & Growth</div>
+            <h2 class="section-title">Certifications & <span class="gradient-text">Continuous Learning</span></h2>
+            <p class="section-description">
+              Verified foundational credentials paired with an ongoing roadmap in cloud-native and DevSecOps engineering.
+            </p>
+          </div>
+
+          <div class="learning-layout">
+            
+            <!-- Verified Certifications -->
+            <div style="display: flex; flex-direction: column; gap: 24px;">
+              <!-- IBM Cloud Certificate -->
+              <div class="cert-card">
+                <div class="cert-header">
+                  <div class="cert-icon-box">
+                    <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                  </div>
+                  <div class="cert-info">
+                    <h4>IBM — Introduction to Cloud Computing</h4>
+                    <div class="cert-issuer">Coursera // Verified Credential</div>
+                  </div>
+                </div>
+                <div class="cert-topics-list">
+                  <span class="cert-topic-tag">Cloud Computing Fundamentals</span>
+                  <span class="cert-topic-tag">IaaS</span>
+                  <span class="cert-topic-tag">PaaS</span>
+                  <span class="cert-topic-tag">SaaS</span>
+                  <span class="cert-topic-tag">Cloud Deployment Models</span>
+                  <span class="cert-topic-tag">Cloud Architecture</span>
+                  <span class="cert-topic-tag">Cloud Security</span>
+                </div>
+              </div>
+
+              <!-- CCNA Foundation -->
+              <div class="cert-card">
+                <div class="cert-header">
+                  <div class="cert-icon-box" style="color: #38bdf8; border-color: rgba(56, 189, 248, 0.3);">
+                    <svg viewBox="0 0 24 24"><path d="M12 11c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm6 2c0-3.31-2.69-6-6-6s-6 2.69-6 6c0 2.22 1.21 4.15 3 5.19l1-1.74c-1.19-.7-2-1.97-2-3.45 0-2.21 1.79-4 4-4s4 1.79 4 4c0 1.48-.81 2.75-2 3.45l1 1.74c1.79-1.04 3-2.97 3-5.19z"/></svg>
+                  </div>
+                  <div class="cert-info">
+                    <h4>CCNA — Networking Foundation</h4>
+                    <div class="cert-issuer">Cisco Networking Curriculum</div>
+                  </div>
+                </div>
+                <div class="cert-topics-list">
+                  <span class="cert-topic-tag">TCP/IP Protocol Suite</span>
+                  <span class="cert-topic-tag">Subnetting & CIDR</span>
+                  <span class="cert-topic-tag">Routing & Switching</span>
+                  <span class="cert-topic-tag">NAT / PAT</span>
+                  <span class="cert-topic-tag">DNS & DHCP</span>
+                  <span class="cert-topic-tag">Network Security & ACLs</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Currently Exploring Radar Box -->
+            <div class="exploring-box">
+              <div class="exploring-header">
+                <div class="radar-dot"></div>
+                <h3 style="font-size: 1.4rem; color: #ffffff;">Currently Exploring</h3>
+              </div>
+              <p style="font-size: 0.98rem; line-height: 1.6; color: var(--text-secondary); margin-bottom: 24px;">
+                Actively expanding expertise in enterprise cloud architecture, container orchestration, and continuous security compliance.
+              </p>
+
+              <div class="exploring-tags-grid">
+                <div class="explore-item">
+                  <svg viewBox="0 0 24 24"><path d="M12 4l-8 8h6v8h4v-8h6z"/></svg>
+                  <span>Advanced Azure</span>
+                </div>
+                <div class="explore-item">
+                  <svg viewBox="0 0 24 24"><path d="M12 4l-8 8h6v8h4v-8h6z"/></svg>
+                  <span>Azure PaaS & IaaS</span>
+                </div>
+                <div class="explore-item">
+                  <svg viewBox="0 0 24 24"><path d="M12 4l-8 8h6v8h4v-8h6z"/></svg>
+                  <span>Azure Networking</span>
+                </div>
+                <div class="explore-item">
+                  <svg viewBox="0 0 24 24"><path d="M12 4l-8 8h6v8h4v-8h6z"/></svg>
+                  <span>Azure Security</span>
+                </div>
+                <div class="explore-item">
+                  <svg viewBox="0 0 24 24"><path d="M12 4l-8 8h6v8h4v-8h6z"/></svg>
+                  <span>Cloud Architecture</span>
+                </div>
+                <div class="explore-item">
+                  <svg viewBox="0 0 24 24"><path d="M12 4l-8 8h6v8h4v-8h6z"/></svg>
+                  <span>DevSecOps</span>
+                </div>
+                <div class="explore-item">
+                  <svg viewBox="0 0 24 24"><path d="M12 4l-8 8h6v8h4v-8h6z"/></svg>
+                  <span>Kubernetes (K8s)</span>
+                </div>
+                <div class="explore-item">
+                  <svg viewBox="0 0 24 24"><path d="M12 4l-8 8h6v8h4v-8h6z"/></svg>
+                  <span>Advanced CI/CD</span>
+                </div>
+                <div class="explore-item" style="grid-column: 1 / -1;">
+                  <svg viewBox="0 0 24 24"><path d="M12 4l-8 8h6v8h4v-8h6z"/></svg>
+                  <span>Cloud FinOps (Cost Optimization)</span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <hr class="section-separator" aria-hidden="true">
+
+      <!-- ==========================================================================
+           Interactive Terminal Section (DevOps Console)
+           ========================================================================== -->
+      <section class="section" id="terminal">
+        <div class="container">
+          <div class="section-header">
+            <div class="section-tag">Interactive CLI</div>
+            <h2 class="section-title">DevOps <span class="gradient-text">Terminal</span></h2>
+            <p class="section-description">
+              Explore my background directly from the command line. Type commands or click the quick action chips below.
+            </p>
+          </div>
+
+          <div class="terminal-wrapper">
+            <div class="terminal-window">
+              <div class="terminal-top-bar">
+                <div class="window-dots">
+                  <span class="window-dot dot-red"></span>
+                  <span class="window-dot dot-yellow"></span>
+                  <span class="window-dot dot-green"></span>
+                </div>
+                <div class="terminal-title-center">arsalan@devops-box:~ (bash)</div>
+                <div style="font-family: var(--font-mono); font-size: 0.75rem; color: #34d399;">● CONNECTED</div>
+              </div>
+
+              <div class="terminal-screen" id="terminal-screen">
+                <div class="terminal-entry-line">
+                  <span class="prompt-user">arsalan</span><span class="prompt-at">@</span><span class="prompt-host">devops-box</span>:<span class="prompt-path">~</span><span class="prompt-char">$</span>
+                  <span>whoami</span>
+                </div>
+                <div class="terminal-output-block">
+                  <span style="color:#ffffff; font-weight:bold;">Arsalan Qayum</span><br>
+                  DevOps & Cloud Engineer at <span style="color:#38bdf8;">K2XTech</span><br>
+                  Tagline: "Automating Infrastructure. Accelerating Deployments. Building Reliable Systems."
+                </div>
+
+                <div class="terminal-entry-line">
+                  <span class="prompt-user">arsalan</span><span class="prompt-at">@</span><span class="prompt-host">devops-box</span>:<span class="prompt-path">~</span><span class="prompt-char">$</span>
+                  <span>role</span>
+                </div>
+                <div class="terminal-output-block">
+                  DevOps & Cloud Engineer (Cloud Infrastructure, CI/CD Automation, Linux Systems, Containerization, Observability).
+                </div>
+
+                <div class="terminal-entry-line">
+                  <span class="prompt-user">arsalan</span><span class="prompt-at">@</span><span class="prompt-host">devops-box</span>:<span class="prompt-path">~</span><span class="prompt-char">$</span>
+                  <span>mission</span>
+                </div>
+                <div class="terminal-output-block">
+                  <span style="color:#22d3ee;">"Automate everything that can be automated. Build reliable, scalable systems."</span>
+                </div>
+
+                <div class="terminal-entry-line">
+                  <span class="prompt-user">arsalan</span><span class="prompt-at">@</span><span class="prompt-host">devops-box</span>:<span class="prompt-path">~</span><span class="prompt-char">$</span>
+                  <span style="color: #64748b;"># Type 'help' for full command manual or click pills below</span>
+                </div>
+              </div>
+
+              <!-- Input Prompt Row -->
+              <div style="padding: 0 24px 18px; background: #070c18;">
+                <div class="terminal-input-row">
+                  <span class="prompt-user">arsalan</span><span class="prompt-at">@</span><span class="prompt-host">devops-box</span>:<span class="prompt-path">~</span><span class="prompt-char">$</span>
+                  <input type="text" id="terminal-cli-input" class="terminal-cli-input" placeholder="Type a command (e.g. help, skills, projects, contact)..." autocomplete="off" spellcheck="false">
+                </div>
+              </div>
+
+              <!-- Quick Command Chips for Mobile & Fast Navigation -->
+              <div class="terminal-chips-row">
+                <span class="chip-label mono-text">Quick Run:</span>
+                <button class="terminal-chip" data-cmd="help">help</button>
+                <button class="terminal-chip" data-cmd="skills">skills</button>
+                <button class="terminal-chip" data-cmd="projects">projects</button>
+                <button class="terminal-chip" data-cmd="experience">experience</button>
+                <button class="terminal-chip" data-cmd="architecture">architecture</button>
+                <button class="terminal-chip" data-cmd="contact">contact</button>
+                <button class="terminal-chip" data-cmd="uptime">uptime</button>
+                <button class="terminal-chip" data-cmd="clear">clear</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <hr class="section-separator" aria-hidden="true">
+
+      <!-- ==========================================================================
+           Contact Section
+           ========================================================================== -->
+      <section class="section" id="contact">
+        <div class="container">
+          <div class="contact-card-box">
+            
+            <div class="contact-left">
+              <div class="section-tag" style="margin-bottom: 12px;">Get In Touch</div>
+              <h3>Let's Build Something <span class="gradient-text">Reliable.</span></h3>
+              <p>
+                Have a DevOps challenge, cloud project, infrastructure requirement, or deployment problem? Let's connect.
+              </p>
+
+              <div class="contact-info-list">
+                <!-- Email Item -->
+                <div class="contact-info-item">
+                  <div class="info-item-left">
+                    <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                    <div>
+                      <div class="info-label">Direct Email</div>
+                      <div class="info-val">arsalanqayum09@gmail.com</div>
+                    </div>
+                  </div>
+                  <button class="btn btn-secondary btn-sm btn-copy-email" id="btn-copy-email" title="Copy Email Address">
+                    Copy
+                  </button>
+                </div>
+
+                <!-- Phone / WhatsApp Item -->
+                <div class="contact-info-item">
+                  <div class="info-item-left">
+                    <svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+                    <div>
+                      <div class="info-label">Direct Phone / WhatsApp</div>
+                      <div class="info-val">03015642176</div>
+                    </div>
+                  </div>
+                  <a href="tel:03015642176" class="btn btn-secondary btn-sm">
+                    Call
+                  </a>
+                </div>
+
+                <!-- LinkedIn Item -->
+                <div class="contact-info-item">
+                  <div class="info-item-left">
+                    <svg viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.2V10.9H6.46M7.83 6.45c-.89 0-1.61.72-1.61 1.61 0 .89.72 1.61 1.61 1.61.89 0 1.61-.72 1.61-1.61 0-.89-.72-1.61-1.61-1.61z"/></svg>
+                    <div>
+                      <div class="info-label">Professional Network</div>
+                      <div class="info-val">linkedin.com/in/arsalan-qayum-19a429225</div>
+                    </div>
+                  </div>
+                  <a href="https://linkedin.com/in/arsalan-qayum-19a429225" target="_blank" rel="noopener" class="btn btn-secondary btn-sm">
+                    Open
+                  </a>
+                </div>
+
+                <!-- Location Item -->
+                <div class="contact-info-item">
+                  <div class="info-item-left">
+                    <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                    <div>
+                      <div class="info-label">Location & Availability</div>
+                      <div class="info-val">Pakistan (Remote / Hybrid / On-site)</div>
+                    </div>
+                  </div>
+                  <span class="badge badge-production" style="margin-right: 4px;">Available</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Contact Message Form -->
+            <div class="contact-right">
+              <form class="contact-form" id="contact-form">
+                <div class="form-group">
+                  <label for="contact-name" class="form-label">Full Name</label>
+                  <input type="text" id="contact-name" class="form-input" placeholder="Your Name or Team" required>
+                </div>
+
+                <div class="form-group">
+                  <label for="contact-email" class="form-label">Email Address</label>
+                  <input type="email" id="contact-email" class="form-input" placeholder="name@company.com" required>
+                </div>
+
+                <div class="form-group">
+                  <label for="contact-subject" class="form-label">Subject / Opportunity</label>
+                  <input type="text" id="contact-subject" class="form-input" placeholder="Cloud Deployment / DevOps Consultation" required>
+                </div>
+
+                <div class="form-group">
+                  <label for="contact-message" class="form-label">Message</label>
+                  <textarea id="contact-message" class="form-textarea" placeholder="Describe your infrastructure goals or technical challenges..." required></textarea>
+                </div>
+
+                <button type="submit" class="btn btn-primary" id="btn-submit-message">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
+                  Send Message
+                </button>
+              </form>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- ==========================================================================
+         Footer
+         ========================================================================== -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-top">
+          <div>
+            <div class="brand-logo" style="margin-bottom: 8px;">
+              <span class="brand-badge">AQ</span>
+              <span class="brand-text">Arsalan Qayum</span>
+            </div>
+            <div style="color: var(--text-secondary); font-size: 0.95rem;">DevOps & Cloud Engineer</div>
+            <div class="mono-text" style="color: var(--accent-cyan-light); font-size: 0.88rem; margin-top: 4px;">
+              "Automate. Deploy. Monitor. Scale."
+            </div>
+          </div>
+
+          <div style="display: flex; align-items: center; gap: 14px;">
+            <a href="https://linkedin.com/in/arsalan-qayum-19a429225" target="_blank" rel="noopener" class="btn-icon" aria-label="LinkedIn Profile">
+              <svg viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.2V10.9H6.46M7.83 6.45c-.89 0-1.61.72-1.61 1.61 0 .89.72 1.61 1.61 1.61.89 0 1.61-.72 1.61-1.61 0-.89-.72-1.61-1.61-1.61z"/></svg>
+            </a>
+            <a href="https://github.com" target="_blank" rel="noopener" class="btn-icon" aria-label="GitHub Profile">
+              <svg viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.1-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2z"/></svg>
+            </a>
+            <a href="mailto:arsalanqayum09@gmail.com" class="btn-icon" aria-label="Email Arsalan">
+              <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <div>&copy; 2026 Arsalan Qayum. All rights reserved. Built with semantic modern web standards.</div>
+          <div class="footer-status">
+            <span class="status-dot"></span> Cluster Status: 100% Operational
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- ==========================================================================
+         Resume Preview & ATS Modal
+         ========================================================================== -->
+    <div class="modal-overlay" id="resume-modal" role="dialog" aria-modal="true" aria-labelledby="resume-modal-title">
+      <div class="resume-modal-content">
+        <div class="modal-header">
+          <h3 id="resume-modal-title">Curriculum Vitae — Arsalan Qayum</h3>
+          <div class="modal-header-actions">
+            <button class="btn btn-primary btn-sm" id="btn-print-resume">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M19 8H5c-1.66 0-3 1.34-3 3v6h4v4h12v-4h4v-6c0-1.66-1.34-3-3-3zm-3 11H8v-5h8v5zm3-7c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1zm-1-9H6v4h12V3z"/></svg>
+              Print / Save PDF
+            </button>
+            <button class="btn btn-secondary btn-sm btn-close-modal" aria-label="Close Resume Modal">&times;</button>
+          </div>
+        </div>
+
+        <div class="modal-body">
+          <div class="resume-sheet">
+            <div class="resume-sheet-header">
+              <div class="resume-name">Arsalan Qayum</div>
+              <div class="resume-role">DevOps / Cloud Architect & Engineer</div>
+              <div class="resume-contact-meta">
+                <span>📍 Pakistan</span>
+                <span>📞 03015642176</span>
+                <span>✉ arsalanqayum09@gmail.com</span>
+                <span>🔗 <a href="https://linkedin.com/in/arsalan-qayum-19a429225" target="_blank" rel="noopener" style="color:#38bdf8;">linkedin.com/in/arsalan-qayum-19a429225</a></span>
+              </div>
+            </div>
+
+            <div class="resume-section-title">Summary</div>
+            <p style="margin-bottom: 16px;">
+              DevOps / Cloud Engineer with 2+ years of hands-on experience in designing, deploying, and managing reliable cloud and production infrastructure. Skilled in AWS, Azure, Linux, Jenkins CI/CD, Docker, Proxmox, Nginx, PM2, and infrastructure automation. Experienced in deploying and maintaining Node.js, React, Vite, Next.js, and backend applications, with strong expertise in monitoring and observability using Prometheus, Grafana, Loki, and Promtail. Proficient in MongoDB, MySQL, and PostgreSQL administration, SSL/TLS configuration, reverse proxy, production troubleshooting, and deployment automation. Focused on building scalable, secure, and highly available environments while improving deployment efficiency and system reliability.
+            </p>
+
+            <div class="resume-section-title">Experience</div>
+            <div style="margin-bottom: 20px;">
+              <div style="display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; margin-bottom: 4px;">
+                <span style="font-size: 1.1rem; font-weight: 700; color: #ffffff;">DevOps / Cloud Architect</span>
+                <span style="font-family: var(--font-mono); font-size: 0.88rem; color: var(--accent-cyan-light);">January 2024 – Present</span>
+              </div>
+              <div style="font-weight: 600; color: #38bdf8; margin-bottom: 10px;">
+                K2X TECH — Pakistan
+              </div>
+              <ul style="list-style: disc; margin-left: 20px; color: var(--text-secondary); display: flex; flex-direction: column; gap: 6px; font-size: 0.92rem;">
+                <li>Design, deploy, and maintain cloud and production infrastructure across AWS, Azure, Proxmox, and Linux environments.</li>
+                <li>Build and maintain Jenkins CI/CD pipelines to automate application build, testing, and deployment workflows.</li>
+                <li>Manage source-code and deployment workflows using Git and AWS CodeCommit.</li>
+                <li>Deploy and manage Node.js, React, Vite, Next.js, and backend applications across staging and production environments.</li>
+                <li>Configure and maintain Nginx and Apache as web servers and reverse proxies.</li>
+                <li>Configure SSL/TLS certificates using Certbot and troubleshoot HTTPS and certificate-related issues.</li>
+                <li>Manage production applications using PM2, including process monitoring, restarts, logs, and troubleshooting.</li>
+                <li>Containerize and deploy applications using Docker and Docker Compose.</li>
+                <li>Build monitoring and observability environments using Prometheus, Grafana, Loki, and Promtail.</li>
+                <li>Monitor application health, server resources, logs, and service availability to identify and resolve production issues.</li>
+                <li>Administer MongoDB, MySQL, and PostgreSQL, including database users, permissions, backups, connectivity, and troubleshooting.</li>
+                <li>Develop Bash/Shell scripts for deployment, backups, maintenance, and operational automation.</li>
+                <li>Troubleshoot production issues including 502 Bad Gateway, 405 Method Not Allowed, SSL/HTTPS, mixed-content, port conflicts, upstream failures, permission errors, build failures, and resource utilization issues.</li>
+                <li>Manage Linux servers, services, packages, processes, filesystem permissions, logs, and system resources.</li>
+                <li>Support application teams with infrastructure, deployment, networking, database, and production configuration issues.</li>
+                <li>Work with Trivy and SonarQube for container security scanning and code-quality practices.</li>
+                <li>Perform server and VM backup, migration, and infrastructure maintenance activities.</li>
+                <li>Optimize deployment environments to improve application reliability, scalability, availability, and deployment efficiency.</li>
+              </ul>
+            </div>
+
+            <div class="resume-section-title">Technical Skills</div>
+            <div style="display: flex; flex-direction: column; gap: 6px; font-size: 0.92rem; margin-bottom: 16px;">
+              <div><strong>Cloud & Platforms:</strong> AWS, Azure, Proxmox</div>
+              <div><strong>DevOps & CI/CD:</strong> Jenkins, Git, AWS CodeCommit, CI/CD Pipelines</div>
+              <div><strong>Containers:</strong> Docker, Docker Compose</div>
+              <div><strong>Operating Systems:</strong> Linux, Ubuntu, Windows Server</div>
+              <div><strong>Web Servers:</strong> Nginx, Apache, Certbot</div>
+              <div><strong>Monitoring & Logging:</strong> Prometheus, Grafana, Loki, Promtail</div>
+              <div><strong>Databases:</strong> MongoDB, MySQL, PostgreSQL</div>
+              <div><strong>Application Technologies:</strong> Node.js, React, Vite, Next.js, FastAPI</div>
+              <div><strong>Process Management:</strong> PM2, Uvicorn</div>
+              <div><strong>Security & Quality:</strong> Trivy, SonarQube, SSL/TLS</div>
+              <div><strong>Scripting & Automation:</strong> Bash, Shell Scripting</div>
+              <div><strong>Networking:</strong> DNS, HTTP/HTTPS, Reverse Proxy, Ports, Firewall, TCP/IP</div>
+            </div>
+
+            <div class="resume-section-title">Key DevOps Expertise</div>
+            <p style="font-size: 0.9rem; line-height: 1.6; margin-bottom: 14px;">
+              <strong>Cloud Infrastructure:</strong> AWS | Azure | Proxmox | Linux Server Administration • 
+              <strong>CI/CD & Automation:</strong> Jenkins | Git | AWS CodeCommit | Bash | Automated Deployments • 
+              <strong>Containerization:</strong> Docker | Docker Compose | Container Management • 
+              <strong>Web & Application Infrastructure:</strong> Nginx | Apache | PM2 | Node.js | React | Vite | Next.js | FastAPI • 
+              <strong>Monitoring & Observability:</strong> Prometheus | Grafana | Loki | Promtail | Log Management | Performance Monitoring • 
+              <strong>Database Administration:</strong> MongoDB | MySQL | PostgreSQL | Backup & Restore | User & Permission Management • 
+              <strong>Security & Networking:</strong> Trivy | SonarQube | SSL/TLS | Certbot | DNS | HTTP/HTTPS | Reverse Proxy | Firewall
+            </p>
+
+            <div class="resume-section-title">Core Strengths</div>
+            <p style="font-size: 0.9rem; line-height: 1.6;">
+              Cloud Infrastructure Management • CI/CD Automation • Production Application Deployment • Linux Administration • Docker & Containerization • Infrastructure Monitoring • Centralized Logging • Database Administration • Nginx & Reverse Proxy Configuration • Production Troubleshooting • Infrastructure Automation • DevSecOps Practices • System Reliability & Availability
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Toast Notification Box -->
+    <div class="toast-box" id="toast-notification" role="status" aria-live="polite">
+      <span>✓</span>
+      <span>Notification</span>
+    </div>
+
+  </div>
+
+  <!-- Scripts -->
+  <script src="js/background-nodes.js"></script>
+  <script src="js/pipeline.js"></script>
+  <script src="js/terminal.js"></script>
+  <script src="js/projects-modal.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
