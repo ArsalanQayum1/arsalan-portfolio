@@ -1,5 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  output: 'standalone',
   reactStrictMode: true,
   swcMinify: true,
   eslint: {
@@ -8,8 +9,10 @@ const nextConfig = {
   typescript: {
     ignoreBuildErrors: true,
   },
-  experimental: {
-    webpackBuildWorker: false,
+  webpack: (config, { isServer }) => {
+    // Optimize memory during build
+    config.parallelism = 1;
+    return config;
   },
 };
 
