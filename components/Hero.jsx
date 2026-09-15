@@ -1,6 +1,6 @@
 'use client';
 
-export default function Hero({ onOpenResume }) {
+export default function Hero() {
   return (
     <section className="section hero-section" id="home">
       <div className="container">
@@ -41,7 +41,7 @@ export default function Hero({ onOpenResume }) {
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M4 6H2v14c0 1.1.9 2 2 2h14v-2H4V6zm16-4H8c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H8V4h12v12z"/></svg>
                 View My Work
               </a>
-              <button className="btn btn-secondary" onClick={onOpenResume} id="hero-download-resume-btn">
+              <button className="btn btn-secondary btn-open-resume" id="hero-download-resume-btn">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>
                 Download Resume
               </button>

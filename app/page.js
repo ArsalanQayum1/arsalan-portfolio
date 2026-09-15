@@ -1,6 +1,3 @@
-'use client';
-
-import { useState } from 'react';
 import Navbar from '../components/Navbar';
 import Hero from '../components/Hero';
 import Stats from '../components/Stats';
@@ -15,16 +12,13 @@ import Terminal from '../components/Terminal';
 import Contact from '../components/Contact';
 import ResumeModal from '../components/ResumeModal';
 
+export const dynamic = 'force-dynamic';
+
 export default function HomePage() {
-  const [resumeOpen, setResumeOpen] = useState(false);
-
-  const handleOpenResume = () => setResumeOpen(true);
-  const handleCloseResume = () => setResumeOpen(false);
-
   return (
     <main className="min-h-screen">
-      <Navbar onOpenResume={handleOpenResume} />
-      <Hero onOpenResume={handleOpenResume} />
+      <Navbar />
+      <Hero />
 
       <div className="container">
         <Stats />
@@ -43,7 +37,7 @@ export default function HomePage() {
       <Architecture />
 
       <hr className="section-separator" aria-hidden="true" />
-      <Projects onOpenResume={handleOpenResume} />
+      <Projects />
 
       <hr className="section-separator" aria-hidden="true" />
       <CloudSimulator />
@@ -69,7 +63,7 @@ export default function HomePage() {
         </div>
       </footer>
 
-      <ResumeModal isOpen={resumeOpen} onClose={handleCloseResume} />
+      <ResumeModal />
     </main>
   );
 }

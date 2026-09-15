@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react';
 
-export default function Navbar({ onOpenResume }) {
+export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [activeLink, setActiveLink] = useState('home');
@@ -65,7 +65,7 @@ export default function Navbar({ onOpenResume }) {
 
           {/* Mobile Drawer Actions */}
           <div className="mobile-nav-actions">
-            <button className="btn btn-secondary btn-sm w-100" onClick={() => { onOpenResume && onOpenResume(); closeMobile(); }}>
+            <button className="btn btn-secondary btn-sm btn-open-resume w-100" id="mobile-nav-resume-btn" onClick={closeMobile}>
               <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>
               View Full CV / Resume
             </button>
@@ -93,7 +93,7 @@ export default function Navbar({ onOpenResume }) {
           
           <div className="nav-cta-divider" aria-hidden="true"></div>
 
-          <button className="btn btn-secondary btn-sm" onClick={onOpenResume} title="View Printable ATS Resume">
+          <button className="btn btn-secondary btn-sm btn-open-resume" id="nav-resume-btn" title="View Printable ATS Resume">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>
             <span>Resume</span>
           </button>
