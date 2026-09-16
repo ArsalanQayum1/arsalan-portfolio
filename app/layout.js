@@ -15,7 +15,6 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" className="dark">
       <body>
-        <canvas id="network-canvas" aria-hidden="true"></canvas>
         <div className="bg-grid-pattern" aria-hidden="true"></div>
         <div className="app-wrapper">
           {children}

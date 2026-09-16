@@ -1,67 +1,60 @@
 import Navbar from '../components/Navbar';
 import Hero from '../components/Hero';
-import Stats from '../components/Stats';
 import About from '../components/About';
 import Experience from '../components/Experience';
 import Skills from '../components/Skills';
-import Architecture from '../components/Architecture';
 import Projects from '../components/Projects';
-import CloudSimulator from '../components/CloudSimulator';
-import Toolbox from '../components/Toolbox';
-import Terminal from '../components/Terminal';
+import Architecture from '../components/Architecture';
+import CloudMonitoring from '../components/CloudMonitoring';
+import Certifications from '../components/Certifications';
 import Contact from '../components/Contact';
 import ResumeModal from '../components/ResumeModal';
 
 export default function HomePage() {
   return (
-    <main className="min-h-screen">
+    <>
       <Navbar />
-      <Hero />
+      <main id="main-content" className="min-h-screen">
+        <Hero />
 
-      <div className="container">
-        <Stats />
-      </div>
+        <hr className="section-separator" aria-hidden="true" />
+        <About />
 
-      <hr className="section-separator" aria-hidden="true" />
-      <About />
+        <hr className="section-separator" aria-hidden="true" />
+        <Experience />
 
-      <hr className="section-separator" aria-hidden="true" />
-      <Experience />
+        <hr className="section-separator" aria-hidden="true" />
+        <Skills />
 
-      <hr className="section-separator" aria-hidden="true" />
-      <Skills />
+        <hr className="section-separator" aria-hidden="true" />
+        <Projects />
 
-      <hr className="section-separator" aria-hidden="true" />
-      <Architecture />
+        <hr className="section-separator" aria-hidden="true" />
+        <Architecture />
 
-      <hr className="section-separator" aria-hidden="true" />
-      <Projects />
+        <hr className="section-separator" aria-hidden="true" />
+        <CloudMonitoring />
 
-      <hr className="section-separator" aria-hidden="true" />
-      <CloudSimulator />
+        <hr className="section-separator" aria-hidden="true" />
+        <Certifications />
 
-      <hr className="section-separator" aria-hidden="true" />
-      <Toolbox />
+        <hr className="section-separator" aria-hidden="true" />
+        <Contact />
+      </main>
 
-      <hr className="section-separator" aria-hidden="true" />
-      <Terminal />
-
-      <hr className="section-separator" aria-hidden="true" />
-      <Contact />
-
-      <footer className="footer" style={{ borderTop: '1px solid var(--border-subtle)', padding: '40px 0', background: 'rgba(7, 11, 20, 0.9)' }}>
-        <div className="container" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '16px' }}>
+      <footer className="footer-clean">
+        <div className="container footer-container">
           <div>
-            <div className="brand-text" style={{ fontSize: '1.2rem', fontWeight: 800 }}>ARSALAN<span>.DEVOPS</span></div>
-            <div style={{ color: 'var(--text-secondary)', fontSize: '0.9rem' }}>DevOps &amp; Cloud Architect — Arsalan Qayum</div>
+            <div className="footer-brand">ARSALAN<span>.DEVOPS</span></div>
+            <div className="footer-role">DevOps &amp; Cloud Engineer — Arsalan Qayum</div>
           </div>
-          <div style={{ fontSize: '0.85rem', color: 'var(--text-muted)' }}>
-            © 2026 Arsalan Qayum. Native Next.js App Router Architecture.
+          <div className="footer-copy">
+            © 2026 Arsalan Qayum. All rights reserved.
           </div>
         </div>
       </footer>
 
       <ResumeModal />
-    </main>
+    </>
   );
 }

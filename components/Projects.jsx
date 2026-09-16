@@ -3,39 +3,34 @@
 export default function Projects() {
   const projects = [
     {
-      title: 'High-Availability Multi-Region AWS & Azure Architecture',
-      category: 'Cloud Infrastructure',
-      desc: 'Architected and deployed multi-region cloud infrastructure using AWS EC2, Azure VMs, VPC/VNet peering, and security groups to guarantee 99.99% uptime for production web applications.',
-      tags: ['AWS', 'Azure', 'Linux', 'VPC / VNet', 'Security Groups', 'Nginx'],
-      impact: '99.99% Uptime SLA'
+      name: 'Assessment Autofiller',
+      description: 'Automated evaluation and response tool designed to streamline candidate and compliance assessment workflows with structured data extraction.',
+      technologies: ['Node.js', 'FastAPI', 'Docker', 'Linux', 'Git'],
+      github: 'https://github.com/ArsalanQayum1'
     },
     {
-      title: 'Zero-Downtime Jenkins & Docker CI/CD Pipeline',
-      category: 'CI/CD Automation',
-      desc: 'Engineered automated multi-stage CI/CD pipelines using Jenkins, AWS CodeCommit, Docker, and SonarQube. Reduced deployment duration from 45 minutes to under 3 minutes with automated rollback capability.',
-      tags: ['Jenkins', 'Git', 'AWS CodeCommit', 'Docker', 'SonarQube', 'Bash'],
-      impact: '15x Deployment Speedup'
+      name: 'Knowledge Hub MSP',
+      description: 'Centralized multi-tenant knowledge portal for managed service operations, featuring indexed search and role-based document access.',
+      technologies: ['Next.js', 'React', 'Docker', 'Nginx', 'PostgreSQL', 'Elasticsearch'],
+      github: 'https://github.com/ArsalanQayum1'
     },
     {
-      title: 'Enterprise Centralized Observability Stack (Loki & Promtail)',
-      category: 'Monitoring & Observability',
-      desc: 'Built centralized telemetry infrastructure using Prometheus for metric collection, Grafana for dashboard visualizations, and Loki + Promtail for log stream aggregation across 30+ production containers.',
-      tags: ['Prometheus', 'Grafana', 'Loki', 'Promtail', 'Alertmanager'],
-      impact: '100% Real-Time Visibility'
+      name: 'MSP Investment Platform',
+      description: 'Cloud-hosted investment portal architecture with secure user authentication, high availability routing, and database redundancy.',
+      technologies: ['AWS', 'Azure', 'Node.js', 'MySQL', 'PM2', 'Nginx', 'SSL/TLS'],
+      github: 'https://github.com/ArsalanQayum1'
     },
     {
-      title: 'Nginx High-Availability Load Balancer & Automated SSL',
-      category: 'Web Servers & Security',
-      desc: 'Configured Nginx reverse proxy load balancers with SSL/TLS auto-renewal via Certbot, HTTP/2 optimization, Gzip compression, and rate limiting to protect production servers from traffic spikes.',
-      tags: ['Nginx', 'Certbot SSL', 'Apache', 'Reverse Proxy', 'PM2'],
-      impact: 'Zero Downtime SSL Renewal'
+      name: 'Monitoring & Observability',
+      description: 'Production telemetry stack collecting real-time server metrics, streaming container logs, and alerting on service anomalies.',
+      technologies: ['Prometheus', 'Grafana', 'Loki', 'Promtail', 'Docker Compose', 'Linux'],
+      github: 'https://github.com/ArsalanQayum1'
     },
     {
-      title: 'Proxmox VE Private Cloud Migration & Automated Backup Strategy',
-      category: 'Virtualization & Backup',
-      desc: 'Managed physical hypervisor infrastructure running Proxmox VE. Configured virtual machine bridges, storage pools, automated snapshot backups, and database replication for MongoDB & PostgreSQL.',
-      tags: ['Proxmox VE', 'KVM', 'PostgreSQL', 'MongoDB', 'Bash Backup'],
-      impact: 'Automated Snapshot Backups'
+      name: 'Private Infrastructure',
+      description: 'On-premise hypervisor infrastructure running isolated virtual machines, container networks, automated snapshot backups, and internal DNS.',
+      technologies: ['Proxmox VE', 'Linux (Ubuntu)', 'Docker', 'SSH', 'BASH Automation', 'Nginx'],
+      github: 'https://github.com/ArsalanQayum1'
     }
   ];
 
@@ -43,37 +38,42 @@ export default function Projects() {
     <section className="section" id="projects">
       <div className="container">
         <div className="section-header">
-          <div className="section-tag">Case Studies</div>
-          <h2 className="section-title">Featured <span className="gradient-text">Engineering Projects</span></h2>
+          <div className="section-tag">Work</div>
+          <h2 className="section-title">Projects</h2>
           <p className="section-description">
-            Real-world cloud infrastructure deployments, CI/CD pipeline automations, observability setups, and production troubleshooting achievements.
+            Selected infrastructure, deployment automation, and application hosting projects.
           </p>
         </div>
 
-        <div className="projects-grid">
-          {projects.map((proj, idx) => (
-            <div key={idx} className="glass-card project-card">
-              <div className="project-card-top">
-                <span className="project-category">{proj.category}</span>
-                <span className="badge badge-production">{proj.impact}</span>
-              </div>
-              <h3 className="project-title">{proj.title}</h3>
-              <p className="project-desc">{proj.desc}</p>
-              
-              <div className="project-tags">
-                {proj.tags.map((tag, tIdx) => (
-                  <span key={tIdx} className="skill-tool-tag">{tag}</span>
-                ))}
+        <div className="projects-clean-grid">
+          {projects.map((p, idx) => (
+            <div key={idx} className="project-clean-card">
+              <div className="project-header">
+                <h3 className="project-name">{p.name}</h3>
+                {p.github && (
+                  <a
+                    href={p.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="project-github-link"
+                    title="View GitHub Repository"
+                    aria-label={`View ${p.name} source code on GitHub`}
+                  >
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.1-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2z"/>
+                    </svg>
+                  </a>
+                )}
               </div>
 
-              <div className="project-card-footer" style={{ marginTop: '20px', paddingTop: '16px', borderTop: '1px solid var(--border-subtle)', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                <button className="btn btn-secondary btn-sm btn-open-resume">
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>
-                  View Case Details
-                </button>
-                <span className="mono-text" style={{ fontSize: '0.8rem', color: 'var(--accent-cyan-light)' }}>
-                  K2XTech Production
-                </span>
+              <p className="project-description">{p.description}</p>
+
+              <div className="project-tech-list">
+                {p.technologies.map((tech, i) => (
+                  <span key={i} className="project-tech-tag">
+                    {tech}
+                  </span>
+                ))}
               </div>
             </div>
           ))}
