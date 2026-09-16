@@ -34,10 +34,10 @@ export default function Navbar() {
     <header className={`navbar ${scrolled ? 'scrolled' : ''}`} id="navbar">
       <div className="container navbar-container">
         
-        {/* Brand Logo - arsalan.devops */}
+        {/* Brand Logo - Arsalan Qayum */}
         <a href="#home" className="brand-logo" id="nav-brand-link" onClick={closeMobile}>
           <span className="brand-badge">AQ</span>
-          <span className="brand-text">arsalan<span>.devops</span></span>
+          <span className="brand-text">Arsalan Qayum</span>
         </a>
 
         {/* Desktop Navigation Links */}

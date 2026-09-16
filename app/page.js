@@ -45,8 +45,8 @@ export default function HomePage() {
       <footer className="footer-clean">
         <div className="container footer-container">
           <div>
-            <div className="footer-brand">ARSALAN<span>.DEVOPS</span></div>
-            <div className="footer-role">DevOps &amp; Cloud Engineer — Arsalan Qayum</div>
+            <div className="footer-brand">Arsalan Qayum</div>
+            <div className="footer-role">DevOps &amp; Cloud Engineer</div>
           </div>
           <div className="footer-copy">
             © 2026 Arsalan Qayum. All rights reserved.
