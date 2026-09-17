@@ -1184,114 +1184,58 @@ code, pre, .mono-text {
   margin: 0;
 }
 
-.card-hover-snippet {
-  background: rgba(0, 0, 0, 0.4);
-  border: 1px solid var(--border-subtle);
-  border-radius: var(--radius-sm);
-  padding: 6px 10px;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
 
-.card-hover-snippet code {
-  font-family: var(--font-mono);
-  font-size: 0.73rem;
-  color: #94a3b8;
-}
-
-.spacious-stage-card.card-active .card-hover-snippet code {
-  color: #7dd3fc;
-}
-
-/* Interactive Stage Inspector Bar */
+/* Compact Stage Inspector Console */
 .cicd-inspector-bar {
   background: #0d1527;
-  border: 1px solid rgba(56, 189, 248, 0.24);
+  border: 1px solid rgba(56, 189, 248, 0.22);
   border-radius: var(--radius-md);
-  padding: 18px 22px;
+  padding: 14px 18px;
   display: flex;
   flex-direction: column;
-  gap: 14px;
+  gap: 8px;
+}
+
+.inspector-top-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
 }
 
 .inspector-stage-flag {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 8px;
   flex-wrap: wrap;
 }
 
 .flag-num {
   font-family: var(--font-mono);
-  font-size: 0.74rem;
+  font-size: 0.72rem;
   font-weight: 700;
   color: #0d1527;
   background: #38bdf8;
-  padding: 2px 7px;
+  padding: 1px 6px;
   border-radius: 3px;
 }
 
 .flag-title {
-  font-size: 1.1rem;
+  font-size: 1rem;
   font-weight: 700;
   color: #ffffff;
 }
 
-.flag-tool {
-  font-family: var(--font-mono);
-  font-size: 0.76rem;
-  color: var(--text-muted);
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid var(--border-subtle);
-  padding: 2px 7px;
-  border-radius: var(--radius-sm);
-}
-
 .flag-badge {
   font-family: var(--font-mono);
-  font-size: 0.72rem;
+  font-size: 0.68rem;
   font-weight: 700;
   color: #38bdf8;
   background: rgba(2, 132, 199, 0.16);
   border: 1px solid rgba(56, 189, 248, 0.35);
-  padding: 2px 8px;
+  padding: 2px 7px;
   border-radius: var(--radius-sm);
-}
-
-.inspector-details-row {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 16px;
-}
-
-.inspector-info-block {
-  display: flex;
-  flex-direction: column;
-  gap: 3px;
-  flex: 1;
-  min-width: 240px;
-}
-
-.info-tag {
-  font-family: var(--font-mono);
-  font-size: 0.72rem;
-  color: var(--text-muted);
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
-}
-
-.info-text {
-  font-size: 0.9rem;
-  color: var(--text-primary);
-  line-height: 1.45;
-}
-
-.info-text.font-accent {
-  color: #7dd3fc;
-  font-style: italic;
 }
 
 .inspector-status-pill {
@@ -1300,7 +1244,7 @@ code, pre, .mono-text {
   gap: 6px;
   font-family: var(--font-mono);
   font-size: 0.74rem;
-  padding: 4px 12px;
+  padding: 3px 10px;
   background: rgba(16, 185, 129, 0.12);
   border: 1px solid rgba(16, 185, 129, 0.28);
   color: var(--status-green);
@@ -1316,30 +1260,12 @@ code, pre, .mono-text {
   box-shadow: 0 0 6px var(--status-green);
 }
 
-.inspector-command-box {
-  background: rgba(0, 0, 0, 0.45);
-  border: 1px solid rgba(56, 189, 248, 0.2);
-  border-radius: var(--radius-sm);
-  padding: 8px 12px;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  overflow-x: auto;
-}
-
-.cmd-tag {
-  font-family: var(--font-mono);
-  font-size: 0.72rem;
-  color: var(--text-muted);
-  text-transform: uppercase;
-  white-space: nowrap;
-}
-
-.cmd-code {
-  font-family: var(--font-mono);
-  font-size: 0.8rem;
-  color: #38bdf8;
-  white-space: nowrap;
+.inspector-focus-text {
+  font-size: 0.88rem;
+  color: #7dd3fc;
+  font-style: italic;
+  margin: 0;
+  line-height: 1.45;
 }
 
 /* Secondary Real-World Deployment Architecture */

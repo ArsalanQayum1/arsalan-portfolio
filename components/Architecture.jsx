@@ -6,17 +6,14 @@ export default function Architecture() {
   const [activeStage, setActiveStage] = useState(1); // Default to Jenkins (Stage 2)
   const [hoveredStage, setHoveredStage] = useState(null);
 
-  // 9 Continuous Stages grouped into 3 logical, spacious phases
+  // 9 Continuous Stages with short, meaningful descriptions
   const stages = [
     {
       id: 'git',
       num: '01',
-      phase: 'Phase 01: Source & Trigger',
       name: 'Git Repository',
-      tool: 'Git SCM',
       sub: 'Developer pushes code to repository.',
-      desc: 'Developer pushes commit to repository, triggering the automated CI/CD webhook.',
-      command: 'git push origin main → webhook:post',
+      desc: 'Developer pushes commit to repository.',
       status: 'Triggered',
       icon: (
         <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor">
@@ -27,14 +24,11 @@ export default function Architecture() {
     {
       id: 'jenkins',
       num: '02',
-      phase: 'Phase 01: Source & Trigger',
       name: 'Jenkins',
-      tool: 'Jenkins CI/CD',
       badge: 'Jenkins CI/CD',
       isPrimary: true,
       sub: 'Jenkins detects the change and starts the CI/CD workflow.',
       desc: 'Automates build and deployment workflows.',
-      command: 'stage("Pipeline") { agent any; sh "run-ci.sh" }',
       status: 'Active Pipeline',
       icon: (
         <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
@@ -45,12 +39,9 @@ export default function Architecture() {
     {
       id: 'checkout',
       num: '03',
-      phase: 'Phase 01: Source & Trigger',
       name: 'Checkout',
-      tool: 'SCM Workspace',
       sub: 'Source code is pulled from the repository.',
-      desc: 'Pulls verified commit SHA into clean Jenkins build workspace.',
-      command: 'git checkout -f refs/heads/main',
+      desc: 'Pulls verified code to build workspace.',
       status: 'Code Cloned',
       icon: (
         <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" strokeWidth="2">
@@ -61,12 +52,9 @@ export default function Architecture() {
     {
       id: 'build',
       num: '04',
-      phase: 'Phase 02: Build & Validation',
       name: 'Build',
-      tool: 'Application Build',
       sub: 'Application dependencies are installed and the application is built.',
-      desc: 'Installs dependencies and compiles application assets in isolated container.',
-      command: 'npm ci --prefer-offline && npm run build',
+      desc: 'Installs dependencies and builds application.',
       status: 'Compiled',
       icon: (
         <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor">
@@ -77,12 +65,9 @@ export default function Architecture() {
     {
       id: 'test',
       num: '05',
-      phase: 'Phase 02: Build & Validation',
       name: 'Test',
-      tool: 'Automated Tests',
       sub: 'Run available checks/tests before deployment.',
-      desc: 'Executes automated testing checks and quality verification before release.',
-      command: 'npm test -- --passWithNoTests',
+      desc: 'Runs automated checks before deployment.',
       status: 'Checks Passed',
       icon: (
         <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" strokeWidth="2">
@@ -94,13 +79,10 @@ export default function Architecture() {
     {
       id: 'docker',
       num: '06',
-      phase: 'Phase 02: Build & Validation',
       name: 'Docker Build',
-      tool: 'Docker Engine',
       sub: 'Build the application container/image where Docker is used.',
       desc: 'Packages applications into reproducible containers.',
-      command: 'docker build -t app:v2.4 -f Dockerfile .',
-      status: 'Image Created',
+      status: 'Image Ready',
       icon: (
         <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor">
           <path d="M22.5 11.2c-.3-.2-.8-.3-1.3-.2-.2-.6-.6-1.1-1.1-1.4-.4-.3-.9-.4-1.5-.4-.1 0-.3 0-.4.1-.4-1.1-1.4-1.8-2.6-1.8-.4 0-.8.1-1.1.3V7h-2v2h-2V7H8v2H6V7H4v4.2c-1.3.4-2 1.5-2 2.8 0 2.2 2 4 4.5 4 4.6 0 7.8-2.6 11.3-2.6 1.7 0 3.2.7 4.2 1.8.3-.3.6-.8.8-1.4.3-.8.2-1.8-.3-2.6zM6 10h2V8H6v2zm3 0h2V8H9v2zm3 0h2V8h-2v2zm3 0h2V8h-2v2z"/>
@@ -110,12 +92,9 @@ export default function Architecture() {
     {
       id: 'deploy',
       num: '07',
-      phase: 'Phase 03: Delivery & Observability',
       name: 'Deploy',
-      tool: 'Linux / SSH',
       sub: 'Deploy the application to the target Linux server. Use SSH/remote deployment where applicable.',
       desc: 'Automates deployment to Linux servers.',
-      command: 'ssh deploy@server "docker compose pull && docker compose up -d"',
       status: 'Server Deployed',
       icon: (
         <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor">
@@ -126,12 +105,9 @@ export default function Architecture() {
     {
       id: 'app',
       num: '08',
-      phase: 'Phase 03: Delivery & Observability',
       name: 'Application',
-      tool: 'PM2 / Compose',
       sub: 'Start or restart the deployed application. PM2 for Node.js or Docker Compose for containers.',
-      desc: 'Starts or restarts service with PM2 or Docker Compose behind Nginx reverse proxy.',
-      command: 'pm2 reload app --update-env || docker compose restart',
+      desc: 'Runs live service via PM2 or Docker Compose.',
       status: 'Live Service',
       icon: (
         <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor">
@@ -142,12 +118,9 @@ export default function Architecture() {
     {
       id: 'monitoring',
       num: '09',
-      phase: 'Phase 03: Delivery & Observability',
       name: 'Monitoring',
-      tool: 'Prometheus & Grafana',
       sub: 'Monitor infrastructure and applications using: Prometheus, Grafana, Loki.',
       desc: 'Tracks infrastructure metrics and application health.',
-      command: 'prometheus --config.file=prometheus.yml | grafana-server',
       status: 'Telemetry Live',
       icon: (
         <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor">
@@ -159,14 +132,14 @@ export default function Architecture() {
 
   // Secondary Real-World Deployment Flow Steps
   const deploymentFlow = [
-    { label: 'Developer', role: 'Code Author' },
-    { label: 'Git Repository', role: 'GitHub / GitLab' },
-    { label: 'Jenkins', role: 'CI/CD Automation', isHighlight: true },
-    { label: 'SSH / Remote Deployment', role: 'Secure Transfer' },
-    { label: 'Linux Server', role: 'Ubuntu Server' },
-    { label: 'Docker / Compose', role: 'Container Runtime' },
-    { label: 'Nginx / Application', role: 'PM2 / Reverse Proxy' },
-    { label: 'Monitoring', role: 'Prometheus & Grafana' }
+    'Developer',
+    'Git Repository',
+    'Jenkins',
+    'SSH Deploy',
+    'Linux Server',
+    'Docker / Compose',
+    'Nginx / App',
+    'Monitoring'
   ];
 
   // Compact Technology Badges
@@ -210,7 +183,7 @@ export default function Architecture() {
                 <span className="jenkins-pill-dot"></span>
                 Jenkins CI/CD
               </span>
-              <span className="jenkins-focus-title">Primary Automation Engine</span>
+              <span className="jenkins-focus-title">Primary Automation Tool</span>
             </div>
             <div className="jenkins-fast-path" aria-label="Jenkins Core Pipeline Flow">
               <span className="fast-step">Git</span>
@@ -223,7 +196,7 @@ export default function Architecture() {
             </div>
           </div>
 
-          {/* DESKTOP PIPELINE: 3x3 Spacious Connected Grid (No Truncation, Generous Breathing Room) */}
+          {/* DESKTOP PIPELINE: 3x3 Spacious Connected Grid (Short, Meaningful Text) */}
           <div className="cicd-desktop-grid desktop-only" role="region" aria-label="CI/CD Pipeline Stages">
             {stages.map((stage, idx) => {
               const isActive = activeStage === idx;
@@ -248,10 +221,7 @@ export default function Architecture() {
                   }}
                 >
                   <div className="card-header-line">
-                    <div className="stage-seq-badge">
-                      <span className="seq-number">{stage.num}</span>
-                      <span className="seq-phase-tag">{stage.tool}</span>
-                    </div>
+                    <span className="seq-number">{stage.num}</span>
                     {stage.badge ? (
                       <span className="jenkins-corner-badge">{stage.badge}</span>
                     ) : (
@@ -271,16 +241,12 @@ export default function Architecture() {
                       <p className="card-stage-sub">{stage.sub}</p>
                     </div>
                   </div>
-
-                  <div className="card-hover-snippet">
-                    <code>{stage.command}</code>
-                  </div>
                 </div>
               );
             })}
           </div>
 
-          {/* MOBILE PIPELINE: Clean Vertical Connected Timeline (Hidden completely on Desktop) */}
+          {/* MOBILE PIPELINE: Vertical Connected Timeline (Hidden on Desktop) */}
           <div className="cicd-mobile-timeline mobile-only" role="region" aria-label="Mobile CI/CD Pipeline">
             <div className="timeline-spine-line">
               <div className="timeline-data-packet"></div>
@@ -304,74 +270,59 @@ export default function Architecture() {
                           {stage.name}
                           {stage.badge && <span className="mobile-jenkins-badge">{stage.badge}</span>}
                         </div>
-                        <div className="mobile-stage-tool">{stage.tool}</div>
                       </div>
                     </div>
                     <p className="mobile-stage-sub">{stage.sub}</p>
-                    <div className="mobile-stage-desc">"{stage.desc}"</div>
                   </div>
                 </div>
               );
             })}
           </div>
 
-          {/* Interactive Active Stage Inspector Console */}
+          {/* Compact Stage Inspector Console */}
           <div className="cicd-inspector-bar">
-            <div className="inspector-stage-flag">
-              <span className="flag-num">STAGE {currentDisplayStage.num}</span>
-              <span className="flag-title">{currentDisplayStage.name}</span>
-              <span className="flag-tool">{currentDisplayStage.tool}</span>
-              {currentDisplayStage.badge && (
-                <span className="flag-badge">{currentDisplayStage.badge}</span>
-              )}
-            </div>
-            
-            <div className="inspector-details-row">
-              <div className="inspector-info-block">
-                <span className="info-tag">Workflow Action</span>
-                <span className="info-text">{currentDisplayStage.sub}</span>
-              </div>
-              <div className="inspector-info-block highlight-block">
-                <span className="info-tag">Engineering Focus</span>
-                <span className="info-text font-accent">"{currentDisplayStage.desc}"</span>
+            <div className="inspector-top-row">
+              <div className="inspector-stage-flag">
+                <span className="flag-num">{currentDisplayStage.num}</span>
+                <span className="flag-title">{currentDisplayStage.name}</span>
+                {currentDisplayStage.badge && (
+                  <span className="flag-badge">{currentDisplayStage.badge}</span>
+                )}
               </div>
               <div className="inspector-status-pill">
                 <span className="status-live-dot"></span>
                 <span>{currentDisplayStage.status}</span>
               </div>
             </div>
-
-            <div className="inspector-command-box">
-              <span className="cmd-tag">Execution Preview:</span>
-              <code className="cmd-code">{currentDisplayStage.command}</code>
-            </div>
+            <p className="inspector-focus-text">"{currentDisplayStage.desc}"</p>
           </div>
 
           {/* Secondary Architecture: Real-World Deployment Flow */}
           <div className="realworld-architecture-box">
             <div className="realworld-header">
-              <span className="realworld-tag">Real-World Deployment Architecture</span>
-              <span className="realworld-subtitle">End-to-End Infrastructure Flow from Git Commit to Linux Production Server</span>
+              <span className="realworld-tag">Real-World Deployment Flow</span>
             </div>
 
             <div className="realworld-flow-chain">
-              {deploymentFlow.map((node, i) => (
-                <div key={i} className="realworld-node-item">
-                  <div className={`realworld-card ${node.isHighlight ? 'jenkins-node' : ''}`}>
-                    <span className="node-label">{node.label}</span>
-                    <span className="node-role">{node.role}</span>
+              {deploymentFlow.map((nodeName, i) => {
+                const isJenkins = nodeName === 'Jenkins';
+                return (
+                  <div key={i} className="realworld-node-item">
+                    <div className={`realworld-card ${isJenkins ? 'jenkins-node' : ''}`}>
+                      <span className="node-label">{nodeName}</span>
+                    </div>
+                    {i < deploymentFlow.length - 1 && (
+                      <div className="realworld-arrow" aria-hidden="true">→</div>
+                    )}
                   </div>
-                  {i < deploymentFlow.length - 1 && (
-                    <div className="realworld-arrow" aria-hidden="true">→</div>
-                  )}
-                </div>
-              ))}
+                );
+              })}
             </div>
           </div>
 
           {/* Compact Technology Badges */}
           <div className="cicd-technologies-footer">
-            <span className="tech-footer-label">Core Pipeline Technologies:</span>
+            <span className="tech-footer-label">Technologies:</span>
             <div className="tech-badges-list">
               {techBadges.map((t, idx) => (
                 <div key={idx} className={`tech-badge-item ${t.name === 'Jenkins' ? 'tech-badge-jenkins' : ''}`}>
