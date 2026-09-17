@@ -3,370 +3,360 @@
 import { useState } from 'react';
 
 export default function Architecture() {
-  const [activeStage, setActiveStage] = useState(0);
+  const [activeStage, setActiveStage] = useState(1); // Default to Jenkins (Stage 2)
+  const [hoveredStage, setHoveredStage] = useState(null);
 
+  // 9 Continuous Stages as specified in requirements
   const stages = [
     {
-      id: 'source',
-      step: '01',
-      phase: 'Source & Trigger',
-      tool: 'Git & CodeCommit',
-      action: 'Version Control & Webhooks',
-      summary: 'Developers push signed commits to the repository. Automated branch protections ensure reviews pass, and automated webhook payloads dispatch directly to Jenkins.',
-      command: 'git push origin main → webhook:post',
+      id: 'git',
+      num: '01',
+      name: 'Git Repository',
+      tool: 'Git',
+      sub: 'Developer pushes code to repository.',
+      desc: 'Developer pushes commit to repository, triggering the automated CI/CD webhook.',
       status: 'Triggered',
-      badge: 'SCM',
       icon: (
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-          <path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.1-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2z"/>
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
+          <path d="M2.6 10.59L8.38 4.8a2.53 2.53 0 0 1 3.59 0l1.24 1.25-2.22 2.22a2.04 2.04 0 0 0-1.63 1.94 2.05 2.05 0 0 0 .52 1.37l-2.45 2.45a2.05 2.05 0 1 0 1.45 1.44l2.4-2.4a2.05 2.05 0 0 0 1.22.4 2.05 2.05 0 0 0 1.46-.6l.73-.73 2.18 2.18a2.53 2.53 0 0 1 0 3.59L15.33 21.4a2.53 2.53 0 0 1-3.59 0L2.6 12.27a2.53 2.53 0 0 1 0-3.59z"/>
         </svg>
-      ),
-      highlights: [
-        'Automated branch protection and required PR approvals',
-        'Cryptographically signed commits with automated webhook dispatch',
-        'Hybrid workflow across GitHub and AWS CodeCommit'
-      ],
-      configSnippet: `# Webhook payload dispatch to Jenkins CI
-POST https://ci.k2xtech.internal/generic-webhook/invoke
-Headers:
-  X-GitHub-Event: push
-  X-Hub-Signature-256: sha256=9f82c1...
-Payload:
-  { "ref": "refs/heads/main", "commit": "8f921a4" }`
+      )
     },
     {
-      id: 'ci',
-      step: '02',
-      phase: 'Continuous Integration',
-      tool: 'Jenkins Automation',
-      action: 'Build, Lint & Security Scan',
-      summary: 'Multi-stage Jenkins pipeline triggers instantly. Executes unit tests, code linting, SonarQube quality analysis, and Trivy filesystem vulnerability scans.',
-      command: 'stage("Test & Scan") { sh "npm test" }',
-      status: 'Tests Passed',
-      badge: 'CI Automation',
+      id: 'jenkins',
+      num: '02',
+      name: 'Jenkins',
+      tool: 'Jenkins',
+      badge: 'Jenkins CI/CD',
+      isPrimary: true,
+      sub: 'Jenkins detects the change and starts the CI/CD workflow.',
+      desc: 'Automates build and deployment workflows.',
+      status: 'Active Pipeline',
       icon: (
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-          <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14H9V8h2v8zm4 0h-2V8h2v8z"/>
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+          <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z"/>
         </svg>
-      ),
-      highlights: [
-        'Parallelized test and lint execution reducing CI time by 60%',
-        'Trivy automated CVE vulnerability gate before image build',
-        'Automated Slack/email notification on pipeline failures'
-      ],
-      configSnippet: `pipeline {
-  agent any
-  stages {
-    stage('Test & Quality') {
-      steps {
-        sh 'npm test -- --coverage'
-        sh 'trivy fs --severity HIGH,CRITICAL .'
-      }
-    }
-  }
-}`
+      )
+    },
+    {
+      id: 'checkout',
+      num: '03',
+      name: 'Checkout',
+      tool: 'SCM Checkout',
+      sub: 'Source code is pulled from the repository.',
+      desc: 'Source code and dependencies are pulled into the clean Jenkins build workspace.',
+      status: 'Code Cloned',
+      icon: (
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="2">
+          <path d="M6 3v12M18 9a3 3 0 1 0 0-6 3 3 0 0 0 0 6zM6 21a3 3 0 1 0 0-6 3 3 0 0 0 0 6zM18 9a9 9 0 0 1-9 9"/>
+        </svg>
+      )
+    },
+    {
+      id: 'build',
+      num: '04',
+      name: 'Build',
+      tool: 'Build Stage',
+      sub: 'Application dependencies are installed and the application is built.',
+      desc: 'Installs dependencies and compiles application assets in an isolated environment.',
+      status: 'Compiled',
+      icon: (
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
+          <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6-4.3 4.3a2 2 0 0 1-.8.5l-3.2.8a1 1 0 0 1-1.2-1.2l.8-3.2a2 2 0 0 1 .5-.8l4.3-4.3 1.6 1.6a1 1 0 0 0 1.4 0l1.4-1.4a1 1 0 0 0 0-1.4l-2.3-2.3a1 1 0 0 0-1.4 0l-1.4 1.4a1 1 0 0 0 0 1.4l.6.6-4.9 4.9a4 4 0 0 0-1 1.6l-1.4 5.6a1.5 1.5 0 0 0 1.8 1.8l5.6-1.4a4 4 0 0 0 1.6-1l4.9-4.9.6.6a1 1 0 0 0 1.4 0l1.4-1.4a1 1 0 0 0 0-1.4l-2.3-2.3a1 1 0 0 0-1.4 0z"/>
+        </svg>
+      )
+    },
+    {
+      id: 'test',
+      num: '05',
+      name: 'Test',
+      tool: 'Validation',
+      sub: 'Run available checks/tests before deployment.',
+      desc: 'Executes automated testing checks and quality verification prior to release.',
+      status: 'Verified',
+      icon: (
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="2">
+          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+          <path d="m9 12 2 2 4-4"/>
+        </svg>
+      )
     },
     {
       id: 'docker',
-      step: '03',
-      phase: 'Containerization',
-      tool: 'Docker & Compose',
-      action: 'Multi-Stage Image Build',
-      summary: 'Packages dependencies into minimal Alpine base images using Docker multi-stage builds, enforcing non-root execution and optimal layer caching.',
-      command: 'docker build --target=production -t app:v2.4 .',
-      status: 'Image Built',
-      badge: 'Containers',
+      num: '06',
+      name: 'Docker Build',
+      tool: 'Docker',
+      sub: 'Build the application container/image where Docker is used.',
+      desc: 'Packages applications into reproducible containers.',
+      status: 'Image Ready',
       icon: (
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-          <path d="M19 13v6a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2v-6m14 0l-7-7-7 7m14 0H5"/>
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
+          <path d="M22.5 11.2c-.3-.2-.8-.3-1.3-.2-.2-.6-.6-1.1-1.1-1.4-.4-.3-.9-.4-1.5-.4-.1 0-.3 0-.4.1-.4-1.1-1.4-1.8-2.6-1.8-.4 0-.8.1-1.1.3V7h-2v2h-2V7H8v2H6V7H4v4.2c-1.3.4-2 1.5-2 2.8 0 2.2 2 4 4.5 4 4.6 0 7.8-2.6 11.3-2.6 1.7 0 3.2.7 4.2 1.8.3-.3.6-.8.8-1.4.3-.8.2-1.8-.3-2.6zM6 10h2V8H6v2zm3 0h2V8H9v2zm3 0h2V8h-2v2zm3 0h2V8h-2v2z"/>
         </svg>
-      ),
-      highlights: [
-        'Multi-stage Docker builds reducing image size from 1GB to <90MB',
-        'Non-root user execution in production container runtime',
-        'Automated tagging with Git commit SHA and semantic versioning'
-      ],
-      configSnippet: `FROM node:20-alpine AS builder
-WORKDIR /app
-COPY package*.json ./
-RUN npm ci --prefer-offline
-COPY . .
-RUN npm run build
-
-FROM node:20-alpine AS runner
-USER node
-CMD ["node", "server.js"]`
+      )
     },
     {
       id: 'deploy',
-      step: '04',
-      phase: 'Automated Deployment',
-      tool: 'Bash, SSH & PM2',
-      action: 'Zero-Downtime Rollout',
-      summary: 'Automated deployment scripts perform rolling container updates or PM2 cluster reloads on production Linux servers with zero dropped HTTP connections.',
-      command: 'pm2 reload app --update-env',
-      status: 'Zero Downtime',
-      badge: 'Delivery',
+      num: '07',
+      name: 'Deploy',
+      tool: 'Linux / SSH',
+      sub: 'Deploy the application to the target Linux server. Use SSH/remote deployment where applicable.',
+      desc: 'Automates deployment to Linux servers.',
+      status: 'Delivered',
       icon: (
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-          <path d="M4 6h16v12H4z"/>
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
+          <path d="M12 2a4 4 0 0 0-4 4c0 .8.2 1.5.5 2.1C6.2 8.8 4 11.2 4 14c0 3.3 2.7 6 6 6h4c3.3 0 6-2.7 6-6 0-2.8-2.2-5.2-4.5-5.9.3-.6.5-1.3.5-2.1a4 4 0 0 0-4-4zm-2 5a1 1 0 1 1 0-2 1 1 0 0 1 0 2zm4 0a1 1 0 1 1 0-2 1 1 0 0 1 0 2z"/>
         </svg>
-      ),
-      highlights: [
-        'Rolling container update with zero dropped user requests',
-        'Automatic health check polling prior to traffic cutover',
-        'Automated rollback to previous stable commit on failure'
-      ],
-      configSnippet: `#!/usr/bin/env bash
-echo "[deploy] Pulling verified release v2.4..."
-docker compose pull app
-docker compose up -d --no-deps app
-curl -f http://127.0.0.1:3000/health || (docker compose rollback && exit 1)
-echo "[deploy] Zero-downtime release completed."`
+      )
     },
     {
-      id: 'ingress',
-      step: '05',
-      phase: 'Edge Gateway & SSL',
-      tool: 'Nginx & Certbot',
-      action: 'Reverse Proxy & Security',
-      summary: 'Terminates Let\'s Encrypt SSL/TLS certificates, enforces HTTPS security headers, manages HTTP/2 ingress, and load-balances requests across backends.',
-      command: 'proxy_pass http://upstream_app;',
-      status: '200 OK / HTTPS',
-      badge: 'Web Gateway',
+      id: 'app',
+      num: '08',
+      name: 'Application',
+      tool: 'PM2 / Compose',
+      sub: 'Start or restart the deployed application. PM2 for Node.js or Docker Compose for containers.',
+      desc: 'Manages runtime processes with PM2 for Node.js or Docker Compose for containers.',
+      status: 'Live Service',
       icon: (
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-          <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
+          <path d="M12 2L3 7v10l9 5 9-5V7l-9-5zm5.5 13.7L12 8.3v7.4H9.5V8.3l5.5 7.4h2.5z"/>
         </svg>
-      ),
-      highlights: [
-        'A+ rated SSL/TLS termination with automated Certbot renewal',
-        'Gzip compression, static asset caching & HTTP/2 protocol',
-        'Rate limiting, DDOS mitigation, and fail2ban filters'
-      ],
-      configSnippet: `server {
-    listen 443 ssl http2;
-    server_name api.production.net;
-    ssl_certificate /etc/letsencrypt/live/api/fullchain.pem;
-    ssl_protocols TLSv1.2 TLSv1.3;
-
-    location / {
-        proxy_pass http://127.0.0.1:3000;
-        proxy_set_header X-Real-IP $remote_addr;
-    }
-}`
+      )
     },
     {
-      id: 'observability',
-      step: '06',
-      phase: 'Observability & Telemetry',
-      tool: 'Prometheus, Loki & Grafana',
-      action: 'Metrics, Logs & Alerting',
-      summary: 'Continuously collects system and container metrics with Prometheus, streams logs with Promtail and Loki, and surfaces real-time dashboards and alerts in Grafana.',
-      command: 'scrape_interval: 15s | rate(5m)',
+      id: 'monitoring',
+      num: '09',
+      name: 'Monitoring',
+      tool: 'Prometheus & Grafana',
+      sub: 'Monitor infrastructure and applications using: Prometheus, Grafana, Loki.',
+      desc: 'Tracks infrastructure metrics and application health.',
       status: 'Telemetry Live',
-      badge: 'Monitoring',
       icon: (
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-          <path d="M3 13h2v-2H3v2zm0 4h2v-2H3v2zm0-8h2V7H3v2zm4 4h14v-2H7v2zm0 4h14v-2H7v2zM7 7v2h14V7H7z"/>
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
+          <path d="M12 2C9.5 5 7 8 7 11.5c0 3 2.2 5.5 5 5.5s5-2.5 5-5.5C17 8 14.5 5 12 2zm0 17c-4.4 0-8 1.8-8 4h16c0-2.2-3.6-4-8-4z"/>
         </svg>
-      ),
-      highlights: [
-        '15s scrape interval across servers, containers, and services',
-        'Centralized structured log streaming via Promtail and Loki',
-        'Threshold alerts for 5xx errors, memory spikes & latency'
-      ],
-      configSnippet: `scrape_configs:
-  - job_name: 'production-nodes'
-    scrape_interval: 15s
-    static_configs:
-      - targets: ['10.0.1.20:9100', '10.0.1.21:9100']
-  - job_name: 'api-service'
-    metrics_path: '/metrics'
-    static_configs:
-      - targets: ['127.0.0.1:3000']`
+      )
     }
   ];
 
-  const current = stages[activeStage];
+  // Secondary Real-World Deployment Flow Steps
+  const deploymentFlow = [
+    { label: 'Developer', role: 'Code Author' },
+    { label: 'Git Repository', role: 'GitHub / GitLab' },
+    { label: 'Jenkins', role: 'CI/CD Automation', isHighlight: true },
+    { label: 'SSH / Remote Deployment', role: 'Secure Transfer' },
+    { label: 'Linux Server', role: 'Ubuntu / Debian' },
+    { label: 'Docker / Compose', role: 'Container Runtime' },
+    { label: 'Nginx / Application', role: 'PM2 / Reverse Proxy' },
+    { label: 'Monitoring', role: 'Prometheus & Grafana' }
+  ];
 
-  const nextStage = () => {
-    setActiveStage((prev) => (prev + 1) % stages.length);
-  };
+  // Compact Technology Badges
+  const techBadges = [
+    { name: 'Jenkins', icon: '⚡' },
+    { name: 'Git', icon: '🌿' },
+    { name: 'Docker', icon: '🐳' },
+    { name: 'Linux', icon: '🐧' },
+    { name: 'SSH', icon: '🔑' },
+    { name: 'Nginx', icon: '🌐' },
+    { name: 'PM2', icon: '⚙️' },
+    { name: 'Docker Compose', icon: '📦' },
+    { name: 'Prometheus', icon: '🔥' },
+    { name: 'Grafana', icon: '📊' },
+    { name: 'Loki', icon: '📑' }
+  ];
 
-  const prevStage = () => {
-    setActiveStage((prev) => (prev - 1 + stages.length) % stages.length);
-  };
+  const currentDisplayStage = hoveredStage !== null ? stages[hoveredStage] : stages[activeStage];
 
   return (
-    <section className="section" id="architecture">
+    <section className="section cicd-section" id="architecture">
       <div className="container">
         
         {/* Section Header */}
-        <div className="section-header">
-          <div className="section-tag">DevOps Architecture</div>
-          <h2 className="section-title">Automated CI/CD Delivery Pipeline</h2>
-          <p className="section-description">
-            Production-grade delivery lifecycle: from code commit to containerized build, zero-downtime deployment, and unified observability.
+        <div className="section-header text-center">
+          <div className="section-tag">DevOps Workflow</div>
+          <h2 className="section-title">CI/CD Automation</h2>
+          <p className="section-subtitle">Automating code delivery from Git to production.</p>
+          <p className="cicd-portfolio-copy">
+            I automate application build and deployment workflows using Jenkins, Git, Docker and Linux infrastructure, with monitoring through Prometheus, Grafana and Loki.
           </p>
         </div>
 
-        {/* Market-Standard Pipeline Wrapper */}
-        <div className="pipeline-market-wrapper">
+        {/* CI/CD Console Wrapper */}
+        <div className="cicd-console-wrapper">
           
-          {/* Top Status & Metrics Bar */}
-          <div className="pipeline-top-status-bar">
-            <div className="pipeline-status-indicator">
-              <span className="pipeline-pulse-dot"></span>
-              <span className="pipeline-status-text">Production Pipeline: <strong>Automated &amp; Active</strong></span>
+          {/* Top Jenkins Focus Bar & Fast Path */}
+          <div className="cicd-jenkins-focus-bar">
+            <div className="jenkins-primary-callout">
+              <span className="jenkins-pill-badge">
+                <span className="jenkins-pill-dot"></span>
+                Jenkins CI/CD
+              </span>
+              <span className="jenkins-focus-title">Primary Automation Engine</span>
             </div>
-            <div className="pipeline-meta-chips">
-              <span className="pipeline-meta-chip">Strategy: <strong>Zero-Downtime Rolling</strong></span>
-              <span className="pipeline-meta-chip">Target: <strong>Linux / Docker / Nginx</strong></span>
-              <span className="pipeline-meta-chip">Telemetry: <strong>Prometheus + Grafana</strong></span>
+            <div className="jenkins-fast-path" aria-label="Jenkins Core Pipeline Flow">
+              <span className="fast-step">Git</span>
+              <span className="fast-arrow">→</span>
+              <span className="fast-step fast-highlight">Jenkins</span>
+              <span className="fast-arrow">→</span>
+              <span className="fast-step">Build</span>
+              <span className="fast-arrow">→</span>
+              <span className="fast-step">Deploy</span>
             </div>
           </div>
 
-          {/* Interactive Stepper Track (Quick Navigation Rail) */}
-          <div className="pipeline-stepper-rail" role="tablist" aria-label="Pipeline Stages Track">
-            {stages.map((st, idx) => {
-              const isActive = activeStage === idx;
-              return (
-                <button
-                  key={`step-${st.id}`}
-                  className={`stepper-node-btn ${isActive ? 'active' : ''}`}
-                  onClick={() => setActiveStage(idx)}
-                  role="tab"
-                  aria-selected={isActive}
-                  aria-controls={`stage-panel-${st.id}`}
-                  title={`Stage ${st.step}: ${st.tool}`}
-                >
-                  <span className="stepper-circle">{st.step}</span>
-                  <span className="stepper-label">{st.tool.split(' ')[0]}</span>
-                  {idx < stages.length - 1 && <span className="stepper-track-connector"></span>}
-                </button>
-              );
-            })}
-          </div>
+          {/* Main Visual Connected Pipeline (9 Stages) */}
+          <div className="cicd-pipeline-container" role="region" aria-label="Interactive CI/CD Pipeline">
+            
+            {/* Desktop Pipeline Flow Track */}
+            <div className="cicd-track-grid desktop-only">
+              {stages.map((stage, idx) => {
+                const isActive = activeStage === idx;
+                const isHovered = hoveredStage === idx;
+                const isSelected = isHovered || (hoveredStage === null && isActive);
 
-          {/* Interactive 3x2 Grid of Stage Cards (Fits 100% inside container) */}
-          <div className="pipeline-stages-grid" role="tablist" aria-label="DevOps Pipeline Cards">
-            {stages.map((st, idx) => {
-              const isActive = activeStage === idx;
-              return (
-                <div
-                  key={st.id}
-                  className={`pipeline-stage-card ${isActive ? 'active' : ''}`}
-                  onClick={() => setActiveStage(idx)}
-                  role="tab"
-                  tabIndex={0}
-                  onKeyDown={(e) => {
-                    if (e.key === 'Enter' || e.key === ' ') {
-                      e.preventDefault();
-                      setActiveStage(idx);
-                    }
-                  }}
-                  aria-selected={isActive}
-                  aria-controls={`stage-panel-${st.id}`}
-                  id={`stage-tab-${st.id}`}
-                >
-                  <div className="stage-card-top">
-                    <div className="stage-num-badge">
-                      <span className="stage-number">{st.step}</span>
-                      <span className="stage-badge-name">{st.badge}</span>
+                return (
+                  <div key={stage.id} className="cicd-node-wrapper">
+                    {/* Stage Card */}
+                    <div
+                      className={`cicd-stage-card ${isSelected ? 'stage-active' : ''} ${stage.isPrimary ? 'stage-jenkins' : ''}`}
+                      onMouseEnter={() => setHoveredStage(idx)}
+                      onMouseLeave={() => setHoveredStage(null)}
+                      onClick={() => setActiveStage(idx)}
+                      role="button"
+                      tabIndex={0}
+                      aria-label={`${stage.name}: ${stage.sub}`}
+                      onKeyDown={(e) => {
+                        if (e.key === 'Enter' || e.key === ' ') {
+                          e.preventDefault();
+                          setActiveStage(idx);
+                        }
+                      }}
+                    >
+                      <div className="stage-top-meta">
+                        <span className="stage-seq">{stage.num}</span>
+                        {stage.badge && <span className="stage-jenkins-badge">{stage.badge}</span>}
+                      </div>
+
+                      <div className="stage-icon-circle">
+                        {stage.icon}
+                      </div>
+
+                      <div className="stage-name-label">{stage.name}</div>
+                      <div className="stage-tool-label">{stage.tool}</div>
                     </div>
-                    <span className="stage-status-pill">
-                      <span className="stage-status-dot"></span>
-                      {st.status}
-                    </span>
+
+                    {/* Connecting Pipe & Moving Data Dot */}
+                    {idx < stages.length - 1 && (
+                      <div className={`cicd-connector-pipe ${isSelected ? 'pipe-active' : ''}`}>
+                        <div className="pipe-line-base"></div>
+                        <div className="pipe-data-pulse" style={{ animationDelay: `${idx * 0.45}s` }}></div>
+                      </div>
+                    )}
                   </div>
-
-                  <div className="stage-card-middle">
-                    <div className="stage-icon-wrap">
-                      {st.icon}
-                    </div>
-                    <div>
-                      <h3 className="stage-tool-name">{st.tool}</h3>
-                      <div className="stage-phase-label">{st.phase}</div>
-                    </div>
-                  </div>
-
-                  <p className="stage-short-summary">{st.action}</p>
-
-                  <div className="stage-command-preview" title={st.command}>
-                    <code>{st.command}</code>
-                  </div>
-                </div>
-              );
-            })}
-          </div>
-
-          {/* Active Stage Technical Inspector Console */}
-          <div
-            className="pipeline-inspector-card"
-            id={`stage-panel-${current.id}`}
-            role="tabpanel"
-            aria-labelledby={`stage-tab-${current.id}`}
-          >
-            <div className="inspector-header">
-              <div className="inspector-badge-row">
-                <span className="inspector-stage-badge">STAGE {current.step}</span>
-                <span className="inspector-category-badge">{current.badge}</span>
-                <span className="inspector-tool-title">{current.tool}</span>
-              </div>
-              <div className="inspector-header-right">
-                <span className="inspector-status-badge">
-                  <span className="status-mini-dot"></span>
-                  {current.status}
-                </span>
-                <div className="inspector-nav-btns">
-                  <button className="inspector-nav-btn" onClick={prevStage} title="Previous Stage" aria-label="Previous Stage">
-                    ← Prev
-                  </button>
-                  <button className="inspector-nav-btn" onClick={nextStage} title="Next Stage" aria-label="Next Stage">
-                    Next →
-                  </button>
-                </div>
-              </div>
+                );
+              })}
             </div>
 
-            <div className="inspector-body-grid">
-              <div className="inspector-left-col">
-                <h4 className="inspector-action-heading">{current.action}</h4>
-                <p className="inspector-summary-text">{current.summary}</p>
-
-                <div className="inspector-highlights-box">
-                  <span className="highlights-title">Production Engineering Highlights:</span>
-                  <ul className="highlights-list">
-                    {current.highlights.map((hl, hIdx) => (
-                      <li key={hIdx} className="highlight-item">
-                        <svg className="highlight-check" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
-                          <polyline points="20 6 9 17 4 12"></polyline>
-                        </svg>
-                        <span>{hl}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
+            {/* Mobile Vertical Connected Timeline */}
+            <div className="cicd-mobile-timeline mobile-only">
+              <div className="timeline-spine-line">
+                <div className="timeline-data-packet"></div>
               </div>
-
-              <div className="inspector-right-col">
-                <div className="code-snippet-header">
-                  <div className="snippet-dot-cluster">
-                    <span className="dot red"></span>
-                    <span className="dot yellow"></span>
-                    <span className="dot green"></span>
+              {stages.map((stage, idx) => {
+                const isActive = activeStage === idx;
+                return (
+                  <div
+                    key={`mob-${stage.id}`}
+                    className={`mobile-timeline-item ${isActive ? 'active' : ''} ${stage.isPrimary ? 'jenkins-highlight' : ''}`}
+                    onClick={() => setActiveStage(idx)}
+                  >
+                    <div className="mobile-timeline-marker">
+                      <span className="marker-num">{stage.num}</span>
+                    </div>
+                    <div className="mobile-timeline-card">
+                      <div className="mobile-card-top">
+                        <div className="mobile-icon-box">{stage.icon}</div>
+                        <div>
+                          <div className="mobile-stage-title">
+                            {stage.name}
+                            {stage.badge && <span className="mobile-jenkins-badge">{stage.badge}</span>}
+                          </div>
+                          <div className="mobile-stage-tool">{stage.tool}</div>
+                        </div>
+                      </div>
+                      <p className="mobile-stage-sub">{stage.sub}</p>
+                      <div className="mobile-stage-desc">{stage.desc}</div>
+                    </div>
                   </div>
-                  <span className="snippet-filename">stage-{current.step}-{current.id}.yml</span>
-                </div>
-                <pre className="inspector-code-block">
-                  <code>{current.configSnippet}</code>
-                </pre>
+                );
+              })}
+            </div>
+
+          </div>
+
+          {/* Interactive Stage Inspector Card */}
+          <div className="cicd-inspector-bar">
+            <div className="inspector-stage-flag">
+              <span className="flag-num">STAGE {currentDisplayStage.num}</span>
+              <span className="flag-title">{currentDisplayStage.name}</span>
+              {currentDisplayStage.badge && (
+                <span className="flag-badge">{currentDisplayStage.badge}</span>
+              )}
+            </div>
+            <div className="inspector-details-row">
+              <div className="inspector-info-block">
+                <span className="info-tag">Workflow Action:</span>
+                <span className="info-text">{currentDisplayStage.sub}</span>
               </div>
+              <div className="inspector-info-block highlight-block">
+                <span className="info-tag">Engineering Focus:</span>
+                <span className="info-text font-accent">"{currentDisplayStage.desc}"</span>
+              </div>
+              <div className="inspector-status-pill">
+                <span className="status-live-dot"></span>
+                <span>{currentDisplayStage.status}</span>
+              </div>
+            </div>
+          </div>
+
+          {/* Real-World Deployment Flow (Secondary Architecture) */}
+          <div className="realworld-architecture-box">
+            <div className="realworld-header">
+              <span className="realworld-tag">Real-World Deployment Flow</span>
+              <span className="realworld-subtitle">Target Architecture: Developer Workstation to Production Linux Server</span>
+            </div>
+
+            <div className="realworld-flow-chain">
+              {deploymentFlow.map((node, i) => (
+                <div key={i} className="realworld-node-item">
+                  <div className={`realworld-card ${node.isHighlight ? 'jenkins-node' : ''}`}>
+                    <span className="node-label">{node.label}</span>
+                    <span className="node-role">{node.role}</span>
+                  </div>
+                  {i < deploymentFlow.length - 1 && (
+                    <div className="realworld-arrow" aria-hidden="true">→</div>
+                  )}
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Compact Technology Badges */}
+          <div className="cicd-technologies-footer">
+            <span className="tech-footer-label">Pipeline Technologies:</span>
+            <div className="tech-badges-list">
+              {techBadges.map((t, idx) => (
+                <div key={idx} className={`tech-badge-item ${t.name === 'Jenkins' ? 'tech-badge-jenkins' : ''}`}>
+                  <span className="tech-badge-icon">{t.icon}</span>
+                  <span className="tech-badge-name">{t.name}</span>
+                </div>
+              ))}
             </div>
           </div>
 
         </div>
+
       </div>
     </section>
   );
