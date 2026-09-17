@@ -23,8 +23,16 @@ export default function Navbar() {
       }
     };
 
+    const handleKeyDown = (e) => {
+      if (e.key === 'Escape') setMobileOpen(false);
+    };
+
     window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener('keydown', handleKeyDown);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('keydown', handleKeyDown);
+    };
   }, []);
 
   const toggleMobile = () => setMobileOpen(!mobileOpen);
@@ -102,6 +110,9 @@ export default function Navbar() {
       </div>
 
       {/* Mobile Dropdown Drawer */}
+      {mobileOpen && (
+        <div className="mobile-nav-backdrop" onClick={closeMobile} aria-hidden="true" />
+      )}
       <div className={`mobile-nav-drawer ${mobileOpen ? 'open' : ''}`}>
         <div className="mobile-nav-links">
           <a href="#home" className={`mobile-nav-link ${activeLink === 'home' ? 'active' : ''}`} onClick={closeMobile}>Home</a>

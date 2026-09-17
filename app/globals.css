@@ -399,7 +399,19 @@ code, pre, .mono-text {
   transform: translateY(-6px) rotate(-45deg);
 }
 
-/* Mobile Nav Drawer */
+/* Mobile Nav Drawer & Backdrop */
+.mobile-nav-backdrop {
+  position: fixed;
+  top: var(--navbar-height);
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(3, 7, 18, 0.65);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  z-index: 1000;
+}
+
 .mobile-nav-drawer {
   display: none;
   position: absolute;
@@ -414,6 +426,7 @@ code, pre, .mono-text {
   flex-direction: column;
   gap: 16px;
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+  z-index: 1001;
 }
 
 .mobile-nav-drawer.open {
@@ -725,7 +738,7 @@ code, pre, .mono-text {
    ========================================================================== */
 .skills-compact-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 280px), 1fr));
   gap: 16px;
 }
 
@@ -788,7 +801,7 @@ code, pre, .mono-text {
    ========================================================================== */
 .projects-clean-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(330px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 280px), 1fr));
   gap: 20px;
 }
 
@@ -864,6 +877,25 @@ code, pre, .mono-text {
   border-radius: var(--radius-lg);
   padding: 30px;
   overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.architecture-clean-wrap::-webkit-scrollbar {
+  height: 6px;
+}
+
+.architecture-clean-wrap::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.04);
+  border-radius: 3px;
+}
+
+.architecture-clean-wrap::-webkit-scrollbar-thumb {
+  background: rgba(2, 132, 199, 0.35);
+  border-radius: 3px;
+}
+
+.architecture-clean-wrap::-webkit-scrollbar-thumb:hover {
+  background: rgba(2, 132, 199, 0.65);
 }
 
 .pipeline-flow-container {
@@ -1620,8 +1652,301 @@ code, pre, .mono-text {
   }
 }
 
+@media (max-width: 768px) {
+  .container {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .section {
+    padding: 56px 0;
+  }
+
+  .hero-section {
+    padding: 72px 0 40px;
+  }
+
+  .hero-description {
+    font-size: 1.05rem;
+    line-height: 1.6;
+    margin-bottom: 24px;
+  }
+
+  .architecture-clean-wrap {
+    padding: 22px 18px;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .experience-clean-card,
+  .about-clean-card,
+  .cloud-clean-card,
+  .monitoring-flow-box,
+  .contact-details-box,
+  .contact-form-box,
+  .certs-card {
+    padding: 24px 18px;
+  }
+
+  .modal-overlay {
+    padding: 12px;
+  }
+
+  .resume-modal-card {
+    max-height: 94vh;
+  }
+}
+
+@media (max-width: 640px) {
+  .container {
+    padding-left: 14px;
+    padding-right: 14px;
+  }
+
+  .section {
+    padding: 46px 0;
+  }
+
+  .section-header {
+    margin-bottom: 26px;
+  }
+
+  .section-title {
+    font-size: clamp(1.6rem, 5.5vw, 2rem);
+  }
+
+  .section-description {
+    font-size: 0.94rem;
+  }
+
+  /* Hero Mobile */
+  .hero-section {
+    padding: 60px 0 36px;
+  }
+
+  .hero-name {
+    font-size: clamp(1.95rem, 7.5vw, 2.7rem);
+    word-break: break-word;
+  }
+
+  .hero-title {
+    font-size: clamp(1.1rem, 4vw, 1.35rem);
+    margin-bottom: 14px;
+  }
+
+  .hero-actions {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+  }
+
+  .hero-actions .btn {
+    width: 100%;
+  }
+
+  .hero-socials-clean {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .hero-social-link {
+    word-break: break-all;
+  }
+
+  /* Cards Mobile */
+  .experience-clean-card,
+  .about-clean-card,
+  .cloud-clean-card,
+  .monitoring-flow-box,
+  .contact-details-box,
+  .contact-form-box,
+  .certs-card,
+  .project-clean-card {
+    padding: 20px 14px;
+    border-radius: var(--radius-md);
+  }
+
+  /* Experience Mobile */
+  .exp-card-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    margin-bottom: 20px;
+    padding-bottom: 16px;
+  }
+
+  .exp-role {
+    font-size: 1.18rem;
+  }
+
+  .exp-period-badge {
+    align-self: flex-start;
+  }
+
+  .exp-bullets-list {
+    gap: 10px;
+  }
+
+  .exp-bullet-item {
+    font-size: 0.86rem;
+    line-height: 1.5;
+  }
+
+  /* Form iOS Auto-Zoom Prevention */
+  .form-input,
+  .form-textarea {
+    font-size: 16px;
+  }
+
+  /* Resume Modal Mobile */
+  .modal-overlay {
+    padding: 6px;
+  }
+
+  .resume-modal-card {
+    max-height: 97vh;
+    border-radius: var(--radius-md);
+  }
+
+  .resume-modal-header {
+    padding: 10px 12px;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .resume-header-title {
+    font-size: 0.84rem;
+  }
+
+  .resume-sheet {
+    padding: 16px 12px;
+    font-size: 0.85rem;
+  }
+
+  .resume-name {
+    font-size: 1.5rem;
+  }
+
+  .resume-role {
+    font-size: 0.95rem;
+  }
+
+  .resume-contact-line {
+    font-size: 0.76rem;
+    gap: 5px;
+  }
+
+  .resume-section {
+    margin-bottom: 16px;
+  }
+
+  .resume-section-title {
+    font-size: 0.86rem;
+    margin-bottom: 8px;
+  }
+
+  .resume-text {
+    font-size: 0.82rem;
+    line-height: 1.48;
+  }
+
+  .entry-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2px;
+  }
+
+  .entry-meta-right {
+    align-items: flex-start;
+    margin-top: 2px;
+  }
+
+  .entry-bullets {
+    padding-left: 14px;
+    gap: 4px;
+  }
+
+  .entry-bullets li {
+    font-size: 0.82rem;
+    line-height: 1.45;
+  }
+
+  .skill-cat {
+    min-width: 100%;
+    font-size: 0.84rem;
+  }
+
+  .skill-val {
+    font-size: 0.82rem;
+  }
+
+  .expertise-block p {
+    font-size: 0.82rem;
+    line-height: 1.45;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+
+  .brand-logo {
+    gap: 8px;
+  }
+
+  .brand-badge {
+    font-size: 0.72rem;
+    padding: 2px 6px;
+  }
+
+  .brand-text {
+    font-size: 0.92rem;
+  }
+
+  .mobile-header-controls {
+    gap: 6px;
+  }
+
+  #mobile-nav-top-resume-btn {
+    padding: 5px 8px;
+    font-size: 0.74rem;
+  }
+
+  .hero-status-pill {
+    font-size: 0.72rem;
+    padding: 3px 9px;
+    margin-bottom: 18px;
+  }
+
+  .channel-row {
+    padding: 8px 10px;
+    gap: 10px;
+  }
+
+  .channel-value {
+    font-size: 0.82rem;
+    word-break: break-all;
+  }
+
+  .footer-clean {
+    padding: 24px 0;
+  }
+
+  .footer-container {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .resume-header-left .badge-ats {
+    display: none;
+  }
+}
+
 /* ==========================================================================
-   PRINT STYLESHEET (Clean 1-2 Page ATS Sheet - Absolutely No Website Printout)
+   PRINT STYLESHEET (Clean 2-Page ATS Sheet - Absolutely No Website Printout)
    ========================================================================== */
 @media print {
   /* 1. Reset Root & Body */
@@ -1630,8 +1955,8 @@ code, pre, .mono-text {
     color: #111827 !important;
     margin: 0 !important;
     padding: 0 !important;
-    font-size: 9.5pt !important;
-    line-height: 1.35 !important;
+    font-size: 9pt !important;
+    line-height: 1.32 !important;
     font-family: Arial, Helvetica, sans-serif !important;
     width: 100% !important;
     height: auto !important;
@@ -1686,7 +2011,7 @@ code, pre, .mono-text {
     overflow: visible !important;
   }
 
-  /* 4. Format resume sheet cleanly for 1-2 pages */
+  /* 4. Format resume sheet cleanly for strictly 2 pages */
   #resume-modal-sheet {
     background: #ffffff !important;
     color: #111827 !important;
@@ -1705,56 +2030,65 @@ code, pre, .mono-text {
   .resume-doc-header {
     text-align: center !important;
     border-bottom: 1.5pt solid #111827 !important;
-    padding-bottom: 8px !important;
-    margin-bottom: 12px !important;
+    padding-bottom: 6px !important;
+    margin-bottom: 10px !important;
   }
 
   .resume-name {
-    font-size: 18pt !important;
+    font-size: 17pt !important;
     color: #111827 !important;
     font-weight: 800 !important;
     margin: 0 0 2px 0 !important;
   }
 
   .resume-role {
-    font-size: 11pt !important;
+    font-size: 10.5pt !important;
     color: #0284c7 !important;
     font-weight: 700 !important;
-    margin: 0 0 4px 0 !important;
+    margin: 0 0 3px 0 !important;
   }
 
   .resume-contact-line {
-    font-size: 8.5pt !important;
+    font-size: 8.2pt !important;
     color: #374151 !important;
   }
 
   .resume-section {
-    margin-bottom: 12px !important;
-    page-break-inside: avoid !important;
+    margin-bottom: 10px !important;
+    page-break-inside: auto !important;
+    break-inside: auto !important;
   }
 
   .resume-section-title {
-    font-size: 10pt !important;
+    font-size: 9.5pt !important;
     font-weight: 700 !important;
     color: #111827 !important;
     border-bottom: 1pt solid #d1d5db !important;
     padding-bottom: 2px !important;
-    margin-bottom: 6px !important;
+    margin-bottom: 5px !important;
     text-transform: uppercase !important;
+    page-break-after: avoid !important;
+    break-after: avoid !important;
   }
 
   .resume-text {
-    font-size: 8.8pt !important;
+    font-size: 8.5pt !important;
     color: #1f2937 !important;
-    line-height: 1.35 !important;
+    line-height: 1.32 !important;
+  }
+
+  .resume-entry {
+    margin-bottom: 6px !important;
   }
 
   .entry-header {
     margin-bottom: 3px !important;
+    page-break-after: avoid !important;
+    break-after: avoid !important;
   }
 
   .entry-role {
-    font-size: 9.5pt !important;
+    font-size: 9.2pt !important;
     color: #111827 !important;
     font-weight: 700 !important;
   }
@@ -1765,34 +2099,39 @@ code, pre, .mono-text {
   }
 
   .entry-dates {
-    font-size: 8.5pt !important;
+    font-size: 8.2pt !important;
     color: #4b5563 !important;
   }
 
   .entry-bullets {
     padding-left: 14px !important;
     gap: 2px !important;
-    margin: 3px 0 0 0 !important;
+    margin: 2px 0 0 0 !important;
   }
 
   .entry-bullets li {
-    font-size: 8.5pt !important;
+    font-size: 8.2pt !important;
     color: #1f2937 !important;
-    line-height: 1.3 !important;
+    line-height: 1.28 !important;
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
   }
 
   .entry-desc {
-    font-size: 8.5pt !important;
+    font-size: 8.2pt !important;
     color: #1f2937 !important;
   }
 
   .skills-table {
-    gap: 3px !important;
+    gap: 2px !important;
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
   }
 
   .skill-row {
-    font-size: 8.5pt !important;
+    font-size: 8.2pt !important;
     gap: 4px !important;
+    flex-direction: row !important;
   }
 
   .skill-cat {
@@ -1810,19 +2149,21 @@ code, pre, .mono-text {
   }
 
   .entry-loc {
-    font-size: 8.5pt !important;
+    font-size: 8.2pt !important;
     color: #4b5563 !important;
     display: block !important;
   }
 
   .expertise-block {
-    gap: 3px !important;
+    gap: 2px !important;
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
   }
 
   .expertise-block p {
-    font-size: 8.5pt !important;
+    font-size: 8.2pt !important;
     color: #1f2937 !important;
-    line-height: 1.35 !important;
+    line-height: 1.3 !important;
     margin-bottom: 2px !important;
   }
 
@@ -1831,9 +2172,9 @@ code, pre, .mono-text {
   }
 
   .cert-entry {
-    font-size: 8.5pt !important;
+    font-size: 8.2pt !important;
     color: #1f2937 !important;
-    margin-bottom: 4px !important;
+    margin-bottom: 3px !important;
   }
 
   .cert-entry strong {
@@ -1841,12 +2182,12 @@ code, pre, .mono-text {
   }
 
   .cert-note {
-    font-size: 8pt !important;
+    font-size: 7.8pt !important;
     color: #4b5563 !important;
   }
 
   @page {
     size: A4 portrait;
-    margin: 10mm 12mm 10mm 12mm;
+    margin: 8mm 10mm 8mm 10mm;
   }
 }
