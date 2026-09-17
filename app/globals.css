@@ -237,6 +237,26 @@ code, pre, .mono-text {
   width: 100%;
 }
 
+.btn:focus,
+.btn:active,
+.brand-logo:focus,
+.brand-logo:active,
+.nav-icon-link:focus,
+.nav-icon-link:active,
+.nav-toggle:focus,
+.nav-toggle:active {
+  outline: none;
+  box-shadow: none;
+}
+
+.btn:focus-visible,
+.brand-logo:focus-visible,
+.nav-icon-link:focus-visible,
+.nav-toggle:focus-visible {
+  outline: 2px solid var(--accent-cyan);
+  outline-offset: 2px;
+}
+
 /* ==========================================================================
    Navbar
    ========================================================================== */
@@ -310,7 +330,11 @@ code, pre, .mono-text {
   font-weight: 500;
   color: var(--text-secondary);
   border-radius: var(--radius-sm);
-  transition: all var(--transition-fast);
+  border: 1px solid transparent;
+  outline: none;
+  -webkit-tap-highlight-color: transparent;
+  user-select: none;
+  transition: color var(--transition-fast), background-color var(--transition-fast), border-color var(--transition-fast);
 }
 
 .nav-link:hover {
@@ -318,10 +342,21 @@ code, pre, .mono-text {
   background: rgba(255, 255, 255, 0.04);
 }
 
+.nav-link:focus,
+.nav-link:active {
+  outline: none;
+  box-shadow: none;
+}
+
+.nav-link:focus-visible {
+  outline: 2px solid var(--accent-cyan);
+  outline-offset: 2px;
+}
+
 .nav-link.active {
   color: #ffffff;
   background: rgba(2, 132, 199, 0.14);
-  border: 1px solid rgba(2, 132, 199, 0.28);
+  border-color: rgba(2, 132, 199, 0.28);
 }
 
 .desktop-cta {
@@ -446,6 +481,15 @@ code, pre, .mono-text {
   color: var(--text-secondary);
   border-radius: var(--radius-sm);
   border: 1px solid transparent;
+  outline: none;
+  -webkit-tap-highlight-color: transparent;
+  transition: color var(--transition-fast), background-color var(--transition-fast), border-color var(--transition-fast);
+}
+
+.mobile-nav-link:focus,
+.mobile-nav-link:active {
+  outline: none;
+  box-shadow: none;
 }
 
 .mobile-nav-link.active,

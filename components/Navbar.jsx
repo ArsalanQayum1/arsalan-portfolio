@@ -1,18 +1,23 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [activeLink, setActiveLink] = useState('home');
+  const isClicking = useRef(false);
+  const clickTimeout = useRef(null);
 
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 20);
 
+      // If user recently clicked a nav item, ignore scroll updates during smooth scroll
+      if (isClicking.current) return;
+
       const sections = ['home', 'about', 'experience', 'skills', 'projects', 'contact'];
-      const scrollPos = window.scrollY + 120;
+      const scrollPos = window.scrollY + 140;
 
       for (let i = sections.length - 1; i >= 0; i--) {
         const el = document.getElementById(sections[i]);
@@ -32,8 +37,19 @@ export default function Navbar() {
     return () => {
       window.removeEventListener('scroll', handleScroll);
       window.removeEventListener('keydown', handleKeyDown);
+      if (clickTimeout.current) clearTimeout(clickTimeout.current);
     };
   }, []);
+
+  const handleNavClick = (id) => {
+    setActiveLink(id);
+    isClicking.current = true;
+    if (clickTimeout.current) clearTimeout(clickTimeout.current);
+    clickTimeout.current = setTimeout(() => {
+      isClicking.current = false;
+    }, 850);
+    closeMobile();
+  };
 
   const toggleMobile = () => setMobileOpen(!mobileOpen);
   const closeMobile = () => setMobileOpen(false);
@@ -43,19 +59,19 @@ export default function Navbar() {
       <div className="container navbar-container">
         
         {/* Brand Logo - Arsalan Qayum */}
-        <a href="#home" className="brand-logo" id="nav-brand-link" onClick={closeMobile}>
+        <a href="#home" className="brand-logo" id="nav-brand-link" onClick={() => handleNavClick('home')}>
           <span className="brand-badge">AQ</span>
           <span className="brand-text">Arsalan Qayum</span>
         </a>
 
         {/* Desktop Navigation Links */}
         <nav className="nav-menu desktop-nav" role="navigation">
-          <a href="#home" className={`nav-link ${activeLink === 'home' ? 'active' : ''}`}>Home</a>
-          <a href="#about" className={`nav-link ${activeLink === 'about' ? 'active' : ''}`}>About</a>
-          <a href="#experience" className={`nav-link ${activeLink === 'experience' ? 'active' : ''}`}>Experience</a>
-          <a href="#skills" className={`nav-link ${activeLink === 'skills' ? 'active' : ''}`}>Skills</a>
-          <a href="#projects" className={`nav-link ${activeLink === 'projects' ? 'active' : ''}`}>Projects</a>
-          <a href="#contact" className={`nav-link ${activeLink === 'contact' ? 'active' : ''}`}>Contact</a>
+          <a href="#home" className={`nav-link ${activeLink === 'home' ? 'active' : ''}`} onClick={() => handleNavClick('home')}>Home</a>
+          <a href="#about" className={`nav-link ${activeLink === 'about' ? 'active' : ''}`} onClick={() => handleNavClick('about')}>About</a>
+          <a href="#experience" className={`nav-link ${activeLink === 'experience' ? 'active' : ''}`} onClick={() => handleNavClick('experience')}>Experience</a>
+          <a href="#skills" className={`nav-link ${activeLink === 'skills' ? 'active' : ''}`} onClick={() => handleNavClick('skills')}>Skills</a>
+          <a href="#projects" className={`nav-link ${activeLink === 'projects' ? 'active' : ''}`} onClick={() => handleNavClick('projects')}>Projects</a>
+          <a href="#contact" className={`nav-link ${activeLink === 'contact' ? 'active' : ''}`} onClick={() => handleNavClick('contact')}>Contact</a>
         </nav>
 
         {/* Desktop Right Action Area */}
@@ -115,12 +131,12 @@ export default function Navbar() {
       )}
       <div className={`mobile-nav-drawer ${mobileOpen ? 'open' : ''}`}>
         <div className="mobile-nav-links">
-          <a href="#home" className={`mobile-nav-link ${activeLink === 'home' ? 'active' : ''}`} onClick={closeMobile}>Home</a>
-          <a href="#about" className={`mobile-nav-link ${activeLink === 'about' ? 'active' : ''}`} onClick={closeMobile}>About</a>
-          <a href="#experience" className={`mobile-nav-link ${activeLink === 'experience' ? 'active' : ''}`} onClick={closeMobile}>Experience</a>
-          <a href="#skills" className={`mobile-nav-link ${activeLink === 'skills' ? 'active' : ''}`} onClick={closeMobile}>Skills</a>
-          <a href="#projects" className={`mobile-nav-link ${activeLink === 'projects' ? 'active' : ''}`} onClick={closeMobile}>Projects</a>
-          <a href="#contact" className={`mobile-nav-link ${activeLink === 'contact' ? 'active' : ''}`} onClick={closeMobile}>Contact</a>
+          <a href="#home" className={`mobile-nav-link ${activeLink === 'home' ? 'active' : ''}`} onClick={() => handleNavClick('home')}>Home</a>
+          <a href="#about" className={`mobile-nav-link ${activeLink === 'about' ? 'active' : ''}`} onClick={() => handleNavClick('about')}>About</a>
+          <a href="#experience" className={`mobile-nav-link ${activeLink === 'experience' ? 'active' : ''}`} onClick={() => handleNavClick('experience')}>Experience</a>
+          <a href="#skills" className={`mobile-nav-link ${activeLink === 'skills' ? 'active' : ''}`} onClick={() => handleNavClick('skills')}>Skills</a>
+          <a href="#projects" className={`mobile-nav-link ${activeLink === 'projects' ? 'active' : ''}`} onClick={() => handleNavClick('projects')}>Projects</a>
+          <a href="#contact" className={`mobile-nav-link ${activeLink === 'contact' ? 'active' : ''}`} onClick={() => handleNavClick('contact')}>Contact</a>
         </div>
 
         <div className="mobile-drawer-footer">
