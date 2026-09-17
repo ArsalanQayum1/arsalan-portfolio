@@ -913,15 +913,15 @@ code, pre, .mono-text {
 }
 
 /* ==========================================================================
-   CI/CD Automation Section - Real-World DevOps Pipeline
+   CI/CD Automation Section - Spacious DevOps Engineering Pipeline
    ========================================================================== */
 .cicd-section {
   position: relative;
 }
 
 .cicd-portfolio-copy {
-  max-width: 680px;
-  margin: 12px auto 0;
+  max-width: 760px;
+  margin: 10px 0 0 0;
   color: var(--text-secondary);
   font-size: 0.95rem;
   line-height: 1.6;
@@ -945,9 +945,9 @@ code, pre, .mono-text {
   align-items: center;
   flex-wrap: wrap;
   gap: 14px;
-  padding: 12px 18px;
+  padding: 14px 20px;
   background: #0d1527;
-  border: 1px solid rgba(56, 189, 248, 0.2);
+  border: 1px solid rgba(56, 189, 248, 0.22);
   border-radius: var(--radius-md);
 }
 
@@ -962,27 +962,27 @@ code, pre, .mono-text {
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  padding: 4px 10px;
-  background: rgba(2, 132, 199, 0.16);
-  border: 1px solid rgba(56, 189, 248, 0.35);
+  padding: 4px 12px;
+  background: rgba(2, 132, 199, 0.18);
+  border: 1px solid rgba(56, 189, 248, 0.4);
   border-radius: 9999px;
   color: var(--accent-cyan-light);
   font-family: var(--font-mono);
-  font-size: 0.8rem;
+  font-size: 0.82rem;
   font-weight: 700;
   letter-spacing: 0.02em;
 }
 
 .jenkins-pill-dot {
-  width: 7px;
-  height: 7px;
+  width: 8px;
+  height: 8px;
   border-radius: 50%;
   background: var(--accent-cyan);
   box-shadow: 0 0 8px var(--accent-cyan);
 }
 
 .jenkins-focus-title {
-  font-size: 0.86rem;
+  font-size: 0.88rem;
   color: var(--text-secondary);
   font-weight: 500;
 }
@@ -990,12 +990,12 @@ code, pre, .mono-text {
 .jenkins-fast-path {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 10px;
   font-family: var(--font-mono);
-  font-size: 0.8rem;
-  background: rgba(0, 0, 0, 0.3);
+  font-size: 0.82rem;
+  background: rgba(0, 0, 0, 0.35);
   border: 1px solid var(--border-subtle);
-  padding: 5px 12px;
+  padding: 6px 14px;
   border-radius: var(--radius-sm);
 }
 
@@ -1006,221 +1006,213 @@ code, pre, .mono-text {
 .fast-highlight {
   color: #38bdf8;
   font-weight: 700;
-  background: rgba(2, 132, 199, 0.18);
-  padding: 1px 6px;
+  background: rgba(2, 132, 199, 0.22);
+  padding: 1px 8px;
   border-radius: 3px;
+  border: 1px solid rgba(56, 189, 248, 0.3);
 }
 
 .fast-arrow {
   color: rgba(148, 163, 184, 0.5);
-  font-size: 0.85rem;
+  font-size: 0.9rem;
 }
 
-/* Main Visual Pipeline Container */
-.cicd-pipeline-container {
+/* DESKTOP: 3x3 Spacious Connected Grid */
+.cicd-desktop-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
   width: 100%;
-  position: relative;
 }
 
-/* Desktop 9-Stage Connected Track */
-.cicd-track-grid {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 100%;
-  position: relative;
-}
-
-.cicd-node-wrapper {
-  display: flex;
-  align-items: center;
-  flex: 1;
-  min-width: 0;
-}
-
-.cicd-node-wrapper:last-child {
-  flex: 0 0 auto;
-}
-
-.cicd-stage-card {
-  background: #0f172a;
+.spacious-stage-card {
+  background: #0d1527;
   border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: var(--radius-md);
-  padding: 12px 8px;
+  padding: 16px 18px;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  text-align: center;
+  gap: 12px;
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
   position: relative;
   outline: none;
-  width: 100%;
-  min-width: 84px;
   user-select: none;
+  box-sizing: border-box;
 }
 
-.cicd-stage-card:focus,
-.cicd-stage-card:active {
+.spacious-stage-card:focus,
+.spacious-stage-card:active {
   outline: none;
   box-shadow: none;
 }
 
-.cicd-stage-card:hover {
+.spacious-stage-card:hover {
   border-color: rgba(56, 189, 248, 0.45);
   transform: translateY(-2px);
-  background: #131d33;
+  background: #111d36;
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.3);
 }
 
-.cicd-stage-card.stage-active {
-  background: #111e38;
+.spacious-stage-card.card-active {
+  background: #101f3d;
   border-color: #38bdf8;
-  box-shadow: 0 4px 16px rgba(2, 132, 199, 0.2);
+  box-shadow: 0 4px 24px rgba(2, 132, 199, 0.25);
 }
 
 /* Jenkins Card Visual Emphasis */
-.cicd-stage-card.stage-jenkins {
-  border-color: rgba(56, 189, 248, 0.4);
-  background: #0e1930;
+.spacious-stage-card.card-jenkins {
+  border-color: rgba(56, 189, 248, 0.38);
+  background: #0f1c38;
 }
 
-.cicd-stage-card.stage-jenkins:hover,
-.cicd-stage-card.stage-jenkins.stage-active {
+.spacious-stage-card.card-jenkins.card-active,
+.spacious-stage-card.card-jenkins:hover {
   border-color: #38bdf8;
-  box-shadow: 0 0 16px rgba(56, 189, 248, 0.25);
+  box-shadow: 0 0 24px rgba(56, 189, 248, 0.25);
 }
 
-.stage-top-meta {
+/* Card Header Line */
+.card-header-line {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+}
+
+.stage-seq-badge {
   display: flex;
   align-items: center;
-  justify-content: center;
-  gap: 4px;
-  margin-bottom: 6px;
-  width: 100%;
+  gap: 8px;
 }
 
-.stage-seq {
+.seq-number {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: #0c1527;
+  background: #38bdf8;
+  padding: 1px 6px;
+  border-radius: 3px;
+  letter-spacing: 0.02em;
+}
+
+.seq-phase-tag {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--accent-cyan-light);
+}
+
+.jenkins-corner-badge {
   font-family: var(--font-mono);
   font-size: 0.68rem;
-  color: var(--text-muted);
-  font-weight: 600;
-}
-
-.stage-jenkins-badge {
-  font-family: var(--font-mono);
-  font-size: 0.58rem;
   font-weight: 700;
   color: #38bdf8;
   background: rgba(2, 132, 199, 0.2);
-  border: 1px solid rgba(56, 189, 248, 0.3);
-  padding: 1px 3px;
-  border-radius: 3px;
-  line-height: 1.1;
+  border: 1px solid rgba(56, 189, 248, 0.4);
+  padding: 2px 7px;
+  border-radius: 4px;
   white-space: nowrap;
 }
 
-.stage-icon-circle {
-  width: 34px;
-  height: 34px;
+.stage-status-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  color: var(--status-green);
+  background: rgba(16, 185, 129, 0.1);
+  border: 1px solid rgba(16, 185, 129, 0.25);
+  padding: 1px 7px;
+  border-radius: 9999px;
+  white-space: nowrap;
+}
+
+.status-mini-dot {
+  width: 5px;
+  height: 5px;
   border-radius: 50%;
-  background: rgba(2, 132, 199, 0.1);
-  border: 1px solid rgba(56, 189, 248, 0.2);
+  background: var(--status-green);
+}
+
+/* Card Main Content */
+.card-main-content {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.card-icon-wrap {
+  width: 42px;
+  height: 42px;
+  border-radius: var(--radius-sm);
+  background: rgba(2, 132, 199, 0.12);
+  border: 1px solid rgba(56, 189, 248, 0.25);
   color: #38bdf8;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 6px;
+  flex-shrink: 0;
   transition: all 0.2s ease;
 }
 
-.cicd-stage-card.stage-active .stage-icon-circle,
-.cicd-stage-card:hover .stage-icon-circle {
-  background: rgba(2, 132, 199, 0.25);
+.spacious-stage-card.card-active .card-icon-wrap,
+.spacious-stage-card:hover .card-icon-wrap {
+  background: rgba(2, 132, 199, 0.28);
   border-color: #38bdf8;
   color: #ffffff;
 }
 
-.stage-name-label {
-  font-size: 0.76rem;
+.card-title-group {
+  flex: 1;
+  min-width: 0;
+}
+
+.card-stage-title {
+  font-size: 1.05rem;
   font-weight: 700;
   color: #ffffff;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  max-width: 100%;
-  margin-bottom: 2px;
+  margin-bottom: 3px;
+  line-height: 1.3;
 }
 
-.stage-tool-label {
+.card-stage-sub {
+  font-size: 0.83rem;
+  color: var(--text-secondary);
+  line-height: 1.45;
+  margin: 0;
+}
+
+.card-hover-snippet {
+  background: rgba(0, 0, 0, 0.4);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+  padding: 6px 10px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.card-hover-snippet code {
   font-family: var(--font-mono);
-  font-size: 0.64rem;
-  color: var(--accent-cyan-light);
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  max-width: 100%;
+  font-size: 0.73rem;
+  color: #94a3b8;
 }
 
-/* Connecting Pipe Line & Moving Data Pulse */
-.cicd-connector-pipe {
-  position: relative;
-  flex: 1;
-  height: 2px;
-  margin: 0 3px;
-  display: flex;
-  align-items: center;
-  min-width: 8px;
-}
-
-.pipe-line-base {
-  width: 100%;
-  height: 2px;
-  background: rgba(255, 255, 255, 0.12);
-  transition: background 0.2s ease;
-}
-
-.cicd-connector-pipe.pipe-active .pipe-line-base {
-  background: rgba(56, 189, 248, 0.55);
-}
-
-.pipe-data-pulse {
-  position: absolute;
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: #38bdf8;
-  box-shadow: 0 0 6px #38bdf8;
-  top: -2px;
-  left: 0;
-  animation: pipePulse 3.6s infinite linear;
-}
-
-@keyframes pipePulse {
-  0% {
-    left: 0%;
-    opacity: 0;
-  }
-  20% {
-    opacity: 1;
-  }
-  80% {
-    opacity: 1;
-  }
-  100% {
-    left: 100%;
-    opacity: 0;
-  }
+.spacious-stage-card.card-active .card-hover-snippet code {
+  color: #7dd3fc;
 }
 
 /* Interactive Stage Inspector Bar */
 .cicd-inspector-bar {
   background: #0d1527;
-  border: 1px solid rgba(56, 189, 248, 0.22);
+  border: 1px solid rgba(56, 189, 248, 0.24);
   border-radius: var(--radius-md);
-  padding: 16px 20px;
+  padding: 18px 22px;
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 14px;
 }
 
 .inspector-stage-flag {
@@ -1241,9 +1233,19 @@ code, pre, .mono-text {
 }
 
 .flag-title {
-  font-size: 1.05rem;
+  font-size: 1.1rem;
   font-weight: 700;
   color: #ffffff;
+}
+
+.flag-tool {
+  font-family: var(--font-mono);
+  font-size: 0.76rem;
+  color: var(--text-muted);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border-subtle);
+  padding: 2px 7px;
+  border-radius: var(--radius-sm);
 }
 
 .flag-badge {
@@ -1262,13 +1264,15 @@ code, pre, .mono-text {
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
-  gap: 14px;
+  gap: 16px;
 }
 
 .inspector-info-block {
   display: flex;
   flex-direction: column;
   gap: 3px;
+  flex: 1;
+  min-width: 240px;
 }
 
 .info-tag {
@@ -1280,8 +1284,9 @@ code, pre, .mono-text {
 }
 
 .info-text {
-  font-size: 0.88rem;
+  font-size: 0.9rem;
   color: var(--text-primary);
+  line-height: 1.45;
 }
 
 .info-text.font-accent {
@@ -1295,7 +1300,7 @@ code, pre, .mono-text {
   gap: 6px;
   font-family: var(--font-mono);
   font-size: 0.74rem;
-  padding: 3px 10px;
+  padding: 4px 12px;
   background: rgba(16, 185, 129, 0.12);
   border: 1px solid rgba(16, 185, 129, 0.28);
   color: var(--status-green);
@@ -1311,12 +1316,38 @@ code, pre, .mono-text {
   box-shadow: 0 0 6px var(--status-green);
 }
 
+.inspector-command-box {
+  background: rgba(0, 0, 0, 0.45);
+  border: 1px solid rgba(56, 189, 248, 0.2);
+  border-radius: var(--radius-sm);
+  padding: 8px 12px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  overflow-x: auto;
+}
+
+.cmd-tag {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.cmd-code {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: #38bdf8;
+  white-space: nowrap;
+}
+
 /* Secondary Real-World Deployment Architecture */
 .realworld-architecture-box {
   background: #0a101d;
   border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: var(--radius-md);
-  padding: 16px 18px;
+  padding: 18px 20px;
 }
 
 .realworld-header {
@@ -1462,19 +1493,18 @@ code, pre, .mono-text {
   font-weight: 500;
 }
 
-/* Visibility Control */
+/* Strict Visibility Control */
 .desktop-only {
-  display: flex;
+  display: grid !important;
 }
 
 .mobile-only {
-  display: none;
+  display: none !important;
 }
 
 /* Mobile Vertical Connected Timeline */
 .cicd-mobile-timeline {
   position: relative;
-  display: flex;
   flex-direction: column;
   gap: 14px;
   padding-left: 28px;
@@ -2289,10 +2319,6 @@ code, pre, .mono-text {
   .desktop-nav {
     gap: 2px;
   }
-
-  .pipeline-stages-grid {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-  }
 }
 
 @media (max-width: 960px) {
@@ -2321,6 +2347,10 @@ code, pre, .mono-text {
   .skill-row {
     flex-direction: column;
     gap: 2px;
+  }
+
+  .cicd-desktop-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .resume-sheet {
