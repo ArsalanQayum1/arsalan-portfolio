@@ -13,7 +13,27 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className="dark">
+    <html lang="en" suppressHydrationWarning>
+      <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(function() {
+              try {
+                var saved = localStorage.getItem('theme');
+                if (saved === 'light') {
+                  document.documentElement.setAttribute('data-theme', 'light');
+                  document.documentElement.classList.remove('dark');
+                  document.documentElement.classList.add('light');
+                } else {
+                  document.documentElement.setAttribute('data-theme', 'dark');
+                  document.documentElement.classList.remove('light');
+                  document.documentElement.classList.add('dark');
+                }
+              } catch(e) {}
+            })();`
+          }}
+        />
+      </head>
       <body>
         <div className="bg-grid-pattern" aria-hidden="true"></div>
         <div className="app-wrapper">
