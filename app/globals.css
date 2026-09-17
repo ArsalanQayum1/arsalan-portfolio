@@ -101,13 +101,50 @@ html.light {
 [data-theme="light"] .node-label,
 [data-theme="light"] .cloud-card-title,
 [data-theme="light"] .project-card-title,
+[data-theme="light"] .project-name,
 [data-theme="light"] .experience-card-title,
+[data-theme="light"] .exp-role,
 [data-theme="light"] .skill-group-title,
 [data-theme="light"] .certs-card-title,
+[data-theme="light"] .certs-heading,
+[data-theme="light"] .cert-title,
 [data-theme="light"] .contact-title,
+[data-theme="light"] .contact-box-heading,
+[data-theme="light"] .channel-value,
 [data-theme="light"] .monitoring-card-title,
-[data-theme="light"] .learning-item-title {
+[data-theme="light"] .monitoring-box-title,
+[data-theme="light"] .monitoring-tool-name,
+[data-theme="light"] .learning-item-title,
+[data-theme="light"] .highlight-title,
+[data-theme="light"] .resume-name,
+[data-theme="light"] .entry-role,
+[data-theme="light"] .skill-cat,
+[data-theme="light"] .cert-entry strong,
+[data-theme="light"] .role-company-name strong,
+[data-theme="light"] .resume-header-title {
   color: #0f172a !important;
+}
+
+[data-theme="light"] .about-lead {
+  color: #1e293b !important;
+  font-weight: 500;
+}
+
+[data-theme="light"] .role-company-name {
+  color: #334155 !important;
+}
+
+[data-theme="light"] .highlight-desc,
+[data-theme="light"] .exp-bullet-item,
+[data-theme="light"] .project-description,
+[data-theme="light"] .cloud-point-item,
+[data-theme="light"] .monitoring-tool-desc,
+[data-theme="light"] .cert-topics,
+[data-theme="light"] .learning-intro,
+[data-theme="light"] .contact-box-sub,
+[data-theme="light"] .card-stage-desc,
+[data-theme="light"] .node-desc {
+  color: #334155 !important;
 }
 
 [data-theme="light"] .section-tag {
@@ -388,14 +425,117 @@ html.light {
 }
 
 /* Light Theme - Resume Modal */
-[data-theme="light"] .resume-modal-card {
-  background: #ffffff;
-  box-shadow: 0 25px 60px rgba(15, 23, 42, 0.2);
+[data-theme="light"] .modal-overlay {
+  background: rgba(15, 23, 42, 0.65);
 }
 
-[data-theme="light"] .modal-header {
-  background: #f8fafc;
-  border-bottom-color: rgba(148, 163, 184, 0.25);
+[data-theme="light"] .resume-modal-card {
+  background: #ffffff !important;
+  border-color: rgba(148, 163, 184, 0.35) !important;
+  box-shadow: 0 25px 65px rgba(15, 23, 42, 0.22) !important;
+}
+
+[data-theme="light"] .resume-modal-header {
+  background: #f8fafc !important;
+  border-bottom: 1px solid rgba(148, 163, 184, 0.25) !important;
+}
+
+[data-theme="light"] .resume-header-title {
+  color: #0f172a !important;
+}
+
+[data-theme="light"] .badge-ats {
+  background: rgba(5, 150, 105, 0.12) !important;
+  color: #059669 !important;
+  border-color: rgba(5, 150, 105, 0.35) !important;
+}
+
+[data-theme="light"] .resume-sheet {
+  background: #ffffff !important;
+  color: #1e293b !important;
+}
+
+[data-theme="light"] .resume-doc-header {
+  border-bottom-color: rgba(148, 163, 184, 0.3) !important;
+}
+
+[data-theme="light"] .resume-name {
+  color: #0f172a !important;
+}
+
+[data-theme="light"] .resume-role {
+  color: #0284c7 !important;
+}
+
+[data-theme="light"] .resume-contact-line {
+  color: #475569 !important;
+}
+
+[data-theme="light"] .resume-contact-line a {
+  color: #0284c7 !important;
+}
+
+[data-theme="light"] .resume-contact-line .sep {
+  color: #94a3b8 !important;
+}
+
+[data-theme="light"] .resume-section-title {
+  color: #0284c7 !important;
+  border-bottom-color: rgba(148, 163, 184, 0.3) !important;
+}
+
+[data-theme="light"] .resume-text {
+  color: #334155 !important;
+  line-height: 1.6;
+}
+
+[data-theme="light"] .entry-role {
+  color: #0f172a !important;
+}
+
+[data-theme="light"] .entry-company {
+  color: #0284c7 !important;
+}
+
+[data-theme="light"] .entry-dates {
+  color: #64748b !important;
+}
+
+[data-theme="light"] .entry-loc {
+  color: #64748b !important;
+}
+
+[data-theme="light"] .entry-bullets li,
+[data-theme="light"] .entry-desc {
+  color: #334155 !important;
+}
+
+[data-theme="light"] .expertise-block {
+  color: #334155 !important;
+}
+
+[data-theme="light"] .expertise-block p strong {
+  color: #0f172a !important;
+}
+
+[data-theme="light"] .skill-cat {
+  color: #0f172a !important;
+}
+
+[data-theme="light"] .skill-val {
+  color: #334155 !important;
+}
+
+[data-theme="light"] .cert-entry {
+  color: #334155 !important;
+}
+
+[data-theme="light"] .cert-entry strong {
+  color: #0f172a !important;
+}
+
+[data-theme="light"] .cert-note {
+  color: #64748b !important;
 }
 
 *, *::before, *::after {
@@ -1042,7 +1182,7 @@ code, pre, .mono-text {
 
 .about-lead {
   font-size: 1.12rem;
-  color: #e2e8f0;
+  color: var(--text-primary);
   line-height: 1.75;
   margin-bottom: 20px;
 }

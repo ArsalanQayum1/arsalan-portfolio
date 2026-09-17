@@ -109,33 +109,6 @@ export default function Navbar() {
 
         {/* Desktop Right Action Area */}
         <div className="nav-cta desktop-cta">
-          {/* Theme Toggle Button */}
-          <button
-            className="theme-toggle-btn"
-            id="theme-toggle-desktop"
-            onClick={toggleTheme}
-            aria-label={theme === 'dark' ? 'Switch to light theme' : 'Switch to dark theme'}
-            title={theme === 'dark' ? 'Switch to light theme' : 'Switch to dark theme'}
-          >
-            {theme === 'dark' ? (
-              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <circle cx="12" cy="12" r="5"></circle>
-                <line x1="12" y1="1" x2="12" y2="3"></line>
-                <line x1="12" y1="21" x2="12" y2="23"></line>
-                <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
-                <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
-                <line x1="1" y1="12" x2="3" y2="12"></line>
-                <line x1="21" y1="12" x2="23" y2="12"></line>
-                <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
-                <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
-              </svg>
-            ) : (
-              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-              </svg>
-            )}
-          </button>
-
           <a
             href="https://github.com/ArsalanQayum1"
             target="_blank"
@@ -161,10 +134,55 @@ export default function Navbar() {
             <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>
             <span>Resume</span>
           </button>
+
+          {/* Theme Toggle Button (Corner) */}
+          <button
+            className="theme-toggle-btn"
+            id="theme-toggle-desktop"
+            onClick={toggleTheme}
+            aria-label={theme === 'dark' ? 'Switch to light theme' : 'Switch to dark theme'}
+            title={theme === 'dark' ? 'Switch to light theme' : 'Switch to dark theme'}
+          >
+            {theme === 'dark' ? (
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <circle cx="12" cy="12" r="5"></circle>
+                <line x1="12" y1="1" x2="12" y2="3"></line>
+                <line x1="12" y1="21" x2="12" y2="23"></line>
+                <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                <line x1="1" y1="12" x2="3" y2="12"></line>
+                <line x1="21" y1="12" x2="23" y2="12"></line>
+                <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+              </svg>
+            ) : (
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+              </svg>
+            )}
+          </button>
         </div>
 
-        {/* Mobile Header Controls (Theme Toggle + Resume Button + Hamburger) */}
+        {/* Mobile Header Controls (Resume Button + Hamburger + Theme Toggle in Corner) */}
         <div className="mobile-header-controls">
+          <button className="btn btn-primary btn-sm btn-open-resume" id="mobile-nav-top-resume-btn" title="View Resume">
+            Resume
+          </button>
+          
+          <button 
+            className={`nav-toggle ${mobileOpen ? 'open' : ''}`} 
+            id="nav-toggle" 
+            aria-label="Toggle Navigation Menu" 
+            aria-expanded={mobileOpen}
+            onClick={toggleMobile}
+          >
+            <span className="hamburger-box">
+              <span className="hamburger-bar bar-1"></span>
+              <span className="hamburger-bar bar-2"></span>
+              <span className="hamburger-bar bar-3"></span>
+            </span>
+          </button>
+
           <button
             className="theme-toggle-btn theme-toggle-mobile"
             id="mobile-theme-toggle-btn"
@@ -189,24 +207,6 @@ export default function Navbar() {
                 <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
               </svg>
             )}
-          </button>
-
-          <button className="btn btn-primary btn-sm btn-open-resume" id="mobile-nav-top-resume-btn" title="View Resume">
-            Resume
-          </button>
-          
-          <button 
-            className={`nav-toggle ${mobileOpen ? 'open' : ''}`} 
-            id="nav-toggle" 
-            aria-label="Toggle Navigation Menu" 
-            aria-expanded={mobileOpen}
-            onClick={toggleMobile}
-          >
-            <span className="hamburger-box">
-              <span className="hamburger-bar bar-1"></span>
-              <span className="hamburger-bar bar-2"></span>
-              <span className="hamburger-bar bar-3"></span>
-            </span>
           </button>
         </div>
 
