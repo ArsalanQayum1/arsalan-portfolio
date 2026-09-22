@@ -385,14 +385,40 @@ html.light {
 }
 
 /* Light Theme - Mobile Timeline */
+[data-theme="light"] .mobile-stage-title {
+  color: #0f172a !important;
+}
+
+[data-theme="light"] .mobile-stage-sub {
+  color: #475569 !important;
+}
+
+[data-theme="light"] .timeline-spine-line {
+  background: rgba(148, 163, 184, 0.35);
+}
+
 [data-theme="light"] .mobile-timeline-marker {
   background: #ffffff;
   border-color: rgba(2, 132, 199, 0.35);
 }
 
+[data-theme="light"] .marker-num {
+  color: #0284c7;
+}
+
+[data-theme="light"] .mobile-timeline-item.active .mobile-timeline-marker {
+  background: #0284c7;
+  border-color: #0284c7;
+}
+
+[data-theme="light"] .mobile-timeline-item.active .marker-num {
+  color: #ffffff;
+}
+
 [data-theme="light"] .mobile-timeline-card {
   background: #ffffff;
   border-color: rgba(148, 163, 184, 0.28);
+  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.04);
 }
 
 [data-theme="light"] .mobile-timeline-item.active .mobile-timeline-card {
@@ -422,6 +448,14 @@ html.light {
 [data-theme="light"] .footer-clean {
   background: #ffffff;
   border-top-color: rgba(148, 163, 184, 0.25);
+}
+
+[data-theme="light"] .footer-role {
+  color: #0284c7;
+}
+
+[data-theme="light"] .footer-copy {
+  color: #64748b;
 }
 
 /* Light Theme - Resume Modal */
@@ -3179,6 +3213,38 @@ code, pre, .mono-text {
 
   .resume-header-left .badge-ats {
     display: none;
+  }
+}
+
+@media (max-width: 380px) {
+  .brand-text {
+    font-size: 0.84rem;
+  }
+
+  .mobile-header-controls {
+    gap: 4px;
+  }
+
+  #mobile-nav-top-resume-btn {
+    padding: 4px 6px;
+    font-size: 0.7rem;
+  }
+
+  .theme-toggle-mobile {
+    width: 30px;
+    height: 30px;
+  }
+
+  .nav-toggle {
+    padding: 5px;
+  }
+
+  .hamburger-box {
+    width: 16px;
+  }
+
+  .hero-name {
+    font-size: 1.85rem;
   }
 }
 
