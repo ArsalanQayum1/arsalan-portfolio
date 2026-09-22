@@ -81,7 +81,7 @@ export default function Contact() {
                 </div>
                 <div>
                   <span className="channel-label">Location</span>
-                  <span className="channel-value">Pakistan (Open to Remote / Relocation)</span>
+                  <span className="channel-value">Islamabad, Pakistan (Open to Remote / Relocation)</span>
                 </div>
               </div>
             </div>

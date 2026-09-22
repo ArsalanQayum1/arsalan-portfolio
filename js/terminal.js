@@ -35,7 +35,7 @@
 
     whoami: `<span style="color:#ffffff; font-weight:bold;">Arsalan Qayum</span>
 DevOps / Cloud Architect & Engineer
-Current Company: <span style="color:#38bdf8;">K2X TECH</span> (January 2024 — Present) | Location: Pakistan
+Current Company: <span style="color:#38bdf8;">K2X TECH</span> (January 2024 — Present) | Location: Islamabad, Pakistan
 Phone: <span style="color:#38bdf8;">03015642176</span> | Email: <span style="color:#38bdf8;">arsalanqayum09@gmail.com</span>
 Status: <span style="color:#34d399;">● Available for DevOps / Cloud Opportunities</span>
 Tagline: "Automating Infrastructure. Accelerating Deployments. Building Reliable Systems."`,
@@ -71,7 +71,7 @@ Eliminate manual toil, reduce deployment friction, maintain high availability, a
   [Networking]         DNS, HTTP/HTTPS, Reverse Proxy, Ports, Firewall, TCP/IP`,
 
     experience: `Role: <span style="color:#ffffff; font-weight:bold;">DevOps / Cloud Architect</span>
-Company: <span style="color:#38bdf8;">K2X TECH</span> | Jan 2024 — Present | Pakistan
+Company: <span style="color:#38bdf8;">K2X TECH</span> | Jan 2024 — Present | Islamabad, Pakistan
 Key Highlights:
   • Design, deploy, and maintain cloud and production infrastructure across AWS, Azure, Proxmox, and Linux.
   • Build and maintain Jenkins CI/CD pipelines to automate application build, testing, and deployment.
@@ -135,7 +135,7 @@ Key Highlights:
   Phone:    <span style="color:#38bdf8;">03015642176</span> (+92 301 5642176)
   Email:    <a href="mailto:arsalanqayum09@gmail.com" style="color:#38bdf8;">arsalanqayum09@gmail.com</a>
   LinkedIn: <a href="https://linkedin.com/in/arsalan-qayum-19a429225" target="_blank" rel="noopener" style="color:#38bdf8;">linkedin.com/in/arsalan-qayum-19a429225</a>
-  Location: Pakistan (Open to Remote / Hybrid / On-site opportunities)
+  Location: Islamabad, Pakistan (Open to Remote / Hybrid / On-site opportunities)
   Status:   <span style="color:#34d399;">Ready for DevOps & Cloud Architecture opportunities</span>`,
 
     uptime: ` 10:50:00 up 428 days, 14:28,  1 user,  load average: 0.06, 0.10, 0.12

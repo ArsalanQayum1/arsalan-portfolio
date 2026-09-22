@@ -87,7 +87,7 @@ export default function ResumeModal() {
           <header className="resume-doc-header">
             <h1 className="resume-name">Arsalan Qayum</h1>
             <div className="resume-contact-line">
-              <span>Pakistan</span>
+              <span>Islamabad, Pakistan</span>
               <span className="sep">|</span>
               <a href="tel:03015642176">03015642176</a>
               <span className="sep">|</span>
@@ -116,7 +116,7 @@ export default function ResumeModal() {
                 </div>
                 <div className="entry-meta-right">
                   <span className="entry-dates">January 2024 – Present</span>
-                  <span className="entry-loc">Pakistan</span>
+                  <span className="entry-loc">Islamabad, Pakistan</span>
                 </div>
               </div>
               <ul className="entry-bullets">

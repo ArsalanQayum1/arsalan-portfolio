@@ -30,7 +30,7 @@ export default function Experience() {
               <div className="exp-company-sub">
                 <span className="exp-company">K2XTech</span>
                 <span className="exp-dot">•</span>
-                <span className="exp-location">Pakistan</span>
+                <span className="exp-location">Islamabad, Pakistan</span>
               </div>
             </div>
             <div className="exp-period-badge">
