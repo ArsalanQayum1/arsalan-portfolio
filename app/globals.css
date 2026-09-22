@@ -195,7 +195,12 @@ html.light {
   background: #ffffff;
 }
 
-[data-theme="light"] .nav-icon-link:hover,
+[data-theme="light"] .nav-icon-link:hover {
+  color: #0a66c2;
+  border-color: #0a66c2;
+  background: #f0f7ff;
+}
+
 [data-theme="light"] .theme-toggle-btn:hover {
   color: #0284c7;
   border-color: #0284c7;
@@ -897,27 +902,40 @@ code, pre, .mono-text {
 }
 
 .nav-icon-link {
-  width: 34px;
-  height: 34px;
+  width: 36px;
+  height: 36px;
   border-radius: var(--radius-sm);
-  display: flex;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
   color: var(--text-secondary);
   border: 1px solid var(--border-subtle);
+  background: var(--bg-card);
   transition: all var(--transition-fast);
+  outline: none;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .nav-icon-link svg {
-  width: 17px;
-  height: 17px;
+  width: 16px;
+  height: 16px;
   fill: currentColor;
 }
 
 .nav-icon-link:hover {
-  color: #ffffff;
-  border-color: rgba(255, 255, 255, 0.25);
-  background: rgba(255, 255, 255, 0.05);
+  color: #0a66c2;
+  border-color: rgba(10, 102, 194, 0.45);
+  background: rgba(10, 102, 194, 0.1);
+  transform: translateY(-1px);
+}
+
+.nav-icon-link:active {
+  transform: translateY(0);
+}
+
+.nav-icon-mobile {
+  width: 34px;
+  height: 34px;
 }
 
 /* Theme Toggle Button */

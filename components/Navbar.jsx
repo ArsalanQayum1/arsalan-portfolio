@@ -110,17 +110,25 @@ export default function Navbar() {
         {/* Desktop Right Action Area */}
         <div className="nav-cta desktop-cta">
           <a
-            href="https://linkedin.com/in/arsalan-qayum-19a429225"
+            href="https://www.linkedin.com/in/arsalan-qayum-19a429225"
             target="_blank"
             rel="noopener noreferrer"
             className="nav-icon-link"
             aria-label="LinkedIn Profile"
             title="LinkedIn Profile"
+            id="nav-linkedin-btn"
           >
-            <svg viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.2V10.9H6.46M7.83 6.45c-.89 0-1.61.72-1.61 1.61 0 .89.72 1.61 1.61 1.61.89 0 1.61-.72 1.61-1.61 0-.89-.72-1.61-1.61-1.61z"/></svg>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.2V10.9H6.46M7.83 6.45c-.89 0-1.61.72-1.61 1.61 0 .89.72 1.61 1.61 1.61.89 0 1.61-.72 1.61-1.61 0-.89-.72-1.61-1.61-1.61z"/>
+            </svg>
           </a>
           
-          <button className="btn btn-primary btn-sm btn-open-resume" id="nav-resume-btn" title="View Printable ATS Resume">
+          <button 
+            className="btn btn-primary btn-sm btn-open-resume" 
+            id="nav-resume-btn" 
+            title="View Printable ATS Resume"
+            onClick={() => window.dispatchEvent(new CustomEvent('open-resume-modal'))}
+          >
             <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>
             <span>Resume</span>
           </button>
@@ -153,9 +161,28 @@ export default function Navbar() {
           </button>
         </div>
 
-        {/* Mobile Header Controls (Resume Button + Hamburger + Theme Toggle in Corner) */}
+        {/* Mobile Header Controls (LinkedIn + Resume Button + Hamburger + Theme Toggle in Corner) */}
         <div className="mobile-header-controls">
-          <button className="btn btn-primary btn-sm btn-open-resume" id="mobile-nav-top-resume-btn" title="View Resume">
+          <a
+            href="https://www.linkedin.com/in/arsalan-qayum-19a429225"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="nav-icon-link nav-icon-mobile"
+            aria-label="LinkedIn Profile"
+            title="LinkedIn Profile"
+            id="mobile-nav-linkedin-btn"
+          >
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.2V10.9H6.46M7.83 6.45c-.89 0-1.61.72-1.61 1.61 0 .89.72 1.61 1.61 1.61.89 0 1.61-.72 1.61-1.61 0-.89-.72-1.61-1.61-1.61z"/>
+            </svg>
+          </a>
+
+          <button 
+            className="btn btn-primary btn-sm btn-open-resume" 
+            id="mobile-nav-top-resume-btn" 
+            title="View Resume"
+            onClick={() => window.dispatchEvent(new CustomEvent('open-resume-modal'))}
+          >
             Resume
           </button>
           
@@ -229,7 +256,7 @@ export default function Navbar() {
             Get In Touch
           </a>
           <div className="mobile-drawer-socials">
-            <a href="https://linkedin.com/in/arsalan-qayum-19a429225" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+            <a href="https://www.linkedin.com/in/arsalan-qayum-19a429225" target="_blank" rel="noopener noreferrer">LinkedIn</a>
             <span>•</span>
             <a href="mailto:arsalanqayum09@gmail.com">Email</a>
           </div>

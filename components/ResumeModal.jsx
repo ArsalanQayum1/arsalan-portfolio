@@ -7,14 +7,24 @@ export default function ResumeModal() {
 
   useEffect(() => {
     const handleOpen = (e) => {
-      e.preventDefault();
+      if (e && e.preventDefault) e.preventDefault();
       setOpen(true);
     };
 
-    const buttons = document.querySelectorAll(
-      '.btn-open-resume, #nav-resume-btn, #mobile-nav-top-resume-btn, #mobile-nav-resume-btn, #hero-download-resume-btn'
-    );
-    buttons.forEach((btn) => btn.addEventListener('click', handleOpen));
+    // 1. Listen to custom event dispatched by buttons
+    window.addEventListener('open-resume-modal', handleOpen);
+
+    // 2. Global delegated click handler for any resume button
+    const handleDocumentClick = (e) => {
+      const targetBtn = e.target.closest(
+        '.btn-open-resume, #nav-resume-btn, #mobile-nav-top-resume-btn, #mobile-nav-resume-btn, #hero-download-resume-btn, [data-open-resume]'
+      );
+      if (targetBtn) {
+        e.preventDefault();
+        setOpen(true);
+      }
+    };
+    document.addEventListener('click', handleDocumentClick);
 
     const handleKeyDown = (e) => {
       if (e.key === 'Escape') setOpen(false);
@@ -28,7 +38,8 @@ export default function ResumeModal() {
     window.addEventListener('beforeprint', handleBeforePrint);
 
     return () => {
-      buttons.forEach((btn) => btn.removeEventListener('click', handleOpen));
+      window.removeEventListener('open-resume-modal', handleOpen);
+      document.removeEventListener('click', handleDocumentClick);
       window.removeEventListener('keydown', handleKeyDown);
       window.removeEventListener('beforeprint', handleBeforePrint);
     };
@@ -82,7 +93,7 @@ export default function ResumeModal() {
               <span className="sep">|</span>
               <a href="mailto:arsalanqayum09@gmail.com">arsalanqayum09@gmail.com</a>
               <span className="sep">|</span>
-              <a href="https://linkedin.com/in/arsalan-qayum-19a429225" target="_blank" rel="noopener noreferrer">linkedin.com/in/arsalan-qayum-19a429225</a>
+              <a href="https://www.linkedin.com/in/arsalan-qayum-19a429225" target="_blank" rel="noopener noreferrer">linkedin.com/in/arsalan-qayum-19a429225</a>
             </div>
           </header>
 
